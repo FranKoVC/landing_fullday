@@ -1,8 +1,8 @@
-import React from 'react';
+
 
 export default function Home() {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600">
+        <div className="min-h-screen bg-linear-0-to-br from-blue-500 to-purple-600">
             <nav className="bg-white shadow-lg">
                 <div className="max-w-6xl mx-auto px-4 py-4">
                     <h1 className="text-2xl font-bold text-gray-800">Mi Sitio</h1>
@@ -12,7 +12,7 @@ export default function Home() {
             <main className="max-w-6xl mx-auto px-4 py-16">
                 <section className="text-center text-white">
                     <h2 className="text-5xl font-bold mb-4">Bienvenido</h2>
-                    <p className="text-xl mb-8">Esta es una página de inicio simple y moderna</p>
+                    <p className="text-xl mb-8">Esta es una página de inicio simple y modernaaaaaaa</p>
                     <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
                         Comenzar
                     </button>
