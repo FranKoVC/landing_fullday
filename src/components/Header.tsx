@@ -3,7 +3,7 @@ import logoFullDay from "../assets/Logo.png";
 
 const Header: React.FC = () => {
   return (
-    <header className="w-full fixed top-0 left-0 z-30 bg-[#06142b]/80 backdrop-blur border-b border-white/10">
+<header className="fixed top-0 left-0 w-full z-50 bg-transparent">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
