@@ -1,23 +1,17 @@
 import React from "react";
+import logoFullDay from "../assets/Logo.png";
 
 const Header: React.FC = () => {
   return (
-    <header className="w-full fixed top-0 left-0 z-30">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header className="w-full fixed top-0 left-0 z-30 bg-[#06142b]/80 backdrop-blur border-b border-white/10">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          {/* Aquí luego puedes reemplazar por <img src="/ruta/logo.png" /> */}
-          <div className="h-8 w-8 rounded-full bg-cyan-400" />
-          <div className="flex flex-col leading-tight">
-            <span className="text-sm font-semibold text-white">FullDay</span>
-            <span className="text-[10px] text-sky-200">
-              XI Conferencia TIC
-            </span>
-          </div>
+          <img src={logoFullDay} alt="FullDay logo" className="h-8 md:h-9 w-auto" />
         </div>
 
-        {/* Navegación */}
-        <nav className="flex items-center gap-8 text-sm">
+        {/* Navegación desktop */}
+        <nav className="hidden md:flex items-center gap-8 text-xs md:text-sm">
           <a href="#inicio" className="text-slate-100 hover:text-white">
             INICIO
           </a>
@@ -31,11 +25,21 @@ const Header: React.FC = () => {
           {/* Botón INSCRÍBETE */}
           <a
             href="#inscribete"
-            className="ml-4 px-5 py-2 rounded-full text-xs font-semibold bg-sky-300 text-slate-900 hover:opacity-90"
+            className="ml-4 px-4 md:px-5 py-2 rounded-full text-[11px] md:text-xs font-semibold bg-sky-300 text-slate-900 hover:opacity-90"
           >
             INSCRÍBETE
           </a>
         </nav>
+
+        {/* Menú móvil: ícono hamburguesa minimal */}
+        <button
+          className="md:hidden inline-flex flex-col justify-center items-center h-9 w-9 rounded-full border border-slate-600/70 bg-black/20 backdrop-blur-sm"
+          aria-label="Abrir menú"
+        >
+          <span className="block w-4 h-[2px] rounded-full bg-slate-100 mb-[3px]" />
+          <span className="block w-4 h-[2px] rounded-full bg-slate-100 mb-[3px]" />
+          <span className="block w-4 h-[2px] rounded-full bg-slate-100" />
+        </button>
       </div>
     </header>
   );
