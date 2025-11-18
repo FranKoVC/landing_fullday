@@ -4,11 +4,11 @@ import Footer from "../components/Footer";
 
 const Inscribete: React.FC = () => {
   return (
-    <div className="min-h-screen w-full bg-[#0b1833] text-white">
+    <div className="min-h-screen w-full bg-[#0b1833] text-white flex flex-col">
       <Header />
 
       {/* Deja un padding-top porque el header está fixed */}
-      <main className="pt-24">
+      <main className="pt-24 flex-1">
         {/* Aquí luego metes todo el contenido de tu pantalla:
             título INSCRÍBETE AHORA, formulario, ubicación, sponsors */}
       </main>
