@@ -1,14 +1,11 @@
 import React from "react";
-import bgLines from "../assets/bg-lines.png"; 
+//import bgLines from "../assets/bg-lines.png"; 
 
 const UbicacionSection: React.FC = () => {
   return (
     <section
       className="w-full py-16 md:py-20 bg-[#00193e] bg-no-repeat bg-cover"
-      style={{
-        backgroundImage: `url(${bgLines})`,
-        backgroundPosition: "center top",   // 👈 que empiece arriba
-      }}
+
     >
       
       <div className="max-w-6xl mx-auto px-6">

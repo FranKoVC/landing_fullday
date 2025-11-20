@@ -1,45 +1,53 @@
 import React from "react";
 
 const SponsorsSection: React.FC = () => {
-  // Por ahora simulamos sponsors con un array simple
-  const sponsors = Array.from({ length: 8 });
-
   return (
-    <section className="w-full bg-[#051024] py-16 md:py-20">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Títulos */}
-        <div className="mb-10">
-          <p className="text-xs md:text-sm tracking-[0.2em] text-slate-300 uppercase">
-            SPONSORS
-          </p>
-          <p className="mt-3 text-sm md:text-base text-slate-300 max-w-md">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor.
-          </p>
-        </div>
+    <section className="w-full bg-[#00193e] py-16 md:py-20">
+  <div className="max-w-6xl mx-auto px-6">
 
-        {/* Grid de logos */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 md:gap-10">
-          {sponsors.map((_, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center gap-3"
-            >
-              {/* Caja del logo (placeholder) */}
-              <div className="h-16 w-16 md:h-20 md:w-20 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center">
-                <span className="text-xs md:text-sm text-slate-100 font-semibold">
-                  Logo
-                </span>
-              </div>
-              <span className="text-[11px] md:text-xs text-slate-300">
-                Sponsor
+    {/* ENCABEZADO + LOGOS EN UNA SOLA FILA */}
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12 gap-8">
+
+      {/* Títulos a la izquierda */}
+      <div className="flex-1">
+        <p className="text-xs md:text-sm tracking-[0.2em] text-slate-300 uppercase">
+          SPONSORS
+        </p>
+        <p className="mt-3 text-sm md:text-base text-slate-300 max-w-md">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+        </p>
+      </div>
+    
+      {/* Logos: dos filas fijas de 5 columnas */}
+      <div className="grid grid-cols-5 gap-y-10 gap-x-6 flex-1">
+
+        {Array.from({ length: 10 }).map((_, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center"
+          >
+            {/* Caja del logo */}
+            <div className="h-14 w-14 md:h-16 md:w-16 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center">
+              <span className="text-[10px] md:text-xs text-slate-100 font-semibold">
+                Logo
               </span>
             </div>
-          ))}
-        </div>
+
+            {/* Texto pegado sin romper filas */}
+            <span className="text-[10px] md:text-xs text-slate-300 mt-1 leading-none">
+              Sponsor
+            </span>
+          </div>
+        ))}
+
       </div>
-    </section>
+
+
+    </div>
+
+  </div>
+</section>
   );
-};
+}
 
 export default SponsorsSection;

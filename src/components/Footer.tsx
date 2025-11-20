@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   return (
     <footer
       id="nosotros"
-      className="w-full mt-24 bg-gradient-to-t from-[#10284b] via-[#1a325b] to-[#243b70] text-slate-100 pt-12 pb-6"
+      className="w-full bg-gradient-to-t from-[#10284b] via-[#1a325b] to-[#243b70] text-slate-100 pt-12 pb-6"
     >
       <div className="max-w-6xl mx-auto px-6">
         {/* Logo */}
