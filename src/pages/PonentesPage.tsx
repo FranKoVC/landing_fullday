@@ -60,7 +60,7 @@ const PonentesPage: React.FC = () => {
         <img
           src="/images/Vector.png"
           alt="Vector decorativo"
-          className="absolute z-10 w-[2838px] h-[863px] top-[-100px] left-[-93px] rotate-180 mix-blend-soft-light opacity-100 border-[0.5px] max-w-none"
+          className="absolute z-10 w-[2838px] h-[863px] top-[-180px] left-[-93px] rotate-180 mix-blend-soft-light opacity-40  max-w-none"
         />
 
         {/* CAPA 3 (Arriba): Contenido (Corregido a 'text-white') */}
