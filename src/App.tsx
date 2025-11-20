@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Ubicacion from "./pages/Ubicación";
+import Ubicacion from "./components/Ubicación";
 
 function App() {
 
