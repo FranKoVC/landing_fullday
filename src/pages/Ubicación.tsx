@@ -8,10 +8,10 @@ interface UbicacionProps {
 }
 
 const Ubicacion: React.FC<UbicacionProps> = ({
-  title = "AUDITORIO DE",
-  subtitle = "HUMANIDADES",
+  title = "AUDITORIO",
+  subtitle = "COPÉRNICO",
   mapImage = "/images/ubicacion.png", // Imagen desde public/images/
-  mapLink = "https://www.google.com/maps/place/Teatro+de+Humanidades"
+  mapLink = "https://www.google.com/maps/place/Teatrín+Nicolás+Copérnico/@-8.1132694,-79.0400585,17.5z/data=!4m6!3m5!1s0x91ad3d9ef90488e9:0x73783cb69cf5bb17!8m2!3d-8.1133814!4d-79.038607!16s%2Fg%2F1hhjxkwm_?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D"
 }) => {
   return (
     <section className="relative w-full bg-linear-to-b from-[#0a1f44] via-[#1a3a5f] to-[#2d4a6f] py-16 px-6 md:px-12 lg:px-20">
@@ -77,28 +77,6 @@ const Ubicacion: React.FC<UbicacionProps> = ({
               Ver en Google Maps
             </div>
           </a>
-        </div>
-
-        {/* Optional: Address or additional info */}
-        <div className="mt-8 max-w-6xl mx-auto">
-          <div className="flex items-start gap-3 text-blue-100/80">
-            <svg 
-              className="w-6 h-6 mt-1 shrink-0" 
-              fill="currentColor" 
-              viewBox="0 0 20 20"
-            >
-              <path 
-                fillRule="evenodd" 
-                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" 
-                clipRule="evenodd"
-              />
-            </svg>
-            <div>
-              <p className="font-medium text-white">Teatro de Humanidades</p>
-              <p className="text-sm mt-1">Universidad Nacional de Trujillo, Av. Juan Pablo II</p>
-              <p className="text-sm">Trujillo, La Libertad, Perú</p>
-            </div>
-          </div>
         </div>
       </div>
 
