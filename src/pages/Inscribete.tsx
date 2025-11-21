@@ -41,8 +41,28 @@ const Inscribete: React.FC = () => {
         </div>
         </section>
 
-         {/* Ubicacion */}
-        <UbicacionSection />
+        {/* ========================================================== */}
+        {/* ZONA 2: Ubicacion */}
+        {/* ========================================================== */}
+        <section className="relative  bg-[#00193e] overflow-hidden">
+
+          {/* -------------------------------------------------------- */}
+          {/* FONDO VECTOR */}
+          {/* -------------------------------------------------------- */}
+          <img
+            src="/images/Vector.png"
+            alt="Vector decorativo"
+            className="absolute z-10 w-[200%] md:w-[2838px] max-w-none h-auto md:h-[863px] top-[-50px] md:top-[-180px] left-[-20%] md:left-[-93px] rotate-180 mix-blend-soft-light opacity-60 pointer-events-none"
+          />
+
+          {/* -------------------------------------------------------- */}
+          {/* CONTENIDO UBICACIÓN */}
+          {/* -------------------------------------------------------- */}
+          <div className="relative z-20 w-full">
+            <UbicacionSection />
+          </div>
+          
+        </section>
 
         {/* Sponsors */}
         <SponsorsSection />

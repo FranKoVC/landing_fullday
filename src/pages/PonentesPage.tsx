@@ -14,7 +14,7 @@ const PonentesPage: React.FC = () => {
       {/* ========================================================== */}
       {/* ZONA 1: Navbar y Ponentes */}
       {/* ========================================================== */}
-      <section className="relative min-h-screen bg-[#10284B] overflow-hidden flex flex-col">
+      <section className="relative min-h-screen bg-[#00193e] overflow-hidden flex flex-col">
         
         {/* -------------------------------------------------------- */}
         {/* FONDO */}
@@ -24,7 +24,7 @@ const PonentesPage: React.FC = () => {
           alt="Fondo decorativo"
           className="absolute inset-0 w-full h-full object-cover z-10"
         />
-        <div className="absolute inset-0 z-20 bg-gradient-to-b from-transparent to-[#10284B]" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-b from-transparent to-[#00193e]" />
         
         {/* -------------------------------------------------------- */}
         {/* CONTENIDO  */}
@@ -75,7 +75,7 @@ const PonentesPage: React.FC = () => {
       {/* ========================================================== */}
       {/* ZONA 2: Ubicacion */}
       {/* ========================================================== */}
-      <section className="relative  bg-[#10284B] overflow-hidden">
+      <section className="relative  bg-[#00193e] overflow-hidden">
 
         {/* -------------------------------------------------------- */}
         {/* FONDO VECTOR */}

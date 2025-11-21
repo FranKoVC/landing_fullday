@@ -24,7 +24,7 @@ const UbicacionSection: React.FC = () => {
         <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-white">
           <iframe
             title="Mapa Auditorio de Humanidades"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.779157335657!2d-79.030836!3d-8.111739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ad3d8b9e5a6a1f%3A0x9d1c7f8b2e21bd1!2sUniversidad%20Nacional%20de%20Trujillo!5e0!3m2!1ses-419!2spe!4v1700000000000"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d493.7359758316481!2d-79.035992!3d-8.112905!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ad3d9c2f584a39%3A0x9ffa4b4052a512f7!2sTeatr%C3%ADn%20de%20Humanidades!5e0!3m2!1ses!2sus!4v1763709440105!5m2!1ses!2sus"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             className="w-full h-[260px] md:h-[360px] border-0"
