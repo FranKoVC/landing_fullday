@@ -25,7 +25,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
   return (
     // --- CAMBIO AQUÍ ---
     // Añadimos las clases para la transición y el efecto hover
-    <div className="relative max-w-sm rounded-lg overflow-hidden shadow-lg bg-[#10284B] text-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:z-10">
+    <div className="relative max-w-sm rounded-lg overflow-hidden shadow-lg bg-[#00193e] text-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:z-10">
       
       {/* Contenedor de la imagen (sin cambios) */}
       <div className="relative w-full pt-[80%]"> 

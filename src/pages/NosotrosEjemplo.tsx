@@ -13,7 +13,7 @@ const NosotrosEjemplo: React.FC = () => {
     
     // 3. Renderiza tu componente
     //    Añadimos un padding (py-16) para que no se pegue al Navbar
-    <div className="py-16 bg-[#10284B]">
+    <div className=" bg-[#00193e]">
       <Header />
       <AboutUs />
       <Footer />
