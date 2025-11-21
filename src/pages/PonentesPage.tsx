@@ -1,94 +1,105 @@
 // src/pages/PonentesPage.tsx
-
 import React from 'react';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
+import PonenteCard from "../components/PonenteCard";
+import { speakers } from "../data/ponentes";
+import UbicacionSection from "../components/UbicacionSection";
 
 const PonentesPage: React.FC = () => {
   return (
     <div className="min-h-screen">
 
       {/* ========================================================== */}
-      {/* ZONA 1: Navbar y Ponentes (SIN CAMBIOS) */}
+      {/* ZONA 1: Navbar y Ponentes */}
       {/* ========================================================== */}
-      <section className="relative min-h-screen bg-[#10284B] overflow-hidden">
-        {/* Capa de Imagen */}
+      <section className="relative min-h-screen bg-[#10284B] overflow-hidden flex flex-col">
+        
+        {/* -------------------------------------------------------- */}
+        {/* FONDO */}
+        {/* -------------------------------------------------------- */}
         <img
           src="/images/fondo_po.png"
           alt="Fondo decorativo"
           className="absolute inset-0 w-full h-full object-cover z-10"
         />
-        {/* Capa de Degradado */}
         <div className="absolute inset-0 z-20 bg-gradient-to-b from-transparent to-[#10284B]" />
         
-        {/* Capa de Contenido */}
-        <div className="relative z-30">
-          {/* --- Componente 1: Navbar (Placeholder) --- */}
-          <nav className="text-white p-6">
-            <div className="container mx-auto flex justify-between items-center">
-              <h2 className="text-2xl font-bold">[Logo - Aquí va el Navbar]</h2>
-              <div className="space-x-4">
-                <span>[Enlace 1]</span>
-                <span>[Enlace 2]</span>
-              </div>
-            </div>
-          </nav>
-
-          {/* --- Componente 2: Ponentes (Placeholder) --- */}
-          <div className="container mx-auto flex items-center justify-center min-h-[calc(100vh-80px)] text-white">
-            <div className="text-center">
-              <h1 className="text-5xl font-bold mb-4">
-                <span className="text-white">CONOCE A </span>
+        {/* -------------------------------------------------------- */}
+        {/* CONTENIDO  */}
+        {/* -------------------------------------------------------- */}
+        <div className="relative z-30 w-full h-full flex flex-col">
+          
+          <Header />
+          <div className="w-full max-w-6xl mx-auto px-6 pt-24 md:pt-32 pb-4 text-white">
+            
+            {/* Títulos y Descripción */}
+            <div className="text-center w-full mb-12">
+              <h1 className="text-3xl md:text-5xl font-bold mb-6">
+                <span className="text-white block md:inline mr-2">CONOCE A</span>
                 <span className="text-yellow-400">NUESTROS PONENTES</span>
               </h1>
-              <p className="text-lg max-w-2xl mx-auto">
-                (Aquí irá el componente "Ponentes")
+              
+              {/* Ancho de lectura controlado */}
+              <p className='max-w-3xl mx-auto text-sm md:text-base leading-relaxed text-gray-200'>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus suscipit quod nisi laudantium, velit expedita id ipsum a temporibus non, tenetur at eos animi ratione debitis beatae ea? Inventore, iusto?
               </p>
             </div>
+
+            {/* Grid de Ponentes */}
+            <div className='w-full'>
+              <div className="grid gap-6 md:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                {speakers.map((speaker) => (
+                  <Link
+                    key={speaker.id}
+                    to={`/ponentes/${speaker.id}`}
+                    className="block transform hover:scale-105 transition-transform duration-300 h-full"
+                  >
+                    <PonenteCard
+                      name={speaker.name}
+                      role={speaker.role}
+                      imageSrc={speaker.imageSrc}
+                      variant="grid"
+                    />
+                  </Link>
+                ))}
+              </div>
+            </div>
+              
           </div>
         </div>
       </section>
-      {/* --- FIN DE LA ZONA 1 --- */}
 
 
       {/* ========================================================== */}
-      {/* ZONA 2: Ubicacion (¡AQUÍ ESTÁ EL CAMBIO!) */}
+      {/* ZONA 2: Ubicacion */}
       {/* ========================================================== */}
-      
-      {/* CAPA 1 (Fondo): Sigue igual */}
-      <section className="relative py-20 bg-[#10284B] overflow-hidden">
+      <section className="relative  bg-[#10284B] overflow-hidden">
 
-        {/* CAPA 2 (Medio): El 'Vector.png' con las clases EXACTAS */}
+        {/* -------------------------------------------------------- */}
+        {/* FONDO VECTOR */}
+        {/* -------------------------------------------------------- */}
         <img
           src="/images/Vector.png"
           alt="Vector decorativo"
-          className="absolute z-10 w-[2838px] h-[863px] top-[-180px] left-[-93px] rotate-180 mix-blend-soft-light opacity-40  max-w-none"
+          className="absolute z-10 w-[200%] md:w-[2838px] max-w-none h-auto md:h-[863px] top-[-50px] md:top-[-180px] left-[-20%] md:left-[-93px] rotate-180 mix-blend-soft-light opacity-40 pointer-events-none"
         />
 
-        {/* CAPA 3 (Arriba): Contenido (Corregido a 'text-white') */}
-        <div className="relative z-20 container mx-auto text-center text-white">
-          <h2 className="text-4xl font-bold mb-4">UBICACIÓN</h2>
-          <p className="text-lg">
-            (Aquí irá el componente "Ubicacion")
-          </p>
-          <div className="mt-8 w-full max-w-4xl h-96 bg-gray-300 mx-auto rounded-lg flex items-center justify-center shadow-lg">
-            [Espacio para el mapa]
-          </div>
+        {/* -------------------------------------------------------- */}
+        {/* CONTENIDO UBICACIÓN */}
+        {/* -------------------------------------------------------- */}
+        <div className="relative z-20 w-full">
+           <UbicacionSection />
         </div>
+        
       </section>
-      {/* --- FIN DE LA ZONA 2 --- */}
 
 
       {/* ========================================================== */}
-      {/* ZONA 3: Footer (SIN CAMBIOS) */}
+      {/* ZONA 3: Footer */}
       {/* ========================================================== */}
-      <footer className="bg-[#10284B] text-white py-10">
-        <div className="container mx-auto text-center">
-          <h2 className="text-xl mb-4">[Aquí va el componente "Footer"]</h2>
-          <p className="mt-4 text-sm text-gray-400">
-            © 2025 Tu Evento. Todos los derechos reservados.
-          </p>
-        </div>
-      </footer>
-      {/* --- FIN DE LA ZONA 3 --- */}
+      <Footer />
 
     </div>
   );

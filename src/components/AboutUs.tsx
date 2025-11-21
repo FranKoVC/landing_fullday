@@ -45,30 +45,42 @@ const teamMembersData = [
 
 const AboutUs: React.FC = () => {
   return (
-    // --- CAMBIO: Fondo azul, padding y texto blanco general ---
-    // bg-blue-900 o similar para el fondo azul oscuro
-    // text-white para que todo el texto dentro sea blanco por defecto
-    <section className="py-16 px-4 text-center bg-[#10284B] text-white">
+    // 1. CAJA EXTERNA: Solo fondo y altura. 
+    // BORRAMOS 'px-4' de aquí para que no estorbe.
+    <section className="w-full py-16 md:py-24 bg-[#10284B] text-white">
       
-      {/* --- CAMBIO: Título blanco y amarillo --- */}
-      <h2 className="text-5xl font-bold mb-4">
-        <span className="text-white">CONOCE A </span><span className="text-yellow-400">CADA UNO </span>
-        <span className="text-white">DE </span><span className="text-yellow-400">NOSOTROS</span>
-      </h2>
-      <p className='mb-9 max-w-2xl mx-auto'>Nos enorgullece presentar a los miembros de nuestra promoción, quienes han demostrado dedicación y excelencia a lo largo de su formación académica.</p>
+      {/* 2. CAJA INTERNA DE ALINEACIÓN (LA CLAVE)
+         Esta línea debe ser IDÉNTICA a la del Footer: max-w-6xl mx-auto px-6
+      */}
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        
+        {/* Título */}
+        <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <span className="text-white">CONOCE A </span>
+          <span className="text-yellow-400 inline-block">CADA UNO </span>{' '}
+          <span className="text-white">DE </span>
+          <span className="text-yellow-400">NOSOTROS</span>
+        </h2>
 
-      {/* Grid de Tailwind (sigue igual) */}
-      <div className="flex flex-wrap justify-center gap-8">
-        {teamMembersData.map( (member) => (
-          <TeamMemberCard
-            key={member.id}
-            imageUrl={member.imageUrl}
-            name={member.name}
-            description={member.description}
-            role={member.role}
-            socialLinks={member.socialLinks}
-          />
-        ))}
+        {/* Descripción */}
+        <p className='mb-12 max-w-3xl mx-auto text-slate-200 text-sm md:text-base leading-relaxed'>
+          Nos enorgullece presentar a los miembros de nuestra promoción, quienes han demostrado dedicación y excelencia a lo largo de su formación académica.
+        </p>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 place-items-center items-stretch">
+          {teamMembersData.map((member) => (
+            <TeamMemberCard
+              key={member.id}
+              imageUrl={member.imageUrl}
+              name={member.name}
+              description={member.description}
+              role={member.role}
+              socialLinks={member.socialLinks}
+            />
+          ))}
+        </div>
+
       </div>
     </section>
   );
