@@ -47,7 +47,7 @@ const AboutUs: React.FC = () => {
   return (
     // 1. CAJA EXTERNA: Solo fondo y altura. 
     // BORRAMOS 'px-4' de aquí para que no estorbe.
-    <section className="w-full py-16 md:py-24 bg-[#10284B] text-white">
+    <section className="w-full py-20 md:py-30 bg-[#00193e] text-white">
       
       {/* 2. CAJA INTERNA DE ALINEACIÓN (LA CLAVE)
          Esta línea debe ser IDÉNTICA a la del Footer: max-w-6xl mx-auto px-6
@@ -68,7 +68,7 @@ const AboutUs: React.FC = () => {
         </p>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 place-items-center items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 place-items-center items-stretch">
           {teamMembersData.map((member) => (
             <TeamMemberCard
               key={member.id}
