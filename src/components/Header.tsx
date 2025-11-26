@@ -36,9 +36,9 @@ const Header: React.FC = () => {
           className="md:hidden inline-flex flex-col justify-center items-center h-9 w-9 rounded-full border border-slate-600/70 bg-black/20 backdrop-blur-sm"
           aria-label="Abrir menú"
         >
-          <span className="block w-4 h-[2px] rounded-full bg-slate-100 mb-[3px]" />
-          <span className="block w-4 h-[2px] rounded-full bg-slate-100 mb-[3px]" />
-          <span className="block w-4 h-[2px] rounded-full bg-slate-100" />
+          <span className="block w-4 h-0.5 rounded-full bg-slate-100 mb-[3px]" />
+          <span className="block w-4 h-0.5 rounded-full bg-slate-100 mb-[3px]" />
+          <span className="block w-4 h-0.5 rounded-full bg-slate-100" />
         </button>
       </div>
     </header>
