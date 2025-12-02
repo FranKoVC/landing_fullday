@@ -1,22 +1,14 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import PonenteCard from "../components/PonenteCard";
-import { speakers } from "../data/ponentes";
+import React, { useState } from "react";
+import CountDown from "../components/CountDown";
+import Agenda from "../components/Agenda";
+import PonentesHome from "../components/PonentesHome";
+import SponsorSection from "../components/SponsorSection";
 
 type Benefit = {
   id: number;
   title: string;
   subtitle: string;
   icon: React.ReactNode;
-};
-
-type AgendaItem = {
-  id: number;
-  time: string;
-  title: string;
-  speaker: string;
-  place: string;
-  highlight?: boolean;
 };
 
 type FaqItem = {
@@ -30,52 +22,6 @@ const Home: React.FC = () => {
       IMÁGENES (REEMPLAZA)
      ======================= */
   const heroImage = "/assets/hero.jpg"; // ✅ pon tu imagen en public/assets o cambia ruta
-  const agendaImages = [
-    "/assets/agenda-1.jpg",
-    "/assets/agenda-2.jpg",
-    "/assets/agenda-3.jpg",
-    "/assets/agenda-4.jpg",
-  ]; // ✅ cambia por tus imágenes reales
-  const sponsorLogos = [
-    "/assets/sponsor-1.png",
-    "/assets/sponsor-2.png",
-    "/assets/sponsor-3.png",
-    "/assets/sponsor-4.png",
-    "/assets/sponsor-5.png",
-    "/assets/sponsor-6.png",
-    "/assets/sponsor-7.png",
-    "/assets/sponsor-8.png",
-    "/assets/sponsor-9.png",
-    "/assets/sponsor-10.png",
-  ]; // ✅ cambia por tus logos
-
-  /* =======================
-      COUNTDOWN TIEMPO REAL
-     ======================= */
-  // ✅ cambia la fecha/hora del evento aquí
-  const targetDate = useMemo(() => new Date("2025-12-20T08:30:00-05:00"), []);
-
-  const [timeLeft, setTimeLeft] = useState(() => {
-    const diff = targetDate.getTime() - new Date().getTime();
-    return Math.max(diff, 0);
-  });
-
-  useEffect(() => {
-    const t = setInterval(() => {
-      const diff = targetDate.getTime() - new Date().getTime();
-      setTimeLeft(Math.max(diff, 0));
-    }, 1000);
-    return () => clearInterval(t);
-  }, [targetDate]);
-
-  const countdown = useMemo(() => {
-    const totalSeconds = Math.floor(timeLeft / 1000);
-    const days = Math.floor(totalSeconds / (3600 * 24));
-    const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
-    return { days, hours, minutes, seconds };
-  }, [timeLeft]);
 
   /* =======================
           DATA MOCKUP
@@ -166,72 +112,6 @@ const Home: React.FC = () => {
     },
   ];
 
-  const agenda: AgendaItem[] = [
-    {
-      id: 1,
-      time: "8:30",
-      title: "Palabras de bienvenida",
-      speaker: "Apertura del evento",
-      place: "Auditorio de Humanidades",
-      highlight: true,
-    },
-    {
-      id: 2,
-      time: "9:00",
-      title:
-        "Liderazgo en la gestión de TI: Integrando IA para el futuro de la innovación",
-      speaker: "Ponente invitado",
-      place: "Auditorio de Humanidades",
-    },
-    {
-      id: 3,
-      time: "10:10",
-      title:
-        "Gobierno de TI en entidades financieras y oportunidades que nos ofrece la IA",
-      speaker: "Ponente invitado",
-      place: "Auditorio de Humanidades",
-    },
-    {
-      id: 4,
-      time: "11:50",
-      title:
-        "Gobierno de Servicios de Desarrollo y mantenimiento de aplicaciones y su integración con la IA",
-      speaker: "Ponente invitado",
-      place: "Auditorio de Humanidades",
-    },
-    {
-      id: 5,
-      time: "1:00",
-      title: "Entretenimiento / Pausa",
-      speaker: "Break",
-      place: "Zona de descanso",
-      highlight: true,
-    },
-    {
-      id: 6,
-      time: "3:00",
-      title: "IA y Tecnología: Redefiniendo el Mundo Empresarial",
-      speaker: "Ponente invitado",
-      place: "Auditorio de Humanidades",
-    },
-    {
-      id: 7,
-      time: "4:10",
-      title:
-        "Construyendo el Futuro: Gobierno de TI, Tecnologías Emergentes y Responsabilidad Profesional",
-      speaker: "Ponente invitado",
-      place: "Auditorio de Humanidades",
-    },
-    {
-      id: 8,
-      time: "5:35",
-      title:
-        "Problemas de I&T en el Diseño del Gobierno de TI: ¿Generador de Valor o Nuevo Punto de Dolor con la IA?",
-      speaker: "Ponente invitado",
-      place: "Auditorio de Humanidades",
-    },
-  ];
-
   const faqs: FaqItem[] = [
     {
       id: 1,
@@ -259,21 +139,6 @@ const Home: React.FC = () => {
           FAQ STATE
      ======================= */
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-
-  /* =======================
-        CARRUSEL PONENTES
-     ======================= */
-  const carouselRef = useRef<HTMLDivElement | null>(null);
-
-  const scrollCarousel = (dir: "left" | "right") => {
-    if (!carouselRef.current) return;
-    const el = carouselRef.current;
-    const amount = 280;
-    el.scrollBy({
-      left: dir === "left" ? -amount : amount,
-      behavior: "smooth",
-    });
-  };
 
   return (
     <div className="w-full bg-[#061937] text-white">
@@ -394,205 +259,23 @@ const Home: React.FC = () => {
       {/* =======================
               COUNTDOWN
          ======================= */}
-      <section className="w-full bg-[#eef2f5] text-[#08213a]">
-        <div className="max-w-5xl mx-auto px-4 py-14 text-center space-y-6">
-          <p className="text-xs font-semibold tracking-widest text-slate-500 uppercase">
-            ÚNETE A NUESTRO PRÓXIMO EVENTO!
-          </p>
-
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#0a2c4a]">
-            Full Day de Gobierno de Tecnologías de la Información
-          </h2>
-
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12 pt-3">
-            <div className="min-w-[70px]">
-              <p className="text-3xl md:text-4xl font-bold text-[#ffb01f] transition-all">
-                {countdown.days}
-              </p>
-              <p className="text-xs text-slate-600 mt-1">DÍAS</p>
-            </div>
-            <div className="min-w-[70px]">
-              <p className="text-3xl md:text-4xl font-bold text-[#ffb01f] transition-all">
-                {countdown.hours}
-              </p>
-              <p className="text-xs text-slate-600 mt-1">HORAS</p>
-            </div>
-            <div className="min-w-[70px]">
-              <p className="text-3xl md:text-4xl font-bold text-[#ffb01f] transition-all">
-                {countdown.minutes}
-              </p>
-              <p className="text-xs text-slate-600 mt-1">MINUTOS</p>
-            </div>
-            <div className="min-w-[70px]">
-              <p className="text-3xl md:text-4xl font-bold text-[#ffb01f] transition-all">
-                {countdown.seconds}
-              </p>
-              <p className="text-xs text-slate-600 mt-1">SEGUNDOS</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-slate-600 pt-2">
-            <span className="inline-flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-slate-400" />
-              20 Diciembre, 2025
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-slate-400" />
-              Auditorio de Humanidades, UNT
-            </span>
-          </div>
-
-          <div className="pt-4 flex items-center justify-center gap-3">
-            <button
-              type="button"
-              className="px-6 py-2 rounded-full border border-slate-300 text-slate-700 hover:bg-white transition-all duration-300 text-xs font-semibold"
-            >
-              MÁS INFO
-            </button>
-            <button
-              type="button"
-              className="px-6 py-2 rounded-full bg-[#1fbac3] hover:bg-[#17a7af] text-white transition-all duration-300 text-xs font-semibold shadow-md hover:-translate-y-0.5"
-            >
-              INSCRIBIRME
-            </button>
-          </div>
-        </div>
-      </section>
+      <CountDown />
 
       {/* =======================
               AGENDA
          ======================= */}
-      <section className="relative w-full bg-[#061937] py-16">
-        <div className="max-w-6xl mx-auto px-4 grid gap-10 lg:grid-cols-3">
-          {/* izquierda agenda */}
-          <div className="lg:col-span-2">
-            <p className="text-xs text-slate-300 font-semibold tracking-wide uppercase mb-6">
-              AGENDA
-            </p>
 
-            <div className="space-y-8">
-              {agenda.map((item) => (
-                <div key={item.id} className="flex gap-5 items-start">
-                  {/* hora */}
-                  <div
-                    className={`shrink-0 w-14 h-14 rounded-full border-2 flex items-center justify-center text-sm font-semibold transition-all duration-300 ${
-                      item.highlight
-                        ? "border-[#ffb01f] text-[#ffb01f] shadow-[0_0_0_6px_rgba(255,176,31,0.08)]"
-                        : "border-white/30 text-white/80"
-                    }`}
-                  >
-                    {item.time}
-                  </div>
+      <Agenda />
 
-                  {/* contenido */}
-                  <div className="space-y-1">
-                    <h3
-                      className={`text-sm md:text-base font-semibold leading-snug transition-colors ${
-                        item.highlight ? "text-[#ffb01f]" : "text-white"
-                      }`}
-                    >
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-slate-300">{item.speaker}</p>
-                    <p className="text-xs text-slate-400">{item.place}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* derecha imágenes agenda */}
-          <div className="hidden lg:flex flex-col gap-6 items-end">
-            {agendaImages.map((src, idx) => (
-              <div
-                key={idx}
-                className="w-[220px] h-[220px] overflow-hidden rounded-2xl rounded-tr-[40px] bg-white/5 border border-white/10 shadow-lg transition-transform duration-500 hover:-translate-y-1"
-              >
-                <img
-                  src={src}
-                  alt={`Agenda ${idx + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* =======================
+      {/* =======================
               PONENTES (Carrusel)
            ======================= */}
-        <div id="ponentes" className="max-w-6xl mx-auto px-4 pt-16">
-          <div className="flex items-center justify-between mb-6">
-            <p className="text-xs text-slate-300 font-semibold tracking-wide uppercase">
-              PONENTES
-            </p>
+      <PonentesHome />
 
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => scrollCarousel("left")}
-                className="w-9 h-9 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 grid place-items-center"
-                aria-label="Anterior"
-              >
-                <span className="text-lg">‹</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollCarousel("right")}
-                className="w-9 h-9 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 grid place-items-center"
-                aria-label="Siguiente"
-              >
-                <span className="text-lg">›</span>
-              </button>
-            </div>
-          </div>
-
-          <div
-            ref={carouselRef}
-            className="flex gap-6 overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory
-             scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none]"
-          >
-            {speakers.map((s) => (
-              <Link
-                key={s.id}
-                to={`/ponentes/${s.id}`}
-                className="snap-start shrink-0 w-[180px] md:w-[210px] transition-transform duration-300 hover:-translate-y-1"
-              >
-                <PonenteCard
-                  name={s.name}
-                  role={s.role}
-                  imageSrc={s.imageSrc}
-                  variant="grid"
-                />
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* =======================
+      {/* =======================
               SPONSORS
            ======================= */}
-        <div className="max-w-6xl mx-auto px-4 pt-16">
-          <p className="text-xs text-slate-300 font-semibold tracking-wide uppercase mb-6">
-            SPONSORS
-          </p>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center">
-            {sponsorLogos.map((logo, i) => (
-              <div
-                key={i}
-                className="flex items-center justify-center opacity-90 hover:opacity-100 transition-all duration-300"
-              >
-                <img
-                  src={logo}
-                  alt={`Sponsor ${i + 1}`}
-                  className="h-10 md:h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SponsorSection />
 
       {/* =======================
               UBICACIÓN
