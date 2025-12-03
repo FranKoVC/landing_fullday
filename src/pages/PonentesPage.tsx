@@ -48,7 +48,7 @@ const PonentesPage: React.FC = () => {
           
           <Header />
           
-          <div className="w-full max-w-6xl mx-auto px-6 pt-24 md:pt-32 pb-20 text-white">
+          <div className="w-full max-w-7xl mx-auto px-6 pt-24 md:pt-32 pb-20 text-white">
             
             {/* Títulos y Descripción */}
             <div className="text-center w-full mb-12">
