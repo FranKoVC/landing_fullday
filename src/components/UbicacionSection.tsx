@@ -4,11 +4,11 @@ import React from "react";
 const UbicacionSection: React.FC = () => {
   return (
     <section
-      className="w-full py-16 md:py-20 bg-no-repeat bg-cover"
+      className="w-full py-16 bg-no-repeat bg-cover"
 
     >
       
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Títulos */}
         <div className="mb-8">
           <p className="text-xs md:text-sm tracking-[0.2em] text-slate-300 uppercase">

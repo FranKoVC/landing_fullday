@@ -4,7 +4,7 @@ import logoFullDay from "../assets/Logo.png";
 const Header: React.FC = () => {
   return (
 <header className="absolute top-0 left-0 w-full z-20 bg-transparent">
-      <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img src={logoFullDay} alt="FullDay logo" className="h-12 md:h-14 w-auto" />
@@ -36,9 +36,9 @@ const Header: React.FC = () => {
           className="md:hidden inline-flex flex-col justify-center items-center h-9 w-9 rounded-full border border-slate-600/70 bg-black/20 backdrop-blur-sm"
           aria-label="Abrir menú"
         >
-          <span className="block w-4 h-[2px] rounded-full bg-slate-100 mb-[3px]" />
-          <span className="block w-4 h-[2px] rounded-full bg-slate-100 mb-[3px]" />
-          <span className="block w-4 h-[2px] rounded-full bg-slate-100" />
+          <span className="block w-4 h-0.5 rounded-full bg-slate-100 mb-[3px]" />
+          <span className="block w-4 h-0.5 rounded-full bg-slate-100 mb-[3px]" />
+          <span className="block w-4 h-0.5 rounded-full bg-slate-100" />
         </button>
       </div>
     </header>
