@@ -1,6 +1,6 @@
 // Nosotros.tsx
 import React from 'react';
-import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from 'react-icons/fa';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import AboutUs from '../components/AboutUs';
@@ -44,14 +44,11 @@ const Nosotros: React.FC = () => {
               
               {/* Social Icons */}
               <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors">
-                  <FaFacebook className="w-5 h-5 text-white" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors">
+                <a href="https://www.instagram.com/system26unt?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors">
                   <FaInstagram className="w-5 h-5 text-white" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors">
-                  <FaLinkedin className="w-5 h-5 text-white" />
+                <a href="https://www.tiktok.com/@system_26_unt?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors">
+                  <FaTiktok className="w-5 h-5 text-white" />
                 </a>
               </div>
             </div>
@@ -110,13 +107,13 @@ const Nosotros: React.FC = () => {
               </div>
               
               <div className="flex gap-4">
-                <a href="#" className="w-8 h-8 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors">
+                <a href="https://www.facebook.com/ALBERTOCARLOSMENDOZA?locale=es_LA" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors">
                   <FaFacebook className="w-4 h-4 text-white" />
                 </a>
-                <a href="#" className="w-8 h-8 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors">
                   <FaInstagram className="w-4 h-4 text-white" />
                 </a>
-                <a href="#" className="w-8 h-8 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors">
                   <FaLinkedin className="w-4 h-4 text-white" />
                 </a>
               </div>
