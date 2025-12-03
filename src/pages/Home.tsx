@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import Header from "../components/Header";
 import CountDown from "../components/CountDown";
 import Agenda from "../components/Agenda";
 import PonentesHome from "../components/PonentesHome";
 import SponsorSection from "../components/SponsorSection";
+import UbicacionSection from "../components/UbicacionSection";
+import FAQSection from "../components/FAQSection";
+import Footer from "../components/Footer";
 
 type Benefit = {
   id: number;
   title: string;
   subtitle: string;
   icon: React.ReactNode;
-};
-
-type FaqItem = {
-  id: number;
-  q: string;
-  a: string;
 };
 
 const Home: React.FC = () => {
@@ -112,36 +110,11 @@ const Home: React.FC = () => {
     },
   ];
 
-  const faqs: FaqItem[] = [
-    {
-      id: 1,
-      q: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor?",
-      a: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-    },
-    {
-      id: 2,
-      q: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
-      a: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
-    },
-    {
-      id: 3,
-      q: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor?",
-      a: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
-    },
-    {
-      id: 4,
-      q: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
-      a: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae.",
-    },
-  ];
-
-  /* =======================
-          FAQ STATE
-     ======================= */
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
-
   return (
     <div className="w-full bg-[#061937] text-white">
+
+<Header/>
+
       {/* =======================
               HERO
          ======================= */}
@@ -280,150 +253,17 @@ const Home: React.FC = () => {
       {/* =======================
               UBICACIÓN
          ======================= */}
-      <section id="ubicacion" className="w-full bg-[#061937] py-16">
-        <div className="max-w-6xl mx-auto px-4 space-y-6">
-          <p className="text-xs text-slate-300 font-semibold tracking-wide uppercase">
-            UBICACIÓN
-          </p>
-
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-wide">
-            AUDITORIO DE <span className="text-[#ffb01f]">HUMANIDADES</span>
-          </h2>
-
-          <div className="w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-            {/* ✅ reemplaza src por tu mapa si quieres */}
-            <iframe
-              title="Mapa"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.865201583144!2d-79.0421257!3d-8.1094384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ad3d7d8edb8c6b%3A0x2c0d35b3eb47a29f!2sTeatrin%20de%20Humanidades%20UNT!5e0!3m2!1ses-419!2spe!4v1732060000000"
-              width="100%"
-              height="380"
-              loading="lazy"
-              className="block w-full"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </div>
-      </section>
+      <UbicacionSection />
 
       {/* =======================
               FAQ
          ======================= */}
-      <section className="w-full bg-[#eef2f5] text-[#08213a] py-16">
-        <div className="max-w-5xl mx-auto px-4">
-          <h3 className="text-center text-xl md:text-2xl font-semibold text-[#0a2c4a] mb-8">
-            Encuentra respuestas sobre el Full Day
-            <br />
-            en nuestras preguntas frecuentes
-          </h3>
-
-          <div className="space-y-3">
-            {faqs.map((f) => {
-              const isOpen = openFaq === f.id;
-              return (
-                <div
-                  key={f.id}
-                  className="bg-white rounded-xl border border-slate-200/80 overflow-hidden transition-all duration-300"
-                >
-                  <button
-                    type="button"
-                    onClick={() => setOpenFaq(isOpen ? null : f.id)}
-                    className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-slate-50 transition-colors"
-                  >
-                    <p className="text-sm font-semibold text-[#0a2c4a]">
-                      {f.q}
-                    </p>
-
-                    <div className="w-7 h-7 rounded-full border border-slate-300 grid place-items-center text-slate-600 transition-transform duration-300">
-                      <span
-                        className={`${
-                          isOpen ? "rotate-45" : ""
-                        } inline-block transition-transform duration-300`}
-                      >
-                        +
-                      </span>
-                    </div>
-                  </button>
-
-                  <div
-                    className={`px-5 pb-4 text-sm text-slate-600 leading-relaxed transition-all duration-300 ${
-                      isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-                    } overflow-hidden`}
-                  >
-                    {f.a}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <FAQSection />
 
       {/* =======================
               FOOTER SIMPLE
          ======================= */}
-      <footer className="w-full bg-[#061937] border-t border-white/5 py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid gap-8 md:grid-cols-2 items-center">
-            <div>
-              <img
-                src="/assets/logo-fullday.png"
-                alt="FullDay"
-                className="h-8 mb-4"
-              />
-              <h4 className="text-2xl md:text-3xl font-semibold leading-snug">
-                Lorem ipsum dolor sit amet,
-                <br />
-                consectetur adipiscing elit, sed do.
-              </h4>
-
-              <nav className="mt-6 flex gap-6 text-xs text-slate-300">
-                <a
-                  href="#inicio"
-                  className="hover:text-white transition-colors"
-                >
-                  INICIO
-                </a>
-                <a
-                  href="#ponentes"
-                  className="hover:text-white transition-colors"
-                >
-                  PONENTES
-                </a>
-                <a
-                  href="#ubicacion"
-                  className="hover:text-white transition-colors"
-                >
-                  SOBRE NOSOTROS
-                </a>
-              </nav>
-            </div>
-
-            <div className="md:text-right text-xs text-slate-400 space-y-2">
-              <p>Full Day Gobierno de TIC 2025 Ingeniería de Sistemas UNT.</p>
-              <p>Todos los derechos reservados.</p>
-              <div className="flex md:justify-end gap-3 pt-2">
-                <a
-                  href="#"
-                  className="w-8 h-8 rounded-full bg-white/5 grid place-items-center hover:bg-white/10 transition-colors"
-                >
-                  f
-                </a>
-                <a
-                  href="#"
-                  className="w-8 h-8 rounded-full bg-white/5 grid place-items-center hover:bg-white/10 transition-colors"
-                >
-                  i
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 border-t border-white/5 pt-4 text-[10px] text-slate-500 flex flex-col md:flex-row justify-between gap-2">
-            <span>Trujillo - Perú 2025</span>
-            <span>Contacto: fullday@unt.edu.pe</span>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

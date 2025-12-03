@@ -4,7 +4,7 @@ import logoFullDay from "../assets/Logo.png";
 const Header: React.FC = () => {
   return (
 <header className="absolute top-0 left-0 w-full z-20 bg-transparent">
-      <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img src={logoFullDay} alt="FullDay logo" className="h-12 md:h-14 w-auto" />

@@ -2,15 +2,15 @@ import React from "react";
 
 const SponsorsSection: React.FC = () => {
   return (
-    <section className="w-full bg-[#00193e] py-16 md:py-20">
-  <div className="max-w-6xl mx-auto px-6">
+    <section className="w-full bg-[#061937] py-16 md:py-20">
+  <div className="max-w-7xl mx-auto px-6">
 
     {/* ENCABEZADO + LOGOS EN UNA SOLA FILA */}
     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12 gap-8">
 
       {/* Títulos a la izquierda */}
       <div className="flex-1">
-        <p className="text-xs md:text-sm tracking-[0.2em] text-slate-300 uppercase">
+        <p className="text-xl tracking-[0.2em] text-slate-300 uppercase">
           SPONSORS
         </p>
         <p className="mt-3 text-sm md:text-base text-slate-300 max-w-md">

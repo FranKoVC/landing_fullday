@@ -46,10 +46,10 @@ const PonenteCard: React.FC<PonenteCardProps> = ({
         />
       </div>
 
-      <h3 className="mt-4 text-sm font-semibold uppercase tracking-wide text-white">
+      <h3 className="mt-4 text-xl font-semibold uppercase tracking-wide text-white">
         {name}
       </h3>
-      <p className="mt-1 text-xs text-slate-300 max-w-xs">{role}</p>
+      <p className="mt-1 text-base text-slate-300 max-w-xs">{role}</p>
     </article>
   );
 };

@@ -22,7 +22,7 @@ const PonentesHome = () => {
 
   return (
     <section>
-      <div id="ponentes" className="max-w-7xl mx-auto px-4 pt-16">
+      <div id="ponentes" className="max-w-7xl mx-auto px-4 py-16">
         <div className="flex items-center justify-between mb-6">
           <p className="text-xl text-slate-300 font-semibold tracking-wide uppercase">
             PONENTES

@@ -36,7 +36,7 @@ const CountDown = () => {
               COUNTDOWN
          ======================= */}
       <section className="w-full bg-[#eef2f5] text-[#08213a]">
-        <div className="max-w-6xl mx-auto px-6 py-20 text-center space-y-10">
+        <div className="max-w-7xl mx-auto px-6 py-20 text-center space-y-10">
           {/* Tagline */}
           <p className="text-xs md:text-sm font-semibold tracking-[0.25em] text-[#23426f] uppercase">
             ¡ÚNETE A NUESTRO PRÓXIMO EVENTO!
