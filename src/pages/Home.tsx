@@ -7,6 +7,8 @@ import SponsorSection from "../components/SponsorSection";
 import UbicacionSection from "../components/UbicacionSection";
 import FAQSection from "../components/FAQSection";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
+
 
 type Benefit = {
   id: number;
@@ -166,12 +168,12 @@ const Home: React.FC = () => {
                 de Gobierno de TIC
               </p>
 
-              <button
-                className="mt-4 px-5 py-2 rounded-full bg-[#1fbac3] hover:bg-[#17a7af] text-xs font-semibold tracking-wide transition-all duration-300 shadow-lg shadow-[#1fbac3]/30 hover:shadow-[#1fbac3]/50 hover:-translate-y-0.5"
-                type="button"
-              >
-                INSCRÍBETE YA
-              </button>
+             <Link
+  to="/inscribete"
+  className="mt-4 inline-block px-5 py-2 rounded-full bg-[#1fbac3] hover:bg-[#17a7af] text-xs font-semibold tracking-wide transition-all duration-300 shadow-lg shadow-[#1fbac3]/30 hover:shadow-[#1fbac3]/50 hover:-translate-y-0.5"
+>
+  INSCRÍBETE YA
+</Link>
             </div>
           </div>
         </div>
