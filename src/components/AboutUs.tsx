@@ -201,7 +201,7 @@ const teamMembersData = [
   },
   {
     id: 38 ,
-    imageUrl: '/images/nosotros/vidondo.jpg', 
+    imageUrl: '/images/nosotros/estudiante38.jpg', 
     name: 'VIDONDO CHAFLOC GIANFRANCO',
     description: 'Estudiante de Ingeniería de Sistemas UNT, apasionado por el desarrollo full-stack y el diseño web. Proactivo y adaptable, me dedico a crear soluciones robustas para entornos web y móviles. ',
     role: 'Developer Full Stack Jr | React | Laravel | Python | PostgreSQL',
@@ -256,7 +256,7 @@ const teamMembersData = [
 
 const AboutUs: React.FC = () => {
   return (
-    <section className="w-full py-20 md:py-30 bg-[#00193e] text-white">
+    <section className="w-full py-20 md:py-30 bg-[#00193e] text-white ">
       
       {/* 2. CAJA INTERNA DE ALINEACIÓN (LA CLAVE)
          Esta línea debe ser IDÉNTICA a la del Footer: max-w-6xl mx-auto px-6

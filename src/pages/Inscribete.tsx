@@ -2,11 +2,12 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import bgInscribete from "../assets/fondo.png";
-import InscripcionForm from "../components/steps/FormDatos";
 import UbicacionSection from "../components/UbicacionSection";
 import SponsorsSection from "../components/SponsorSection";
 import GlassContador from "../components/steps/GlassContador";
 import StepHeader from "../components/steps/StepHeader";
+
+import InscripcionForm from "../components/steps/FormDatos";
 
 
 
@@ -27,7 +28,7 @@ const Inscribete: React.FC = () => {
         >
           <GlassContador />
 
-          <div className="max-w-5xl w-full mx-auto mt-20">
+          <div className=" w-full mx-auto mt-20">
             {/* Título */}
             <div className="text-center mb-8">
               <h1 className="text-3xl md:text-5xl font-bold mb-3">
@@ -40,9 +41,8 @@ const Inscribete: React.FC = () => {
                 Completa los siguientes pasos para inscribirte
               </p>
             </div>
-            {/* Formulario como componente */}
+            {/* paso 1 */}
             <StepHeader />
-            
             <InscripcionForm />
             
         </div>

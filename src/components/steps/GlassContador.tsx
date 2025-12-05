@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 
 const GlassCertificado = () => {
   // ===============================
-  // COUNTDOWN REAL (pegado de tu lógica)
+  // COUNTDOWN REAL
   // ===============================
   const targetDate = useMemo(() => new Date("2025-12-13T08:00:00-05:00"), []);
 
@@ -30,35 +30,60 @@ const GlassCertificado = () => {
   }, [timeLeft]);
 
   return (
-    <section className="w-full flex flex-col md:flex-row gap-6 justify-between mt-14">
+    <section className="w-full flex flex-col md:flex-row gap-6 justify-between mt-14 max-w-7xl mx-auto px-6">
       
       {/* === Tarjeta izquierda === */}
-        <div className="w-full md:w-1/2 bg-white/5 border border-white/20 rounded-2xl p-10 shadow-[0_0_25px_rgba(255,255,255,0.05)]">
+      <div className="w-full md:w-1/2 bg-white/5 border border-white/20 rounded-2xl p-10 shadow-[0_0_25px_rgba(255,255,255,0.05)]">
         <h3 className="text-white text-xl font-semibold mb-2">
           Certificado de participación
         </h3>
-        <p className="text-slate-200 text-sm mb-4">
+        <p className="text-slate-200 text-sm mb-6">
           Acredita tu asistencia al 11° Full Day de Gestión
           de TI – Promoción XXVI Ing. de Sistemas UNT.
         </p>
 
-        <p className="text-white text-3xl font-bold mb-6">
-          S/ 20.00 <span className="text-sm font-normal">/ pago único</span>
-        </p>
+        {/* ======================================================= */}
+        {/* SECCIÓN DE PRECIOS MODIFICADA */}
+        {/* ======================================================= */}
+        <div className="flex flex-col gap-3 mb-6">
+          {/* Opción 1: Estudiantes */}
+          <div className="flex items-center p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+            <span className="text-[#f6c453] text-2xl font-bold mr-4">S/ 25</span>
+            <div className="flex flex-col">
+              <span className="text-white text-sm font-medium">Estudiante UNT</span>
+            </div>
+          </div>
 
-        <button className="bg-[#f6c453] text-[#16254b] w-full py-3 font-semibold rounded-lg hover:bg-[#eab449] transition">
+          {/* Opción 2: Profesionales */}
+          <div className="flex items-center p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+            <span className="text-[#f6c453] text-2xl font-bold mr-4">S/ 35</span>
+            <div className="flex flex-col">
+              <span className="text-white text-sm font-medium">Profesional</span>
+              <span className="text-slate-400 text-xs">o Egresado</span>
+            </div>
+          </div>
+        </div>
+        {/* ======================================================= */}
+
+        <button className="bg-[#f6c453] text-[#16254b] w-full py-3 font-semibold rounded-lg hover:bg-[#eab449] transition shadow-lg shadow-orange-500/20">
           Obtener certificado
         </button>
 
         <ul className="mt-6 text-slate-200 text-sm space-y-2">
-          <li>✔ Entrega presencial y/o virtual</li>
-          <li>✔ Certificado digital con validez académica</li>
-          <li>✔ Disponible para todos los participantes</li>
+          <li className="flex items-center gap-2">
+            <span className="text-[#f6c453]">✔</span> Entrega presencial y/o virtual
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="text-[#f6c453]">✔</span> Certificado digital con validez académica
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="text-[#f6c453]">✔</span> Disponible para todos los participantes
+          </li>
         </ul>
       </div>
 
       {/* === Tarjeta derecha con countdown real === */}
-      <div className="w-full md:w-1/2 bg-white/10 border border-white/20 rounded-2xl p-10 shadow-lg text-white">
+      <div className="w-full md:w-1/2 bg-white/10 border border-white/20 rounded-2xl p-10 shadow-lg text-white backdrop-blur-sm">
         <p className="text-slate-200 text-sm mb-2">
           ¡Este es tu momento! Aprende, comparte y vive la experiencia del
         </p>
@@ -70,35 +95,35 @@ const GlassCertificado = () => {
         </p>
 
         {/* === Contador adaptado === */}
-        <div className="flex justify-between text-center mb-6">
+        <div className="flex justify-between text-center mb-6 bg-black/20 p-4 rounded-xl border border-white/5">
           {[
             { label: "DÍAS", value: countdown.days },
             { label: "HORAS", value: countdown.hours },
             { label: "MINUTOS", value: countdown.minutes },
             { label: "SEGUNDOS", value: countdown.seconds },
           ].map((item) => (
-            <div key={item.label}>
-              <p className="text-3xl font-bold bg-linear-to-b from-[#ffb01f] via-[#ffc341] to-[#ffe08a] bg-clip-text text-transparent">
+            <div key={item.label} className="flex flex-col items-center">
+              <p className="text-3xl font-bold bg-gradient-to-b from-[#ffb01f] via-[#ffc341] to-[#ffe08a] bg-clip-text text-transparent drop-shadow-sm">
                 {item.value}
               </p>
-              <span className="text-xs tracking-[0.2em] text-slate-300">
+              <span className="text-[10px] sm:text-xs tracking-[0.2em] text-slate-400 mt-1">
                 {item.label}
               </span>
             </div>
           ))}
         </div>
 
-        {/* === Fecha y lugar adaptado dentro del glass === */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm md:text-base text-slate-300">
-          <span className="inline-flex items-center gap-2 font-medium">
-            <span className="w-6 h-6 rounded-full border border-slate-300 flex items-center justify-center">
-              <FiCalendar className="w-3.5 h-3.5" />
+        {/* === Fecha y lugar adaptado === */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-4 sm:gap-6 text-sm md:text-base text-slate-300 mt-8">
+          <span className="inline-flex items-center gap-3 font-medium">
+            <span className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[#f6c453]">
+              <FiCalendar className="w-4 h-4" />
             </span>
             13 Diciembre, 2025
           </span>
-          <span className="inline-flex items-center gap-2 font-medium">
-            <span className="w-6 h-6 rounded-full border border-slate-300 flex items-center justify-center">
-              <FiUser className="w-3.5 h-3.5" />
+          <span className="inline-flex items-center gap-3 font-medium">
+            <span className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[#f6c453]">
+              <FiUser className="w-4 h-4" />
             </span>
             Auditorio de Humanidades, UNT
           </span>

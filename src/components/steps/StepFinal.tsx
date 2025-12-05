@@ -1,8 +1,12 @@
 import { FiUser, FiMail, FiCheckCircle, FiFileText } from "react-icons/fi";
+import { useRegistration } from "./RegistrationContext";
 
 const StepFinal = () => {
+  // 1. Consumimos el contexto para mostrar los datos REALES
+  const { registrationData } = useRegistration();
+
   return (
-    <div className="max-w-3xl mx-auto w-full mt-8 text-center">
+    <div className="max-w-3xl mx-auto w-full mt-8 text-center animate-in fade-in zoom-in duration-500">
 
       {/* Icono grande */}
       <div className="flex justify-center mb-6">
@@ -35,36 +39,45 @@ const StepFinal = () => {
 
         <div className="space-y-5 text-left">
 
-          {/* Nombre */}
+          {/* Nombre Dinámico */}
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-xl bg-yellow-400/10 border border-yellow-300/20">
               <FiUser className="text-yellow-300" size={22} />
             </div>
             <div>
               <p className="text-slate-400 text-sm">Nombre completo</p>
-              <p className="text-white font-medium">María Alexandra Lecca Rengifo</p>
+              <p className="text-white font-medium capitalize">
+                {registrationData.fullName || "Usuario Registrado"}
+              </p>
             </div>
           </div>
 
-          {/* Correo */}
+          {/* Correo Dinámico */}
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-xl bg-yellow-400/10 border border-yellow-300/20">
               <FiMail className="text-yellow-300" size={22} />
             </div>
             <div>
               <p className="text-slate-400 text-sm">Correo electrónico</p>
-              <p className="text-white font-medium">ally.lecca@icloud.com</p>
+              <p className="text-white font-medium">
+                {registrationData.email || "correo@ejemplo.com"}
+              </p>
             </div>
           </div>
 
-          {/* Tipo registro */}
+          {/* Tipo registro Dinámico */}
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-xl bg-yellow-400/10 border border-yellow-300/20">
               <FiFileText className="text-yellow-300" size={22} />
             </div>
             <div>
-              <p className="text-slate-400 text-sm">Tipo de registro</p>
-              <p className="text-white font-medium">Con certificado</p>
+              <p className="text-slate-400 text-sm">Tipo de participante</p>
+              <p className="text-white font-medium">
+                {registrationData.type === "STUDENT" && "Estudiante"}
+                {registrationData.type === "PROFESSIONAL" && "Profesional"}
+                {registrationData.type === "GENERAL" && "Público General"}
+                {!registrationData.type && "Registro General"}
+              </p>
             </div>
           </div>
 

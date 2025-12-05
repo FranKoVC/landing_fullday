@@ -1,15 +1,82 @@
-import { useRef, useState } from "react";
+import { useRef, useState, type ChangeEvent } from "react";
 import { FiCalendar, FiCreditCard, FiHash, FiUploadCloud, FiArrowLeft } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useRegistration } from "./RegistrationContext";
 
 const StepPagoForm = () => {
-
+  const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const [archivo, setArchivo] = useState<File | null>(null);
+  
+  // 1. Traemos la data del paso anterior
+  const { registrationData } = useRegistration();
 
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const [loading, setLoading] = useState(false);
+  const [archivo, setArchivo] = useState<File | null>(null);
+  
+  // 2. Estado para el formulario de pago
+  const [paymentData, setPaymentData] = useState({
+    paymentDate: "",
+    paymentMethod: "",
+    operationNumber: ""
+  });
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPaymentData({ ...paymentData, [e.target.name]: e.target.value });
+  };
+
+  const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setArchivo(e.target.files[0]);
+    }
+  };
+
+  const handleFinalSubmit = async () => {
+    // Validar campos vacíos
+    if (!paymentData.paymentDate || !paymentData.paymentMethod || !paymentData.operationNumber) {
+        alert("Por favor completa los datos del pago");
+        return;
+    }
+
+    setLoading(true);
+
+    // 3. Construir el objeto JSON exacto que pide tu Backend
+    const finalPayload = {
+      documentNumber: registrationData.documentNumber,
+      fullName: registrationData.fullName,
+      email: registrationData.email,
+      phone: registrationData.phone,
+      type: registrationData.type, // STUDENT, PROFESSIONAL, etc.
+      payment: {
+        paymentDate: paymentData.paymentDate,
+        paymentMethod: paymentData.paymentMethod, // Ej: "BCP"
+        operationNumber: paymentData.operationNumber
+      }
+    };
+
+    try {
+      const response = await fetch("http://localhost:8080/api/admin/registration", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(finalPayload),
+      });
+
+      if (response.ok) {
+        // const responseData = await response.json(); // Si necesitas guardar el ID que retorna
+        console.log("Registro completado con éxito");
+        
+        // 4. Redirigir a la vista final
+        navigate("/inscribete/check"); 
+      } else {
+        const errorText = await response.text(); // O .json() si tu error viene en json
+        alert("Ocurrió un error al registrar: " + errorText);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error de conexión con el servidor");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -37,6 +104,8 @@ const StepPagoForm = () => {
             </label>
             <input
               type="date"
+              name="paymentDate"
+              onChange={handleInputChange}
               className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none cursor-pointer"
             />
           </div>
@@ -49,7 +118,10 @@ const StepPagoForm = () => {
             </label>
             <input
               type="text"
-              className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none"
+              name="paymentMethod"
+              onChange={handleInputChange}
+              placeholder="Ej. BCP, Yape, Interbank"
+              className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none placeholder:text-slate-500"
             />
           </div>
 
@@ -61,6 +133,8 @@ const StepPagoForm = () => {
             </label>
             <input
               type="text"
+              name="operationNumber"
+              onChange={handleInputChange}
               className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none"
             />
           </div>
@@ -74,7 +148,7 @@ const StepPagoForm = () => {
 
             <div
               className="w-full h-40 bg-white/5 border border-white/10 rounded-xl
-                         flex flex-col justify-center items-center text-center cursor-pointer"
+                         flex flex-col justify-center items-center text-center cursor-pointer hover:bg-white/10 transition"
               onClick={() => fileInputRef.current?.click()}
             >
               <FiUploadCloud className="text-slate-300 mb-2" size={32} />
@@ -100,20 +174,22 @@ const StepPagoForm = () => {
         {/* Botones */}
         <div className="flex justify-between mt-10">
           <Link
-            to="/inscribete/certificado"
+            to="/inscribete"
             className="px-6 py-3 rounded-full bg-white/10 border border-white/20 
                        text-slate-200 hover:bg-white/20 transition flex items-center gap-2"
           >
             <FiArrowLeft /> Volver
           </Link>
 
-          <Link
-            to="/inscribete/check"
-            className="px-10 py-3 rounded-full bg-gradient-to-r from-yellow-300 to-yellow-500 
-                       text-[#0b1833] font-semibold hover:from-yellow-200 hover:to-yellow-400 transition"
+          <button
+            onClick={handleFinalSubmit}
+            disabled={loading}
+            className={`px-10 py-3 rounded-full bg-gradient-to-r from-yellow-300 to-yellow-500 
+                       text-[#0b1833] font-semibold hover:from-yellow-200 hover:to-yellow-400 transition
+                       ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
           >
-            Completar registro
-          </Link>
+            {loading ? "Enviando..." : "Completar registro"}
+          </button>
         </div>
 
       </div>
