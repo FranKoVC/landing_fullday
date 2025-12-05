@@ -11,7 +11,7 @@ const Ubicacion: React.FC<UbicacionProps> = ({
   title = "AUDITORIO",
   subtitle = "COPÉRNICO",
   mapImage = "/images/ubicacion.png", // Imagen desde public/images/
-  mapLink = "https://www.google.com/maps/place/Teatrín+Nicolás+Copérnico/@-8.1132694,-79.0400585,17.5z/data=!4m6!3m5!1s0x91ad3d9ef90488e9:0x73783cb69cf5bb17!8m2!3d-8.1133814!4d-79.038607!16s%2Fg%2F1hhjxkwm_?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D"
+  mapLink = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3949.884225523186!2d-79.0400585!3d-8.1132694!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ad3d9ef90488e9%3A0x73783cb69cf5bb17!2zVGVhdHLDrW4gTmljb2zDoXMgQ29ww6lybmljbw!5e0!3m2!1ses!2spe!4v1764972172275!5m2!1ses!2spe"
 }) => {
   return (
     <section className="relative w-full bg-linear-to-b from-[#0a1f44] via-[#1a3a5f] to-[#2d4a6f] py-16 px-6 md:px-12 lg:px-20">

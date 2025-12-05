@@ -10,16 +10,10 @@ import InscribeteCheck from "./pages/InscribeteCheck";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/ponentes" element={<PonentesPage />} />
-      <Route path="/ubicacion" element={<Ubicacion />} />
-      <Route path="/nosotros" element={<Nosotros />} />
+      <Route path="/" element={<Inscribete  />} />
       <Route path="/inscribete" element={<Inscribete />} />
       <Route path="/inscribete/certificado" element={<InscribeteCertificado />} />
       <Route path="/inscribete/check" element={<InscribeteCheck />} />
-
-
-
     </Routes>
   );
 }
