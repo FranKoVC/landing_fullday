@@ -3,7 +3,7 @@ import { PiCertificateBold } from "react-icons/pi"; // Certificado
 
 const StepHeader = () => {
   return (
-    <div className="max-w-4xl w-full mx-auto
+    <div className="max-w-7xl w-full mx-auto
                     bg-white/10 border border-white/20 rounded-3xl 
                     p-10 backdrop-blur-md shadow-xl mb-10 text-center">
 

@@ -16,7 +16,7 @@ const StepFinal = () => {
   }, [clearRegistrationData]);
 
   return (
-    <div className="max-w-3xl mx-auto w-full mt-8 text-center animate-in fade-in zoom-in duration-500">
+    <div className="max-w-4xl mx-auto w-full mt-8 text-center animate-in fade-in zoom-in duration-500">
 
       {/* Icono grande */}
       <div className="flex justify-center mb-6">

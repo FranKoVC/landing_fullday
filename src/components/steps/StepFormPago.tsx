@@ -104,7 +104,7 @@ const StepPagoForm = () => {
   if (!registrationData.documentNumber) return null;
 
   return (
-    <div className="max-w-3xl mx-auto w-full mt-8">
+    <div className="max-w-7xl mx-auto w-full mt-8">
 
       {/* ==== GLASS CONTAINER ==== */}
       <div className="bg-white/10 border border-white/20 rounded-3xl p-10 backdrop-blur-md shadow-xl">
