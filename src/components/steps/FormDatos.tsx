@@ -7,37 +7,50 @@ import { useRegistration } from "./RegistrationContext";
 
 const InscripcionForm = () => {
   const navigate = useNavigate();
-  const { updateRegistrationData } = useRegistration();
+  // 1. Obtenemos 'registrationData' para poder pre-llenar el formulario
+  const { updateRegistrationData, registrationData } = useRegistration();
 
-  // Estado local para manejar los inputs del formulario
-  const [localData, setLocalData] = useState({
-    fullName: "",
-    documentType: "",
-    documentNumber: "",
-    phone: "",
-    email: "",
-    participantType: ""
+  // 2. Inicializamos el estado con los datos del contexto (si existen)
+  const [localData, setLocalData] = useState(() => {
+    
+    // Convertimos el tipo del backend (STUDENT/PROFESSIONAL) al valor del Select (Estudiante/Profesional)
+    let initialType = "";
+    if (registrationData.type === "STUDENT") initialType = "Estudiante";
+    else if (registrationData.type === "PROFESSIONAL") initialType = "Profesional";
+    // Nota: Si era "Público general", se mostrará "Profesional" porque ambos son PROFESSIONAL, es aceptable.
+
+    return {
+      fullName: registrationData.fullName || "",
+      documentType: registrationData.documentType || "",
+      documentNumber: registrationData.documentNumber || "",
+      phone: registrationData.phone || "",
+      email: registrationData.email || "",
+      participantType: initialType // Usamos el valor recuperado
+    };
   });
 
-  // Función para actualizar el estado cuando el usuario escribe
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setLocalData({ ...localData, [e.target.name]: e.target.value });
   };
 
-  // Función para validar y pasar al siguiente paso
   const handleNextStep = () => {
     // 1. Validaciones simples
-    if (!localData.fullName || !localData.documentNumber || !localData.email) {
-      alert("Por favor completa los campos obligatorios");
+    if (!localData.fullName || !localData.documentNumber || !localData.email || !localData.participantType) {
+      alert("Por favor completa todos los campos obligatorios");
       return;
     }
 
     // 2. Mapeo de datos (Frontend -> Backend Enum)
-    let backendType = "STUDENT"; // Valor por defecto
-    if (localData.participantType === "Profesional") backendType = "PROFESSIONAL";
-    if (localData.participantType === "Público general") backendType = "GENERAL";
+    let backendType = "STUDENT"; 
+    
+    if (localData.participantType === "Estudiante") {
+        backendType = "STUDENT";
+    } else {
+        // "Profesional" y "Público general" -> PROFESSIONAL
+        backendType = "PROFESSIONAL";
+    }
 
-    // 3. Guardar en el Contexto Global
+    // 3. Guardar en el Contexto Global (Esto actualiza la memoria y el sessionStorage)
     updateRegistrationData({
       fullName: localData.fullName,
       documentType: localData.documentType,

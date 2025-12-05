@@ -1,4 +1,4 @@
-import { useRef, useState, type ChangeEvent } from "react";
+import { useRef, useState, useEffect, type ChangeEvent } from "react";
 import { FiCalendar, FiCreditCard, FiHash, FiUploadCloud, FiArrowLeft } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { useRegistration } from "./RegistrationContext";
@@ -9,6 +9,11 @@ const StepPagoForm = () => {
   
   // 1. Traemos la data del paso anterior
   const { registrationData } = useRegistration();
+  useEffect(() => {
+    if (!registrationData.documentNumber || !registrationData.email) {
+      navigate("/inscribete");
+    }
+  }, [registrationData, navigate]);
 
   const [loading, setLoading] = useState(false);
   const [archivo, setArchivo] = useState<File | null>(null);
@@ -20,7 +25,11 @@ const StepPagoForm = () => {
     operationNumber: ""
   });
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  // Calculamos monto visualmente
+  const monto = registrationData.type === "STUDENT" ? "25.00" : "35.00";
+
+  // Aceptamos Input O Select
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setPaymentData({ ...paymentData, [e.target.name]: e.target.value });
   };
 
@@ -39,22 +48,22 @@ const StepPagoForm = () => {
 
     setLoading(true);
 
-    // 3. Construir el objeto JSON exacto que pide tu Backend
     const finalPayload = {
       documentNumber: registrationData.documentNumber,
       fullName: registrationData.fullName,
       email: registrationData.email,
       phone: registrationData.phone,
-      type: registrationData.type, // STUDENT, PROFESSIONAL, etc.
+      type: registrationData.type || "STUDENT", 
       payment: {
         paymentDate: paymentData.paymentDate,
-        paymentMethod: paymentData.paymentMethod, // Ej: "BCP"
+        paymentMethod: paymentData.paymentMethod, // Ya vendrá como BANCO o YAPE
         operationNumber: paymentData.operationNumber
       }
     };
 
     try {
-      const response = await fetch("http://localhost:8080/api/admin/registration", {
+      // Usamos la IP pública de tu servidor
+      const response = await fetch("http://3.238.32.48:8080/api/admin/registration", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -63,22 +72,24 @@ const StepPagoForm = () => {
       });
 
       if (response.ok) {
-        // const responseData = await response.json(); // Si necesitas guardar el ID que retorna
-        console.log("Registro completado con éxito");
-        
-        // 4. Redirigir a la vista final
+        const data = await response.json(); 
+        console.log("Registro creado con ID:", data.id);
         navigate("/inscribete/check"); 
       } else {
-        const errorText = await response.text(); // O .json() si tu error viene en json
-        alert("Ocurrió un error al registrar: " + errorText);
+        const errorText = await response.text();
+        console.error("Error Backend:", errorText);
+        alert("Ocurrió un error al registrar. Revisa los datos ingresados.");
       }
     } catch (error) {
-      console.error(error);
-      alert("Error de conexión con el servidor");
+      console.error("Error de red:", error);
+      alert("No se pudo conectar con el servidor.");
     } finally {
       setLoading(false);
     }
   };
+
+  // Si no hay datos, retornamos null para evitar "flasheos" de contenido vacío antes del redirect
+  if (!registrationData.documentNumber) return null;
 
   return (
     <div className="max-w-3xl mx-auto w-full mt-8">
@@ -90,11 +101,21 @@ const StepPagoForm = () => {
         <h2 className="text-center text-2xl font-semibold text-white">
           Información de pago
         </h2>
+        
+        {/* === SECCIÓN DE MONTO DINÁMICO === */}
+        <div className="mt-6 mb-8 text-center bg-yellow-400/10 border border-yellow-400/20 rounded-xl p-4 max-w-sm mx-auto">
+          <p className="text-slate-300 text-sm mb-1">Monto a cancelar</p>
+          <p className="text-3xl font-bold text-yellow-400">S/ {monto}</p>
+          <p className="text-slate-400 text-xs mt-1 uppercase tracking-wide">
+             {registrationData.type === "STUDENT" ? "Tarifa Estudiante" : "Tarifa Profesional / General"}
+          </p>
+        </div>
+
         <p className="text-center text-slate-300 mt-1 text-sm">
           Ingresa la información de tu pago en los siguientes campos para validarlos.
         </p>
 
-        <div className="mt-10 space-y-6">
+        <div className="mt-8 space-y-6">
 
           {/* Fecha */}
           <div>
@@ -106,23 +127,26 @@ const StepPagoForm = () => {
               type="date"
               name="paymentDate"
               onChange={handleInputChange}
-              className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none cursor-pointer"
+              className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none cursor-pointer focus:border-yellow-400/50 transition"
             />
           </div>
 
-          {/* Método */}
+          {/* Método - AHORA ES UN SELECT */}
           <div>
             <label className="flex items-center gap-2 text-slate-300 mb-1 text-sm">
               <FiCreditCard className="text-yellow-300" />
               Método de pago
             </label>
-            <input
-              type="text"
+            <select
               name="paymentMethod"
               onChange={handleInputChange}
-              placeholder="Ej. BCP, Yape, Interbank"
-              className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none placeholder:text-slate-500"
-            />
+              className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none cursor-pointer focus:border-yellow-400/50 transition"
+            >
+              <option value="" className="bg-[#0b1833] text-slate-400">Seleccionar</option>
+              {/* Estos valores coinciden con el ENUM de Java */}
+              <option value="BANCO" className="bg-[#0b1833]">Depósito Bancario</option>
+              <option value="YAPE" className="bg-[#0b1833]">Yape / Plin</option>
+            </select>
           </div>
 
           {/* Número operación */}
@@ -135,7 +159,7 @@ const StepPagoForm = () => {
               type="text"
               name="operationNumber"
               onChange={handleInputChange}
-              className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none"
+              className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none focus:border-yellow-400/50 transition"
             />
           </div>
 
@@ -148,11 +172,11 @@ const StepPagoForm = () => {
 
             <div
               className="w-full h-40 bg-white/5 border border-white/10 rounded-xl
-                         flex flex-col justify-center items-center text-center cursor-pointer hover:bg-white/10 transition"
+                         flex flex-col justify-center items-center text-center cursor-pointer hover:bg-white/10 transition group"
               onClick={() => fileInputRef.current?.click()}
             >
-              <FiUploadCloud className="text-slate-300 mb-2" size={32} />
-              <p className="text-slate-300 text-sm">
+              <FiUploadCloud className="text-slate-300 group-hover:text-yellow-300 transition mb-2" size={32} />
+              <p className="text-slate-300 text-sm group-hover:text-white transition">
                 {archivo ? archivo.name : "Arrastra tu comprobante aquí o haz clic para seleccionar"}
               </p>
               <p className="text-slate-500 text-xs mt-1">

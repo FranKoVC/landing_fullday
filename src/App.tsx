@@ -6,7 +6,6 @@ import Nosotros from "./pages/Nosotros";
 import Inscribete from "./pages/Inscribete";
 import InscribeteCertificado from "./pages/InscribeteCertificado";
 import InscribeteCheck from "./pages/InscribeteCheck";
-import InscribetePago from "./pages/InscribetePago";
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
       <Route path="/inscribete" element={<Inscribete />} />
       <Route path="/inscribete/certificado" element={<InscribeteCertificado />} />
       <Route path="/inscribete/check" element={<InscribeteCheck />} />
-      <Route path="/inscribete/pago" element={<InscribetePago />} />
 
 
 

@@ -1,9 +1,19 @@
+import { useEffect } from "react"; // 1. Importamos useEffect
 import { FiUser, FiMail, FiCheckCircle, FiFileText } from "react-icons/fi";
 import { useRegistration } from "./RegistrationContext";
 
 const StepFinal = () => {
   // 1. Consumimos el contexto para mostrar los datos REALES
-  const { registrationData } = useRegistration();
+  const { registrationData, clearRegistrationData } = useRegistration();
+
+  // 2. EFECTO DE LIMPIEZA
+  // Este efecto se ejecuta cuando el usuario ABANDONA esta vista (unmount).
+  // Así aseguramos que si regresa o recarga después de haber terminado, el formulario esté limpio.
+  useEffect(() => {
+    return () => {
+      clearRegistrationData();
+    };
+  }, [clearRegistrationData]);
 
   return (
     <div className="max-w-3xl mx-auto w-full mt-8 text-center animate-in fade-in zoom-in duration-500">

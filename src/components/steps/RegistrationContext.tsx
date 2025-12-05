@@ -1,5 +1,4 @@
-// 1. CORRECCIÓN AQUÍ: Agregamos 'type' antes de ReactNode
-import { createContext, useState, useContext, type ReactNode } from "react";
+import { createContext, useState, useContext, useEffect, type ReactNode } from "react";
 
 // 1. Definimos la estructura de los datos del usuario
 interface RegistrationData {
@@ -15,6 +14,7 @@ interface RegistrationData {
 interface RegistrationContextType {
   registrationData: RegistrationData;
   updateRegistrationData: (data: Partial<RegistrationData>) => void;
+  clearRegistrationData: () => void; // <--- NUEVO: Para borrar datos al finalizar
 }
 
 // 3. Creamos el contexto
@@ -34,22 +34,50 @@ interface RegistrationProviderProps {
   children: ReactNode;
 }
 
+// Valores iniciales vacíos
+const INITIAL_STATE: RegistrationData = {
+  fullName: "",
+  documentType: "",
+  documentNumber: "",
+  email: "",
+  phone: "",
+  type: "",
+};
+
+const STORAGE_KEY = "registration_session_v1";
+
 export const RegistrationProvider = ({ children }: RegistrationProviderProps) => {
-  const [registrationData, setRegistrationData] = useState<RegistrationData>({
-    fullName: "",
-    documentType: "",
-    documentNumber: "",
-    email: "",
-    phone: "",
-    type: "",
+  
+  // A. INICIALIZACIÓN CON SESSION STORAGE
+  const [registrationData, setRegistrationData] = useState<RegistrationData>(() => {
+    try {
+      // Intentamos leer del navegador al cargar la página
+      const storedData = sessionStorage.getItem(STORAGE_KEY);
+      return storedData ? JSON.parse(storedData) : INITIAL_STATE;
+    } catch (error) {
+      console.error("Error leyendo sessionStorage", error);
+      return INITIAL_STATE;
+    }
   });
+
+  // B. GUARDADO AUTOMÁTICO
+  // Cada vez que registrationData cambie, lo guardamos en el navegador
+  useEffect(() => {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(registrationData));
+  }, [registrationData]);
 
   const updateRegistrationData = (data: Partial<RegistrationData>) => {
     setRegistrationData((prev) => ({ ...prev, ...data }));
   };
 
+  // C. FUNCIÓN DE LIMPIEZA
+  const clearRegistrationData = () => {
+    setRegistrationData(INITIAL_STATE);
+    sessionStorage.removeItem(STORAGE_KEY);
+  };
+
   return (
-    <RegistrationContext.Provider value={{ registrationData, updateRegistrationData }}>
+    <RegistrationContext.Provider value={{ registrationData, updateRegistrationData, clearRegistrationData }}>
       {children}
     </RegistrationContext.Provider>
   );
