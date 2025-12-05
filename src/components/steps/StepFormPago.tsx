@@ -1,14 +1,16 @@
 import { useRef, useState, useEffect, type ChangeEvent } from "react";
 import { FiCalendar, FiCreditCard, FiHash, FiUploadCloud, FiArrowLeft } from "react-icons/fi";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useRegistration } from "./RegistrationContext";
 
 const StepPagoForm = () => {
   const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   
-  // 1. Traemos la data del paso anterior
-  const { registrationData } = useRegistration();
+  // 1. Traemos los datos y la función para actualizar PAGO del contexto
+  const { registrationData, updatePaymentData } = useRegistration();
+
+  // === PROTECCIÓN DE RUTA ===
   useEffect(() => {
     if (!registrationData.documentNumber || !registrationData.email) {
       navigate("/inscribete");
@@ -18,17 +20,17 @@ const StepPagoForm = () => {
   const [loading, setLoading] = useState(false);
   const [archivo, setArchivo] = useState<File | null>(null);
   
-  // 2. Estado para el formulario de pago
+  // 2. INICIALIZACIÓN CON MEMORIA: 
+  // Si ya existían datos de pago en el contexto (porque el usuario fue y volvió), los cargamos.
   const [paymentData, setPaymentData] = useState({
-    paymentDate: "",
-    paymentMethod: "",
-    operationNumber: ""
+    paymentDate: registrationData.payment?.paymentDate || "",
+    paymentMethod: registrationData.payment?.paymentMethod || "",
+    operationNumber: registrationData.payment?.operationNumber || ""
   });
 
   // Calculamos monto visualmente
   const monto = registrationData.type === "STUDENT" ? "25.00" : "35.00";
 
-  // Aceptamos Input O Select
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setPaymentData({ ...paymentData, [e.target.name]: e.target.value });
   };
@@ -37,6 +39,14 @@ const StepPagoForm = () => {
     if (e.target.files && e.target.files[0]) {
       setArchivo(e.target.files[0]);
     }
+  };
+
+  // === LÓGICA BOTÓN VOLVER ===
+  const handleBack = () => {
+    // 1. Guardamos lo que el usuario haya escrito hasta ahora en el Contexto/SessionStorage
+    updatePaymentData(paymentData);
+    // 2. Navegamos hacia atrás
+    navigate("/inscribete");
   };
 
   const handleFinalSubmit = async () => {
@@ -48,6 +58,9 @@ const StepPagoForm = () => {
 
     setLoading(true);
 
+    // Guardamos en el contexto por si falla y tiene que reintentar, no pierda los datos
+    updatePaymentData(paymentData);
+
     const finalPayload = {
       documentNumber: registrationData.documentNumber,
       fullName: registrationData.fullName,
@@ -56,7 +69,7 @@ const StepPagoForm = () => {
       type: registrationData.type || "STUDENT", 
       payment: {
         paymentDate: paymentData.paymentDate,
-        paymentMethod: paymentData.paymentMethod, // Ya vendrá como BANCO o YAPE
+        paymentMethod: paymentData.paymentMethod, 
         operationNumber: paymentData.operationNumber
       }
     };
@@ -88,7 +101,6 @@ const StepPagoForm = () => {
     }
   };
 
-  // Si no hay datos, retornamos null para evitar "flasheos" de contenido vacío antes del redirect
   if (!registrationData.documentNumber) return null;
 
   return (
@@ -126,12 +138,13 @@ const StepPagoForm = () => {
             <input
               type="date"
               name="paymentDate"
+              value={paymentData.paymentDate} // Vinculado al estado inicializado
               onChange={handleInputChange}
               className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none cursor-pointer focus:border-yellow-400/50 transition"
             />
           </div>
 
-          {/* Método - AHORA ES UN SELECT */}
+          {/* Método */}
           <div>
             <label className="flex items-center gap-2 text-slate-300 mb-1 text-sm">
               <FiCreditCard className="text-yellow-300" />
@@ -139,11 +152,11 @@ const StepPagoForm = () => {
             </label>
             <select
               name="paymentMethod"
+              value={paymentData.paymentMethod} // Vinculado al estado inicializado
               onChange={handleInputChange}
               className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none cursor-pointer focus:border-yellow-400/50 transition"
             >
               <option value="" className="bg-[#0b1833] text-slate-400">Seleccionar</option>
-              {/* Estos valores coinciden con el ENUM de Java */}
               <option value="BANCO" className="bg-[#0b1833]">Depósito Bancario</option>
               <option value="YAPE" className="bg-[#0b1833]">Yape / Plin</option>
             </select>
@@ -158,6 +171,7 @@ const StepPagoForm = () => {
             <input
               type="text"
               name="operationNumber"
+              value={paymentData.operationNumber} // Vinculado al estado inicializado
               onChange={handleInputChange}
               className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none focus:border-yellow-400/50 transition"
             />
@@ -197,13 +211,15 @@ const StepPagoForm = () => {
 
         {/* Botones */}
         <div className="flex justify-between mt-10">
-          <Link
-            to="/inscribete"
+          
+          {/* BOTÓN VOLVER MODIFICADO */}
+          <button
+            onClick={handleBack}
             className="px-6 py-3 rounded-full bg-white/10 border border-white/20 
                        text-slate-200 hover:bg-white/20 transition flex items-center gap-2"
           >
             <FiArrowLeft /> Volver
-          </Link>
+          </button>
 
           <button
             onClick={handleFinalSubmit}
