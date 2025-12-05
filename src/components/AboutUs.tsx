@@ -4,7 +4,6 @@ import React from 'react';
 import TeamMemberCard from './TeamMemberCard';
 
 const teamMembersData = [
-  // ... (tus datos de compañeros, esto sigue igual) ...
   {
     id: 1,
     imageUrl: '/images/nosotros/acuñaC.jpg', 
@@ -257,8 +256,6 @@ const teamMembersData = [
 
 const AboutUs: React.FC = () => {
   return (
-    // 1. CAJA EXTERNA: Solo fondo y altura. 
-    // BORRAMOS 'px-4' de aquí para que no estorbe.
     <section className="w-full py-20 md:py-30 bg-[#00193e] text-white">
       
       {/* 2. CAJA INTERNA DE ALINEACIÓN (LA CLAVE)
