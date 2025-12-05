@@ -2,15 +2,15 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import bgInscribete from "../assets/fondo.png";
-import InscripcionForm from "../components/steps/FormDatos";
 import UbicacionSection from "../components/UbicacionSection";
 import SponsorsSection from "../components/SponsorSection";
 import GlassContador from "../components/steps/GlassContador";
-import StepHeader from "../components/steps/StepHeader";
+import StepHeader from "../components/steps/StepHeader2";
 
+import StepMetodoPago from "../components/steps/StepMetodoPago";
+import StepFormPago from "../components/steps/StepFormPago";
 
-
-const Inscribete: React.FC = () => {
+const InscribetePago: React.FC = () => {
   return (
     <div className="relative w-full min-h-screen text-white flex flex-col">     
 
@@ -43,7 +43,12 @@ const Inscribete: React.FC = () => {
             {/* Formulario como componente */}
             <StepHeader />
             
-            <InscripcionForm />
+            <div className="mt-10">
+              <StepMetodoPago />
+            </div>
+            <div className="mt-5">
+              <StepFormPago />
+            </div>
             
         </div>
         </section>
@@ -81,4 +86,4 @@ const Inscribete: React.FC = () => {
   );
 };
 
-export default Inscribete;
+export default InscribetePago;
