@@ -1,26 +1,39 @@
-import { useEffect } from "react"; 
-import { FiUser, FiMail, FiCheckCircle, FiFileText, FiHome } from "react-icons/fi"; // Agregamos FiHome
+import { useEffect, useState } from "react";
+import { FiUser, FiMail, FiCheckCircle, FiFileText } from "react-icons/fi";
 import { useRegistration } from "./RegistrationContext";
-import { useNavigate } from "react-router-dom"; // Importamos el hook de navegación
+import { useNavigate } from "react-router-dom"; // Importamos useNavigate
 
 const StepFinal = () => {
   const navigate = useNavigate();
   const { registrationData, clearRegistrationData } = useRegistration();
 
-  // Detectamos si es pago o gratis para ajustar el mensaje de texto (sin romper estilo)
-  const esPago = registrationData.payment?.operationNumber;
+  // 1. SNAPSHOT (Copia Local)
+  // Guardamos los datos apenas carga el componente.
+  const [localData] = useState(registrationData);
 
-  // === TU SUGERENCIA IMPLEMENTADA ===
-  const handleFinalizar = () => {
-    // 1. Navegamos primero
-    navigate("/"); 
+  // 2. GUARDIAN + LIMPIEZA
+  useEffect(() => {
+    // A. Verificamos la copia local. 
+    // Si no hay DNI, significa que entraron por URL directa sin registrarse.
+    if (!localData.documentNumber || !localData.fullName) {
+      navigate("/inscribete");
+      return; // Detenemos la ejecución aquí
+    }
 
-    // 2. Borramos los datos después de 100ms para que el componente padre
-    // se desmonte antes y no detecte que los datos están vacíos.
-    setTimeout(() => {
-        clearRegistrationData();
-    }, 100);
-  };
+    // B. Si hay datos, limpiamos el Contexto Global.
+    // El usuario seguirá viendo la info gracias a 'localData', 
+    // pero si recarga la página, el contexto estará vacío y el guardián lo sacará.
+    clearRegistrationData();
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Se ejecuta solo una vez al montar
+
+  // 3. Renderizado Condicional
+  // Si no hay datos (mientras redirige), no mostramos nada.
+  if (!localData.documentNumber) return null;
+
+  // Verificación para texto (usando la copia local)
+  const esPago = localData.payment?.operationNumber;
 
   return (
     <div className="max-w-4xl mx-auto w-full mt-8 text-center animate-in fade-in zoom-in duration-500 pb-10">
@@ -56,7 +69,7 @@ const StepFinal = () => {
 
         <div className="space-y-5 text-left">
 
-          {/* Nombre Dinámico */}
+          {/* Nombre Dinámico (Usando localData) */}
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-xl bg-yellow-400/10 border border-yellow-300/20">
               <FiUser className="text-yellow-300" size={22} />
@@ -64,12 +77,12 @@ const StepFinal = () => {
             <div>
               <p className="text-slate-400 text-sm">Nombre completo</p>
               <p className="text-white font-medium capitalize">
-                {registrationData.fullName || "Usuario Registrado"}
+                {localData.fullName || "Usuario Registrado"}
               </p>
             </div>
           </div>
 
-          {/* Correo Dinámico */}
+          {/* Correo Dinámico (Usando localData) */}
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-xl bg-yellow-400/10 border border-yellow-300/20">
               <FiMail className="text-yellow-300" size={22} />
@@ -77,12 +90,12 @@ const StepFinal = () => {
             <div>
               <p className="text-slate-400 text-sm">Correo electrónico</p>
               <p className="text-white font-medium">
-                {registrationData.email || "correo@ejemplo.com"}
+                {localData.email || "correo@ejemplo.com"}
               </p>
             </div>
           </div>
 
-          {/* Tipo registro Dinámico */}
+          {/* Tipo registro Dinámico (Usando localData) */}
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-xl bg-yellow-400/10 border border-yellow-300/20">
               <FiFileText className="text-yellow-300" size={22} />
@@ -90,10 +103,10 @@ const StepFinal = () => {
             <div>
               <p className="text-slate-400 text-sm">Tipo de participante</p>
               <p className="text-white font-medium">
-                {registrationData.type === "STUDENT" && "Estudiante"}
-                {registrationData.type === "PROFESSIONAL" && "Profesional"}
-                {registrationData.type === "GENERAL" && "Público General"}
-                {!registrationData.type && "Registro General"}
+                {localData.type === "STUDENT" && "Estudiante"}
+                {localData.type === "PROFESSIONAL" && "Profesional"}
+                {localData.type === "GENERAL" && "Público General"}
+                {!localData.type && "Registro General"}
               </p>
             </div>
           </div>
@@ -101,7 +114,7 @@ const StepFinal = () => {
         </div>
       </div>
 
-      {/* Barra inferior de verificación (Texto dinámico, MISMO ESTILO) */}
+      {/* Barra inferior de verificación (Texto dinámico) */}
       <div
         className="
           mt-10 p-4 rounded-xl w-full

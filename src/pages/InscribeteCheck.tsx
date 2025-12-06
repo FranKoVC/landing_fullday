@@ -1,5 +1,4 @@
-import React, { useEffect } from "react"; // 1. Importar useEffect
-import { useNavigate } from "react-router-dom"; // 2. Importar useNavigate
+import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import bgInscribete from "../assets/fondo.png";
@@ -8,24 +7,12 @@ import SponsorsSection from "../components/SponsorSection";
 import GlassContador from "../components/steps/GlassContador";
 import StepHeader from "../components/steps/StepHeader3";
 import StepFinal from "../components/steps/StepFinal";
-import { useRegistration } from "../components/steps/RegistrationContext"; // 3. Importar el Contexto
+
+// Nota: Ya no necesitamos importar useNavigate, useEffect ni el Contexto aquí
+// porque StepFinal se encargará de validar si hay datos o redirigir.
 
 const InscribeteCheck: React.FC = () => {
-  const navigate = useNavigate();
-  const { registrationData } = useRegistration();
-
-  // === PROTECCIÓN DE RUTA ===
-  // Si el usuario recarga aquí (F5), los datos se borran.
-  // Lo redirigimos al inicio para que no vea la pantalla de éxito vacía.
-  useEffect(() => {
-    if (!registrationData.documentNumber || !registrationData.fullName) {
-      navigate("/inscribete");
-    }
-  }, [registrationData, navigate]);
-
-  // Si no hay datos, evitamos renderizar el resto mientras redirige
-  if (!registrationData.documentNumber) return null;
-
+  
   return (
     <div className="relative w-full min-h-screen text-white flex flex-col">     
 
