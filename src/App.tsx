@@ -1,8 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import PonentesPage from './pages/PonentesPage';
-import Ubicacion from "./components/Ubicación";
-import Nosotros from "./pages/Nosotros";
 import Inscribete from "./pages/Inscribete";
 import InscribeteCertificado from "./pages/InscribeteCertificado";
 import InscribeteCheck from "./pages/InscribeteCheck";
