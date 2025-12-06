@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, type ChangeEvent } from "react";
 import { FiCalendar, FiHash, FiUploadCloud, FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { useRegistration } from "./RegistrationContext";
+import { ENDPOINTS } from "../../config";
 
 const StepPagoForm = () => {
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ const StepPagoForm = () => {
     formData.append('data', JSON.stringify(dataPayload));
 
     try {
-      const response = await fetch("http://3.238.32.48:8080/api/admin/registration", {
+      const response = await fetch(ENDPOINTS.REGISTRATION, {
         method: "POST",
         // IMPORTANTE: NO poner el header 'Content-Type': 'application/json'.
         // Al pasar 'formData' en el body, el navegador pone automáticamente

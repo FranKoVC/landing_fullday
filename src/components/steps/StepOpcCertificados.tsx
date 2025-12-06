@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import StepMetodoPago from "./StepMetodoPago"; 
 import StepFormPago from "./StepFormPago";
 import { useRegistration } from "./RegistrationContext";
+import { ENDPOINTS } from "../../config";
 
 const Step2Certificado = () => {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ const Step2Certificado = () => {
     formData.append('data', JSON.stringify(dataPayload));
 
     try {
-      const response = await fetch("http://3.238.32.48:8080/api/admin/registration", {
+      const response = await fetch(ENDPOINTS.REGISTRATION, {
         method: "POST",
         // IMPORTANTE: Quitamos el header 'Content-Type': 'application/json'
         // El navegador detectará el FormData y pondrá el boundary automáticamente.
