@@ -31,15 +31,18 @@ const Nosotros: React.FC = () => {
                 Promoción <span className="text-orange-500">XXVI</span>
               </h1>
               <p className="text-gray-300 max-w-2xl mb-2 leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra 
-                maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                La Promoción XXVI de Ingeniería de Sistemas de la Universidad Nacional de Trujillo representa una 
+                generación de profesionales comprometidos con la excelencia académica y la innovación tecnológica. 
+                Formados bajo los más altos estándares educativos, nuestros egresados han desarrollado competencias 
+                sólidas en desarrollo de software, gestión de proyectos tecnológicos, análisis de datos, inteligencia 
+                artificial y arquitectura de sistemas.
+
               </p>
               <p className="text-gray-300 max-w-2xl mb-8 leading-relaxed">
-                Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel 
-                facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                ut labore et dolore magna aliqua.
+                Con una visión orientada al futuro, esta promoción se caracteriza por su capacidad de adaptación, 
+                trabajo en equipo y liderazgo tecnológico. Nuestros profesionales están preparados para enfrentar 
+                los desafíos de la transformación digital y contribuir al desarrollo tecnológico del país, aplicando 
+                soluciones innovadoras que impactan positivamente en la sociedad.
               </p>
               
               {/* Social Icons */}
