@@ -2,16 +2,17 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import bgInscribete from "../assets/fondo.png";
-import Ubicacion from "../components/UbicacionSection";
+import UbicacionSection from "../components/UbicacionSection";
 import SponsorsSection from "../components/SponsorSection";
 import GlassContador from "../components/steps/GlassContador";
-import StepHeader from "../components/steps/StepHeader";
+import StepHeader from "../components/steps/StepHeader3";
+import StepFinal from "../components/steps/StepFinal";
 
-import InscripcionForm from "../components/steps/FormDatos";
+// Nota: Ya no necesitamos importar useNavigate, useEffect ni el Contexto aquí
+// porque StepFinal se encargará de validar si hay datos o redirigir.
 
-
-
-const Inscribete: React.FC = () => {
+const InscribeteCheck: React.FC = () => {
+  
   return (
     <div className="relative w-full min-h-screen text-white flex flex-col">     
 
@@ -28,7 +29,7 @@ const Inscribete: React.FC = () => {
         >
           <GlassContador />
 
-          <div className=" w-full mx-auto mt-20">
+          <div className="max-w-5xl w-full mx-auto mt-20">
             {/* Título */}
             <div className="text-center mb-8">
               <h1 className="text-3xl md:text-5xl font-bold mb-3">
@@ -41,11 +42,12 @@ const Inscribete: React.FC = () => {
                 Completa los siguientes pasos para inscribirte
               </p>
             </div>
-            {/* paso 1 */}
-            <StepHeader />
-            <InscripcionForm />
             
-        </div>
+            {/* Pasos y Componente Final */}
+            <StepHeader />
+            <StepFinal />
+            
+          </div>
         </section>
 
         {/* ========================================================== */}
@@ -66,7 +68,7 @@ const Inscribete: React.FC = () => {
           {/* CONTENIDO UBICACIÓN */}
           {/* -------------------------------------------------------- */}
           <div className="relative z-20 w-full">
-            <Ubicacion />
+            <UbicacionSection />
           </div>
           
         </section>
@@ -81,4 +83,4 @@ const Inscribete: React.FC = () => {
   );
 };
 
-export default Inscribete;
+export default InscribeteCheck;

@@ -466,13 +466,17 @@ const teamMembersData = [
         "github": "https://github.com/Yesan10"
       }
   }
+
 ];
 
 const AboutUs: React.FC = () => {
   return (
-    <section className="w-full py-20 md:py-30 bg-[#00193e] text-white">
+    <section className="w-full py-20 md:py-30 bg-[#00193e] text-white ">
       
-      <div className="max-w-6xl mx-auto px-6 text-center">
+      {/* 2. CAJA INTERNA DE ALINEACIÓN (LA CLAVE)
+         Esta línea debe ser IDÉNTICA a la del Footer: max-w-6xl mx-auto px-6
+      */}
+      <div className="max-w-7xl mx-auto px-6 text-center">
         
         {/* Título */}
         <h2 className="text-3xl md:text-5xl font-bold mb-6">

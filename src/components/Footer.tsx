@@ -1,5 +1,5 @@
 import React from "react";
-import logoFullDay from "../assets/Logo.png";
+import logoFullDay from "../assets/logo.png";
 
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
@@ -7,9 +7,9 @@ const Footer: React.FC = () => {
   return (
     <footer
       id="nosotros"
-      className="w-full bg-gradient-to-t from-[#10284b] via-[#1a325b] to-[#243b70] text-slate-100 pt-12 pb-6"
+      className="w-full bg-linear-to-t from-[#10284b] via-[#1a325b] to-[#243b70] text-slate-100 pt-12 pb-6"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Logo */}
         <div className="flex items-center gap-2 mb-4">
           <img
