@@ -1,22 +1,29 @@
-import { useEffect } from "react"; // 1. Importamos useEffect
-import { FiUser, FiMail, FiCheckCircle, FiFileText } from "react-icons/fi";
+import { useEffect } from "react"; 
+import { FiUser, FiMail, FiCheckCircle, FiFileText, FiHome } from "react-icons/fi"; // Agregamos FiHome
 import { useRegistration } from "./RegistrationContext";
+import { useNavigate } from "react-router-dom"; // Importamos el hook de navegación
 
 const StepFinal = () => {
-  // 1. Consumimos el contexto para mostrar los datos REALES
+  const navigate = useNavigate();
   const { registrationData, clearRegistrationData } = useRegistration();
 
-  // 2. EFECTO DE LIMPIEZA
-  // Este efecto se ejecuta cuando el usuario ABANDONA esta vista (unmount).
-  // Así aseguramos que si regresa o recarga después de haber terminado, el formulario esté limpio.
-  useEffect(() => {
-    return () => {
-      clearRegistrationData();
-    };
-  }, [clearRegistrationData]);
+  // Detectamos si es pago o gratis para ajustar el mensaje de texto (sin romper estilo)
+  const esPago = registrationData.payment?.operationNumber;
+
+  // === TU SUGERENCIA IMPLEMENTADA ===
+  const handleFinalizar = () => {
+    // 1. Navegamos primero
+    navigate("/"); 
+
+    // 2. Borramos los datos después de 100ms para que el componente padre
+    // se desmonte antes y no detecte que los datos están vacíos.
+    setTimeout(() => {
+        clearRegistrationData();
+    }, 100);
+  };
 
   return (
-    <div className="max-w-4xl mx-auto w-full mt-8 text-center animate-in fade-in zoom-in duration-500">
+    <div className="max-w-4xl mx-auto w-full mt-8 text-center animate-in fade-in zoom-in duration-500 pb-10">
 
       {/* Icono grande */}
       <div className="flex justify-center mb-6">
@@ -94,7 +101,7 @@ const StepFinal = () => {
         </div>
       </div>
 
-      {/* Barra inferior de verificación */}
+      {/* Barra inferior de verificación (Texto dinámico, MISMO ESTILO) */}
       <div
         className="
           mt-10 p-4 rounded-xl w-full
@@ -105,7 +112,10 @@ const StepFinal = () => {
       >
         <FiFileText className="text-yellow-300" size={20} />
         <p className="font-medium text-sm">
-          Tu comprobante de pago será verificado en las próximas 24–48 horas
+          {esPago 
+            ? "Tu comprobante de pago será verificado en las próximas 24–48 horas"
+            : "Tu registro gratuito ha sido confirmado correctamente"
+          }
         </p>
       </div>
 

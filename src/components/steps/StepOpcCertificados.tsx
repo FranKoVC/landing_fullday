@@ -21,9 +21,14 @@ const Step2Certificado = () => {
   const precio = registrationData.type === "STUDENT" ? "25.00" : "35.00";
   const etiqueta = registrationData.type === "STUDENT" ? "Estudiante" : "Profesional";
 
+  // =========================================================
+  // === CAMBIO PRINCIPAL: ENVÍO GRATUITO CON FORMDATA ===
+  // =========================================================
   const handleFreeRegister = async () => {
     setLoading(true);
-    const finalPayload = {
+
+    // 1. Construimos el objeto JSON limpio (Sin pago, sin imagen)
+    const dataPayload = {
       documentNumber: registrationData.documentNumber,
       fullName: registrationData.fullName,
       email: registrationData.email,
@@ -31,11 +36,17 @@ const Step2Certificado = () => {
       type: registrationData.type || "STUDENT"
     };
 
+    // 2. Creamos el FormData
+    const formData = new FormData();
+    // Aunque no haya imagen, el backend espera el JSON dentro del campo "data"
+    formData.append('data', JSON.stringify(dataPayload));
+
     try {
       const response = await fetch("http://3.238.32.48:8080/api/admin/registration", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(finalPayload),
+        // IMPORTANTE: Quitamos el header 'Content-Type': 'application/json'
+        // El navegador detectará el FormData y pondrá el boundary automáticamente.
+        body: formData, 
       });
 
       if (response.ok) {
@@ -54,11 +65,9 @@ const Step2Certificado = () => {
   };
 
   return (
-    // CAMBIO 1: Ancho dinámico. Si es 'pago', usamos max-w-7xl para tener espacio lateral.
     <div className={`w-full mx-auto transition-all duration-500 ${option === 'pago' ? 'max-w-7xl' : 'max-w-7xl'}`}>
 
       {/* ===================== TARJETAS DE OPCIÓN ===================== */}
-      {/* Centramos este bloque cuando el contenedor se hace grande */}
       <div className="max-w-7xl mx-auto bg-white/10 border border-white/20 rounded-3xl p-10 backdrop-blur-md shadow-xl">
 
         <h2 className="text-lg text-white font-semibold mb-1">
@@ -121,29 +130,16 @@ const Step2Certificado = () => {
         )}
       </div>
       
-      {/* ===================== SECCIÓN PAGO (LAYOUT MODIFICADO) ===================== */}
+      {/* ===================== SECCIÓN PAGO ===================== */}
       {option === "pago" && (
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 mt-8">
-            
-            {/* CAMBIO 2: Layout Flexbox Inteligente */}
-            {/* flex-col: Móvil (uno debajo de otro) */}
-            {/* lg:flex-row-reverse: Desktop (Fila invertida -> El primero va a la derecha, el segundo a la izquierda) */}
             <div className="flex flex-col lg:flex-row-reverse gap-8 items-start">
-                
-                {/* 1. StepMetodoPago (QR) */}
-                {/* En móvil aparece PRIMERO (Arriba) */}
-                {/* En desktop, por el row-reverse, aparece a la DERECHA */}
                 <div className="w-full lg:w-5/12 xl:w-1/3">
                     <StepMetodoPago /> 
                 </div>
-
-                {/* 2. StepFormPago (Formulario) */}
-                {/* En móvil aparece SEGUNDO (Abajo) */}
-                {/* En desktop, por el row-reverse, aparece a la IZQUIERDA */}
                 <div className="w-full lg:w-7/12 xl:w-2/3">
                     <StepFormPago />
                 </div>
-
             </div>
         </div>
       )}

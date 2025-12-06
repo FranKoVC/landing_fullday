@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, type ChangeEvent } from "react";
-import { FiCalendar, FiCreditCard, FiHash, FiUploadCloud, FiArrowLeft } from "react-icons/fi";
+import { FiCalendar, FiHash, FiUploadCloud, FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { useRegistration } from "./RegistrationContext";
 
@@ -7,7 +7,6 @@ const StepPagoForm = () => {
   const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   
-  // 1. Traemos los datos y la función para actualizar PAGO del contexto
   const { registrationData, updatePaymentData } = useRegistration();
 
   // === PROTECCIÓN DE RUTA ===
@@ -20,15 +19,12 @@ const StepPagoForm = () => {
   const [loading, setLoading] = useState(false);
   const [archivo, setArchivo] = useState<File | null>(null);
   
-  // 2. INICIALIZACIÓN CON MEMORIA: 
-  // Si ya existían datos de pago en el contexto (porque el usuario fue y volvió), los cargamos.
   const [paymentData, setPaymentData] = useState({
     paymentDate: registrationData.payment?.paymentDate || "",
-    paymentMethod: registrationData.payment?.paymentMethod || "",
+    paymentMethod: "YAPE", 
     operationNumber: registrationData.payment?.operationNumber || ""
   });
 
-  // Calculamos monto visualmente
   const monto = registrationData.type === "STUDENT" ? "25.00" : "35.00";
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -41,47 +37,62 @@ const StepPagoForm = () => {
     }
   };
 
-  // === LÓGICA BOTÓN VOLVER ===
   const handleBack = () => {
-    // 1. Guardamos lo que el usuario haya escrito hasta ahora en el Contexto/SessionStorage
     updatePaymentData(paymentData);
-    // 2. Navegamos hacia atrás
     navigate("/inscribete");
   };
 
+  // =========================================================
+  // === AQUÍ ESTÁ EL CAMBIO PRINCIPAL PARA ENVIAR IMAGEN ===
+  // =========================================================
   const handleFinalSubmit = async () => {
-    // Validar campos vacíos
-    if (!paymentData.paymentDate || !paymentData.paymentMethod || !paymentData.operationNumber) {
-        alert("Por favor completa los datos del pago");
+    // 1. Validaciones visuales (incluyendo la fecha para que el usuario la llene)
+    if (!paymentData.paymentDate || !paymentData.operationNumber) {
+        alert("Por favor completa los datos del pago (Fecha y Nro Operación)");
+        return;
+    }
+
+    if (!archivo) {
+        alert("Por favor adjunta la captura del comprobante (foto)");
         return;
     }
 
     setLoading(true);
 
-    // Guardamos en el contexto por si falla y tiene que reintentar, no pierda los datos
+    // Actualizamos el contexto por si vuelven atrás (opcional)
     updatePaymentData(paymentData);
 
-    const finalPayload = {
+    // 2. Construir el objeto JSON EXACTO que pide el backend (SIN LA FECHA)
+    const dataPayload = {
       documentNumber: registrationData.documentNumber,
       fullName: registrationData.fullName,
       email: registrationData.email,
       phone: registrationData.phone,
       type: registrationData.type || "STUDENT", 
       payment: {
-        paymentDate: paymentData.paymentDate,
-        paymentMethod: paymentData.paymentMethod, 
+        paymentMethod: paymentData.paymentMethod, // "YAPE"
         operationNumber: paymentData.operationNumber
+        // NOTA: No incluimos paymentDate aquí
       }
     };
 
+    // 3. Crear el FormData para enviar Archivo + JSON
+    const formData = new FormData();
+    
+    // A. Agregamos el archivo. 
+    // Asegúrate que tu backend espere el nombre "photo" (basado en tu ejemplo anterior)
+    formData.append('photo', archivo); 
+
+    // B. Agregamos el JSON convertido a string en el campo "data"
+    formData.append('data', JSON.stringify(dataPayload));
+
     try {
-      // Usamos la IP pública de tu servidor
       const response = await fetch("http://3.238.32.48:8080/api/admin/registration", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(finalPayload),
+        // IMPORTANTE: NO poner el header 'Content-Type': 'application/json'.
+        // Al pasar 'formData' en el body, el navegador pone automáticamente
+        // 'multipart/form-data' y el boundary correcto.
+        body: formData, 
       });
 
       if (response.ok) {
@@ -109,12 +120,11 @@ const StepPagoForm = () => {
       {/* ==== GLASS CONTAINER ==== */}
       <div className="bg-white/10 border border-white/20 rounded-3xl p-10 backdrop-blur-md shadow-xl">
 
-        {/* Título */}
         <h2 className="text-center text-2xl font-semibold text-white">
           Información de pago
         </h2>
         
-        {/* === SECCIÓN DE MONTO DINÁMICO === */}
+        {/* === SECCIÓN DE MONTO === */}
         <div className="mt-6 mb-8 text-center bg-yellow-400/10 border border-yellow-400/20 rounded-xl p-4 max-w-sm mx-auto">
           <p className="text-slate-300 text-sm mb-1">Monto a cancelar</p>
           <p className="text-3xl font-bold text-yellow-400">S/ {monto}</p>
@@ -129,7 +139,7 @@ const StepPagoForm = () => {
 
         <div className="mt-8 space-y-6">
 
-          {/* Fecha */}
+          {/* Fecha (Se mantiene visible para el usuario, pero no se envía en el JSON 'data') */}
           <div>
             <label className="flex items-center gap-2 text-slate-300 mb-1 text-sm">
               <FiCalendar className="text-yellow-300" />
@@ -138,28 +148,10 @@ const StepPagoForm = () => {
             <input
               type="date"
               name="paymentDate"
-              value={paymentData.paymentDate} // Vinculado al estado inicializado
+              value={paymentData.paymentDate}
               onChange={handleInputChange}
               className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none cursor-pointer focus:border-yellow-400/50 transition"
             />
-          </div>
-
-          {/* Método */}
-          <div>
-            <label className="flex items-center gap-2 text-slate-300 mb-1 text-sm">
-              <FiCreditCard className="text-yellow-300" />
-              Método de pago
-            </label>
-            <select
-              name="paymentMethod"
-              value={paymentData.paymentMethod} // Vinculado al estado inicializado
-              onChange={handleInputChange}
-              className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none cursor-pointer focus:border-yellow-400/50 transition"
-            >
-              <option value="" className="bg-[#0b1833] text-slate-400">Seleccionar</option>
-              <option value="BANCO" className="bg-[#0b1833]">Depósito Bancario</option>
-              <option value="YAPE" className="bg-[#0b1833]">Yape / Plin</option>
-            </select>
           </div>
 
           {/* Número operación */}
@@ -171,13 +163,13 @@ const StepPagoForm = () => {
             <input
               type="text"
               name="operationNumber"
-              value={paymentData.operationNumber} // Vinculado al estado inicializado
+              value={paymentData.operationNumber}
               onChange={handleInputChange}
               className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none focus:border-yellow-400/50 transition"
             />
           </div>
 
-          {/* Comprobante */}
+          {/* Comprobante (Input File) */}
           <div>
             <label className="flex items-center gap-2 text-slate-300 mb-1 text-sm">
               <FiUploadCloud className="text-yellow-300" />
@@ -186,7 +178,7 @@ const StepPagoForm = () => {
 
             <div
               className="w-full h-40 bg-white/5 border border-white/10 rounded-xl
-                         flex flex-col justify-center items-center text-center cursor-pointer hover:bg-white/10 transition group"
+                          flex flex-col justify-center items-center text-center cursor-pointer hover:bg-white/10 transition group"
               onClick={() => fileInputRef.current?.click()}
             >
               <FiUploadCloud className="text-slate-300 group-hover:text-yellow-300 transition mb-2" size={32} />
@@ -212,7 +204,6 @@ const StepPagoForm = () => {
         {/* Botones */}
         <div className="flex justify-between mt-10">
           
-          {/* BOTÓN VOLVER MODIFICADO */}
           <button
             onClick={handleBack}
             className="px-6 py-3 rounded-full bg-white/10 border border-white/20 
@@ -233,8 +224,6 @@ const StepPagoForm = () => {
         </div>
 
       </div>
-      {/* ==== FIN GLASS ==== */}
-
     </div>
   );
 };
