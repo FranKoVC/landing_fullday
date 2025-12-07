@@ -3,6 +3,8 @@
 export interface SocialLinks {
   linkedin: string;
   github: string;
+  dribbble?: string;
+  behance?: string;
 }
 
 export interface Student {
@@ -232,6 +234,8 @@ export const teamMembersData: Student[] = [
     socialLinks: {
       linkedin: "www.linkedin.com/in/allylecca",
       github: "-",
+      dribbble: "https://dribbble.com/allylecca",
+      behance: "https://www.behance.net/allylecca",
     },
   },
   {

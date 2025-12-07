@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AboutUs from "../components/AboutUs";
-import Promo from "../../public/images/promo.jpg"
+import Promo from "/images/promo.jpg"
 
 // Componente principal Nosotros
 const Nosotros: React.FC = () => {
@@ -24,7 +24,7 @@ const Nosotros: React.FC = () => {
               className="w-full h-full object-cover opacity-40 transition-all duration-300 ease-in-out hover:scale-105"
               />
               {/* Gradiente corregido */}
-              <div className="absolute inset-0 bg-linear-to-r from-[#0a1f44]/60 via-[#0a1f44]/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-[#0a1f44] via-[#0a1f44]/80 to-transparent"></div>
             </div>
 
             {/* Contenido */}

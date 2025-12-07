@@ -125,10 +125,10 @@ const Home: React.FC = () => {
     <div className="w-full bg-[#0a1929] text-white">
       <Header />
 
-      {/* Ponente de fondo*/}
+      {/* HERO + QUIÉNES SOMOS EN LA MISMA SECCIÓN */}
       <section
         id="inicio"
-        className="relative w-full min-h-screen overflow-hidden bg-[#0a1929]"
+        className="relative w-full overflow-hidden bg-[#0a1929]"
       >
         {/* Degradado de fondo con curvas */}
         <div className="absolute inset-0 overflow-hidden">
@@ -138,18 +138,17 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Imagen de fondo a la izquierda - MOVIDA MÁS A LA DERECHA */}
+        {/* Imagen de fondo a la izquierda */}
         <div className="absolute left-0 top-0 bottom-0 w-full lg:w-1/2 overflow-hidden">
           <img
             src={homeImage}
             alt="Speaker Full Day"
             className="absolute top-0 w-full h-full object-cover object-[15%_center] lg:object-[25%_center]"
           />
-          {/* Overlay para transición suave */}
           <div className="absolute inset-0 bg-linear-to-r from-transparent via-[#0a1929]/20 to-[#0a1929]" />
         </div>
 
-        {/* contenido principal - texto centrado */}
+        {/* Contenido principal del hero */}
         <div className="relative w-full px-6 lg:px-16 pt-24 pb-20 min-h-screen flex items-center">
           <div className="w-full lg:w-3/5 lg:ml-auto space-y-6 text-center lg:text-left">
             <div className="inline-block">
@@ -201,115 +200,95 @@ const Home: React.FC = () => {
             {/* Redes sociales */}
             <div className="flex gap-4 pt-6 justify-center lg:justify-start">
               <a
-              href="https://www.instagram.com/xi_fulldaygestionti?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#1fbac3] flex items-center justify-center transition-all duration-300"
+                href="https://www.instagram.com/xi_fulldaygestionti?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#1fbac3] flex items-center justify-center transition-all duration-300"
               >
-              <FiInstagram size={18} />
+                <FiInstagram size={18} />
               </a>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* =======================
-          QUIÉNES SOMOS + BENEFICIOS
-          SIN BORDES - DEGRADADO CONTINUO
-         ======================= */}
-      <section className="relative w-full bg-linear-to-b from-[#0a1929] via-[#0a1a2a] to-[#0d1f35]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Quiénes somos */}
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold tracking-tight">
-                QUIÉNES SOMOS
-              </h2>
-              <p className="text-slate-300 leading-relaxed text-lg">
-                El 11º Full Day de Gestión de TI es un espacio académico y
-                profesional, diseñado para que estudiantes, egresados y
-                profesionales profundicen en los principios y tendencias
-                actuales. Ofrecemos una jornada intensiva de aprendizaje con
-                ponentes experimentados y contenido actualizado que fortalecerá
-                tus competencias, ampliará tu visión estratégica y te permitirá
-                entender mejor el impacto de la tecnología en la toma de
-                decisiones. Creemos que este tipo de eventos impulsa el
-                crecimiento, la innovación y el desarrollo profesional en el
-                campo de TI.
-              </p>
-            </div>
+        {/* QUIÉNES SOMOS + BENEFICIOS (MISMO FONDO, SIN LÍNEA) */}
+        <div className="relative w-full">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-16">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              {/* Quiénes somos */}
+              <div className="space-y-6">
+                <h2 className="text-3xl font-bold tracking-tight">
+                  QUIÉNES SOMOS
+                </h2>
+                <p className="text-slate-300 leading-relaxed text-lg">
+                  El 11º Full Day de Gestión de TI es un espacio académico y
+                  profesional, diseñado para que estudiantes, egresados y
+                  profesionales profundicen en los principios y tendencias
+                  actuales. Ofrecemos una jornada intensiva de aprendizaje con
+                  ponentes experimentados y contenido actualizado que
+                  fortalecerá tus competencias, ampliará tu visión estratégica y
+                  te permitirá entender mejor el impacto de la tecnología en la
+                  toma de decisiones. Creemos que este tipo de eventos impulsa
+                  el crecimiento, la innovación y el desarrollo profesional en
+                  el campo de TI.
+                </p>
+              </div>
 
-            {/* Beneficios */}
-            <div className="space-y-6">
-              <h3 className="text-sm text-slate-400 font-semibold uppercase tracking-wider">
-                BENEFICIOS DE ASISTIR AL FULL DAY
-              </h3>
+              {/* Beneficios */}
+              <div className="space-y-6">
+                <h3 className="text-sm text-slate-400 font-semibold uppercase tracking-wider">
+                  BENEFICIOS DE ASISTIR AL FULL DAY
+                </h3>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {benefits.map((b, i) => (
-                  <div
-                    key={b.id}
-                    className={`flex flex-col items-center justify-center gap-3 p-6 rounded-2xl text-center transition-all duration-300 ${
-                      i === 0
-                        ? "bg-[#1fbac3] text-white shadow-lg shadow-[#1fbac3]/30"
-                        : "bg-white/5 hover:bg-white/10 text-slate-200"
-                    }`}
-                  >
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {benefits.map((b) => (
                     <div
-                      className={`${i === 0 ? "text-white" : "text-slate-300"}`}
+                      key={b.id}
+                      className="
+                        group flex flex-col items-center justify-center gap-3
+                        p-6 rounded-2xl text-center
+                        transition-all duration-300
+                        bg-white/5 text-slate-200
+                        hover:bg-[#1fbac3] hover:text-white
+                        hover:shadow-lg hover:shadow-[#1fbac3]/30
+                      "
                     >
-                      {b.icon}
+                      <div className="text-2xl text-slate-300 transition-colors group-hover:text-white">
+                        {b.icon}
+                      </div>
+
+                      <div>
+                        <p className="text-sm font-semibold">{b.title}</p>
+                        <p className="text-xs mt-1 text-slate-300 transition-colors group-hover:text-white/90">
+                          {b.subtitle}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold">{b.title}</p>
-                      <p
-                        className={`text-xs mt-1 ${
-                          i === 0 ? "text-white" : "text-slate-300"
-                        }`}
-                      >
-                        {b.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* =======================
-              COUNTDOWN
-         ======================= */}
+      {/* COUNTDOWN */}
       <CountDown />
 
-      {/* =======================
-              AGENDA
-         ======================= */}
-
+      {/* AGENDA */}
       <Agenda />
 
-      {/* =======================
-              PONENTES (Carrusel)
-           ======================= */}
+      {/* PONENTES (Carrusel) */}
       <PonentesHome />
 
-      {/* =======================
-              SPONSORS
-           ======================= */}
+      {/* SPONSORS */}
       <SponsorSection />
 
-      {/* =======================
-              UBICACIÓN
-         ======================= */}
+      {/* UBICACIÓN */}
       <Ubicacion />
 
-      {/* =======================
-              FAQ
-         ======================= */}
+      {/* FAQ */}
       <FAQSection />
 
-      {/* =======================
-              FOOTER SIMPLE
-         ======================= */}
+      {/* FOOTER */}
       <Footer />
     </div>
   );
