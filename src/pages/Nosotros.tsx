@@ -15,16 +15,16 @@ const Nosotros: React.FC = () => {
       {/* Hero Section */}
       <section className="relative px-8 py-20">
         <div className="max-w-6xl mx-auto">
-          <div className="relative rounded-3xl overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2">
+            <div className="relative rounded-3xl overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2">
             {/* Imagen de fondo */}
             <div className="absolute inset-0 overflow-hidden">
               <img
               src={Promo}
               alt="Promoción"
-              className="w-full h-full object-cover opacity-40 transition-all duration-300 ease-in-out hover:scale-105"
+              className="w-full h-full object-cover opacity-60 transition-all duration-300 ease-in-out hover:scale-105"
               />
               {/* Gradiente corregido */}
-              <div className="absolute inset-0 bg-linear-to-r from-[#0a1f44] via-[#0a1f44]/80 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-[#0a1f44] via-[#0a1f44]/60 to-transparent"></div>
             </div>
 
             {/* Contenido */}
