@@ -101,18 +101,20 @@ const CountDown = () => {
 
           {/* Botones */}
           <div className="pt-6 flex items-center justify-center gap-4">
-            <button
+            {/* <button
               type="button"
               className="cursor-pointer px-8 py-2.5 rounded-full border border-[#0b3d63] text-[#0b3d63] text-xs md:text-sm font-semibold tracking-wide bg-transparent hover:bg-white hover:shadow-md transition-all duration-300"
             >
               VER DETALLES
-            </button>
-<button
-  type="button"
-  className="cursor-pointer px-8 py-2.5 rounded-full text-white text-xs md:text-sm font-semibold tracking-wide bg-linear-to-r from-[#023E55] to-[#2BA5B2] shadow-md hover:shadow-lg hover:brightness-105 hover:-translate-y-0.5 transition-all duration-300"
->
-  INSCRIBIRME
-</button>
+            </button> */}
+            <a href="/inscribete">
+              <button
+                type="button"
+                className="cursor-pointer px-8 py-2.5 rounded-full text-white text-xs md:text-sm font-semibold tracking-wide bg-linear-to-r from-[#023E55] to-[#2BA5B2] shadow-md hover:shadow-lg hover:brightness-105 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                INSCRIBIRME
+              </button>
+            </a>
           </div>
         </div>
       </section>
