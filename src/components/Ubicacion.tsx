@@ -8,9 +8,9 @@ interface UbicacionProps {
 }
 
 const Ubicacion: React.FC<UbicacionProps> = ({
-  title = "AUDITORIO",
-  subtitle = "COPÉRNICO",
-  mapImage = "/images/ubicacion.png", // Imagen desde public/images/
+  title = "TEATRÍN",
+  subtitle = "NICOLÁS COPÉRNICO",
+  mapImage = "/images/ubicacion.png",
   mapLink = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3949.884225523186!2d-79.0400585!3d-8.1132694!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ad3d9ef90488e9%3A0x73783cb69cf5bb17!2zVGVhdHLDrW4gTmljb2zDoXMgQ29ww6lybmljbw!5e0!3m2!1ses!2spe!4v1764972172275!5m2!1ses!2spe"
 }) => {
   return (

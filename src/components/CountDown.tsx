@@ -44,7 +44,7 @@ const CountDown = () => {
 
           {/* Título principal (consistente con Nosotros.tsx) */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#007a86]">
-            Full Day de Gobierno de Tecnologías de la Información
+            11° Full Day de Gobierno de Tecnologías de la Información
           </h2>
 
           {/* Bloque de números */}
@@ -95,7 +95,7 @@ const CountDown = () => {
               <span className="w-6 h-6 rounded-full border border-[#30415f] flex items-center justify-center">
                 <FiUser className="w-3.5 h-3.5" />
               </span>
-              Auditorio de Humanidades, UNT
+              Teatrín Nicolás Copérnico, UNT
             </span>
           </div>
 

@@ -4,11 +4,12 @@ import CountDown from "../components/CountDown";
 import Agenda from "../components/Agenda";
 import PonentesHome from "../components/PonentesHome";
 import SponsorSection from "../components/SponsorSection";
-import UbicacionSection from "../components/UbicacionSection";
+import Ubicacion from "../components/Ubicacion";
 import FAQSection from "../components/FAQSection";
+import homeImage from "../assets/home.png";
 import Footer from "../components/Footer";
+import { FiInstagram } from "react-icons/fi";
 import { Link } from "react-router-dom";
-
 
 type Benefit = {
   id: number;
@@ -18,22 +19,13 @@ type Benefit = {
 };
 
 const Home: React.FC = () => {
-  /* =======================
-      IMÁGENES (REEMPLAZA)
-     ======================= */
-  const heroImage = "/assets/hero.jpg"; // ✅ pon tu imagen en public/assets o cambia ruta
-
-  /* =======================
-          DATA MOCKUP
-     ======================= */
-
   const benefits: Benefit[] = [
     {
       id: 1,
-      title: "Red global",
+      title: "Red de Expertos",
       subtitle: "Networking",
       icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
           <circle
             cx="12"
             cy="12"
@@ -51,28 +43,59 @@ const Home: React.FC = () => {
     },
     {
       id: 2,
-      title: "Casos reales",
-      subtitle: "Innovación",
+      title: "Conocimiento Aplicado",
+      subtitle: "Casos Reales",
       icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M7 7h10v10H7z" stroke="currentColor" strokeWidth="1.5" />
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
           <path
-            d="M4 12h3M17 12h3M12 4v3M12 17v3"
+            d="M12 2L2 7l10 5 10-5-10-5z"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M2 17l10 5 10-5M2 12l10 5 10-5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       ),
     },
     {
       id: 3,
-      title: "Talleres",
-      subtitle: "Práctica",
+      title: "Desarrollo Integral",
+      subtitle: "Talleres",
       icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <rect
+            x="3"
+            y="6"
+            width="18"
+            height="13"
+            rx="2"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M3 10h18M8 6V4M16 6V4"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      id: 4,
+      title: "Respaldo Formal",
+      subtitle: "Certificado",
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
           <rect
             x="4"
-            y="4"
+            y="3"
             width="16"
             height="16"
             rx="2"
@@ -80,32 +103,18 @@ const Home: React.FC = () => {
             strokeWidth="1.5"
           />
           <path
-            d="M8 8h8M8 12h8M8 16h5"
+            d="M9 11l2 2 4-4"
             stroke="currentColor"
             strokeWidth="1.5"
-          />
-        </svg>
-      ),
-    },
-    {
-      id: 4,
-      title: "Certificado",
-      subtitle: "Participación",
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <rect
-            x="4"
-            y="3"
-            width="16"
-            height="18"
-            rx="2"
-            stroke="currentColor"
-            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
-            d="M7 8h10M7 12h10M7 16h6"
+            d="M12 19v3l2-1 2 1v-3"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       ),
@@ -113,116 +122,152 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-[#061937] text-white">
+    <div className="w-full bg-[#0a1929] text-white">
+      <Header />
 
-<Header/>
-
-      {/* =======================
-              HERO
-         ======================= */}
+      {/* Ponente de fondo*/}
       <section
         id="inicio"
-        className="relative w-full min-h-[85vh] md:min-h-[95vh] overflow-hidden bg-[#061937]"
+        className="relative w-full min-h-screen overflow-hidden bg-[#0a1929]"
       >
-        {/* fondo degradado */}
-        <div className="absolute inset-0 bg-linear-to-b from-black/10 via-[#061937] to-[#061937]" />
+        {/* Degradado de fondo con curvas */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 right-0 w-full h-full">
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-[#1e3a5f]/20 blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-[#0d47a1]/10 blur-3xl" />
+          </div>
+        </div>
 
-        {/* imagen hero izquierda */}
-        <img
-          src={heroImage}
-          alt="Hero"
-          className="absolute left-0 top-0 h-full w-full md:w-1/2 object-cover object-center opacity-90"
-        />
+        {/* Imagen de fondo a la izquierda - MOVIDA MÁS A LA DERECHA */}
+        <div className="absolute left-0 top-0 bottom-0 w-full lg:w-1/2 overflow-hidden">
+          <img
+            src={homeImage}
+            alt="Speaker Full Day"
+            className="absolute top-0 w-full h-full object-cover object-[15%_center] lg:object-[25%_center]"
+          />
+          {/* Overlay para transición suave */}
+          <div className="absolute inset-0 bg-linear-to-r from-transparent via-[#0a1929]/20 to-[#0a1929]" />
+        </div>
 
-        {/* overlay para suavizar imagen */}
-        <div className="absolute inset-0 bg-[#061937]/60 md:bg-transparent md:from-[#061937]/80 md:via-[#061937]/40 md:to-transparent md:bg-linear-to-r" />
+        {/* contenido principal - texto centrado */}
+        <div className="relative w-full px-6 lg:px-16 pt-24 pb-20 min-h-screen flex items-center">
+          <div className="w-full lg:w-3/5 lg:ml-auto space-y-6 text-center lg:text-left">
+            <div className="inline-block">
+              <div className="flex items-center gap-2 text-sm text-[#1fbac3] font-medium justify-center lg:justify-start">
+                <div className="w-8 h-0.5 bg-[#1fbac3]" />
+                <span>13 DIC 2025</span>
+              </div>
+            </div>
 
-        {/* contenido */}
-        <div className="relative max-w-6xl mx-auto px-4 pt-28 md:pt-32 pb-20 grid gap-10 md:grid-cols-2 items-center">
-          {/* columna izquierda vacía en desktop para respetar imagen */}
-          <div className="hidden md:block" />
-
-          {/* columna derecha texto */}
-          <div className="space-y-5">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-wide">
-              Impulsa tus Conocimientos
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+              Impulsa tus conocimientos
               <br />
-              en Gobierno de Tecnologías
+              en Gestión de Tecnologías
               <br />
               de la Información
             </h1>
 
-            <p className="text-sm md:text-base text-slate-200 leading-relaxed max-w-xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              bibendum, sapien non viverra pretium, metus urna viverra lorem,
-              sed condimentum elit risus et sapien.
-            </p>
-
-            <div className="pt-2">
-              <p className="text-xs uppercase tracking-widest text-slate-300">
-                26 FullDay
+            <div className="space-y-4 text-slate-300 leading-relaxed">
+              <p>
+                El 11° Full Day de Gestión de TI, organizado por la Promoción
+                XXVI de la Escuela de Ingeniería de Sistemas de la UNT, reúne a
+                especialistas, ponentes y profesionales del sector para
+                compartir experiencias, buenas prácticas y enfoques modernos
+                sobre cómo dirigir, gestionar y alinear la tecnología con los
+                objetivos organizacionales.
               </p>
-              <p className="text-sm text-slate-100 mt-1">
-                Explora de cerca el mundo
-                <br />
-                de Gobierno de TIC
+              <p>
+                Es una oportunidad única para aprender, actualizarte, conectar
+                con expertos y ampliar tu visión sobre la gestión estratégica de
+                TI.
+              </p>
+            </div>
+
+            <div className="space-y-3 pt-4">
+              <p className="text-sm text-slate-400">
+                Explora de cerca el mundo de la Gestión de TI
               </p>
 
-             <Link
-  to="/inscribete"
-  className="mt-4 inline-block px-5 py-2 rounded-full bg-[#1fbac3] hover:bg-[#17a7af] text-xs font-semibold tracking-wide transition-all duration-300 shadow-lg shadow-[#1fbac3]/30 hover:shadow-[#1fbac3]/50 hover:-translate-y-0.5"
->
-  INSCRÍBETE YA
-</Link>
+              <div className="flex justify-center lg:justify-start">
+                <Link
+                  to="/inscribete"
+                  className="inline-block px-8 py-3 rounded-full bg-[#1fbac3] hover:bg-[#17a7af] text-sm font-semibold tracking-wide transition-all duration-300 shadow-lg shadow-[#1fbac3]/30 hover:shadow-[#1fbac3]/50 hover:-translate-y-0.5"
+                >
+                  INSCRIBETE AHORA
+                </Link>
+              </div>
+            </div>
+
+            {/* Redes sociales */}
+            <div className="flex gap-4 pt-6 justify-center lg:justify-start">
+              <a
+              href="https://www.instagram.com/xi_fulldaygestionti?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#1fbac3] flex items-center justify-center transition-all duration-300"
+              >
+              <FiInstagram size={18} />
+              </a>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* =======================
-            QUIÉNES SOMOS + BENEFICIOS
-           ======================= */}
-        <div className="relative w-full bg-[#061937] border-t border-white/5">
-          <div className="max-w-6xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-2 items-start">
+      {/* =======================
+          QUIÉNES SOMOS + BENEFICIOS
+          SIN BORDES - DEGRADADO CONTINUO
+         ======================= */}
+      <section className="relative w-full bg-linear-to-b from-[#0a1929] via-[#0a1a2a] to-[#0d1f35]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Quiénes somos */}
-            <div className="space-y-4">
-              <h2 className="text-2xl font-semibold tracking-wide">
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold tracking-tight">
                 QUIÉNES SOMOS
               </h2>
-              <p className="text-sm text-slate-200 leading-relaxed">
-                Full Day es un evento académico enfocado en el Gobierno de TI,
-                impulsado por estudiantes y docentes, con el objetivo de crear
-                un espacio de aprendizaje, innovación y networking entre la
-                comunidad universitaria y profesional.
+              <p className="text-slate-300 leading-relaxed text-lg">
+                El 11º Full Day de Gestión de TI es un espacio académico y
+                profesional, diseñado para que estudiantes, egresados y
+                profesionales profundicen en los principios y tendencias
+                actuales. Ofrecemos una jornada intensiva de aprendizaje con
+                ponentes experimentados y contenido actualizado que fortalecerá
+                tus competencias, ampliará tu visión estratégica y te permitirá
+                entender mejor el impacto de la tecnología en la toma de
+                decisiones. Creemos que este tipo de eventos impulsa el
+                crecimiento, la innovación y el desarrollo profesional en el
+                campo de TI.
               </p>
-              <button
-                className="mt-2 px-5 py-2 rounded-full bg-[#1fbac3] hover:bg-[#17a7af] text-[11px] font-semibold transition-all duration-300 hover:-translate-y-0.5"
-                type="button"
-              >
-                VER MÁS
-              </button>
             </div>
 
             {/* Beneficios */}
-            <div>
-              <p className="text-xs text-slate-300 font-semibold mb-3">
-                Beneficios de asistir al Full Day
-              </p>
+            <div className="space-y-6">
+              <h3 className="text-sm text-slate-400 font-semibold uppercase tracking-wider">
+                BENEFICIOS DE ASISTIR AL FULL DAY
+              </h3>
 
-              <div className="grid grid-cols-4 bg-white/5 rounded-xl overflow-hidden border border-white/10">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {benefits.map((b, i) => (
                   <div
                     key={b.id}
-                    className={`flex flex-col items-center justify-center gap-2 p-5 text-center transition-all duration-300 ${
+                    className={`flex flex-col items-center justify-center gap-3 p-6 rounded-2xl text-center transition-all duration-300 ${
                       i === 0
-                        ? "bg-[#1fbac3]/30 text-white"
-                        : "hover:bg-white/10 text-slate-200"
+                        ? "bg-[#1fbac3] text-white shadow-lg shadow-[#1fbac3]/30"
+                        : "bg-white/5 hover:bg-white/10 text-slate-200"
                     }`}
                   >
-                    <div className="text-white/90">{b.icon}</div>
-                    <p className="text-xs font-semibold">{b.title}</p>
-                    <p className="text-[10px] text-slate-200/80">
-                      {b.subtitle}
-                    </p>
+                    <div
+                      className={`${i === 0 ? "text-white" : "text-slate-300"}`}
+                    >
+                      {b.icon}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold">{b.title}</p>
+                      <p
+                        className={`text-xs mt-1 ${
+                          i === 0 ? "text-white" : "text-slate-300"
+                        }`}
+                      >
+                        {b.subtitle}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -255,7 +300,7 @@ const Home: React.FC = () => {
       {/* =======================
               UBICACIÓN
          ======================= */}
-      <UbicacionSection />
+      <Ubicacion />
 
       {/* =======================
               FAQ
