@@ -15,27 +15,13 @@ const PonentesPage: React.FC = () => {
       {/* ZONA 1: Navbar y Ponentes */}
       {/* ========================================================== */}
       <section className="relative min-h-screen flex flex-col">
-        
-        {/* -------------------------------------------------------- */}
-        {/* FONDO INTELIGENTE (Sticky) */}
-        {/* -------------------------------------------------------- */}
-        {/* 1. absolute inset-0: Define el área donde vivirá el fondo (toda la sección).
-           2. clip-path: Asegura que nada se salga de esta sección.
-        */}
         <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
-          
-          {/* TRUCO DE ORO: sticky top-0 h-screen
-             Esto hace que la imagen mida solo lo que mide la pantalla (h-screen),
-             evitando el ZOOM horrible, pero se pegue (sticky) mientras scrolleas
-             la lista de ponentes.
-          */}
           <div className="sticky top-0 w-full h-screen">
             <img
               src="/images/fondo_po.png"
               alt="Fondo decorativo"
               className="w-full h-full object-cover object-center" 
             />
-            {/* El degradado va dentro del sticky para moverse junto con la imagen */}
             <div className="absolute inset-0 bg-linear-to-b from-transparent to-[#00193e]" />
           </div>
           
@@ -90,7 +76,6 @@ const PonentesPage: React.FC = () => {
       {/* ========================================================== */}
       {/* ZONA 2: Ubicacion */}
       {/* ========================================================== */}
-      {/* z-20 relative: Importante para que esta sección pase POR ENCIMA del fondo de la anterior al terminar de scrollear */}
       <section className="relative z-20 bg-[#00193e] overflow-hidden">
 
         {/* Fondo Vector */}

@@ -15,7 +15,7 @@ const Header: React.FC = () => {
           <a href="/" className="text-slate-100 hover:text-white">
             INICIO
           </a>
-          <a href="#" className="text-slate-100 hover:text-white">
+          <a href="/ponentes" className="text-slate-100 hover:text-white">
             PONENTES
           </a>
           <a href="#" className="text-slate-100 hover:text-white">
