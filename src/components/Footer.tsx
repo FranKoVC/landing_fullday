@@ -2,6 +2,7 @@ import React from "react";
 
 import logoFullDay from "../assets/Logo-DarkMode.png";
 import { FaFacebookSquare, FaInstagramSquare } from 'react-icons/fa';
+import vector from "../assets/image.png";
 
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
@@ -9,9 +10,25 @@ const Footer: React.FC = () => {
   return (
     <footer
       id="nosotros"
-      className="w-full bg-linear-to-t from-[#10284b] via-[#1a325b] to-[#243b70] text-slate-100 pt-12 pb-6"
+      // 1. Agregamos 'relative' y 'overflow-hidden' para contener el vector absoluto
+      className="w-full bg-linear-to-t from-[#10284b] via-[#1a325b] to-[#243b70] text-slate-100 pt-12 pb-6 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      
+      {/* --- NUEVO: VECTOR DE FONDO --- */}
+      {/* Esto coloca la imagen sobre el degradado, pero detrás del texto */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img 
+          src={vector} 
+          alt="Background graphic" 
+          className="w-full h-full object-cover opacity-20 mix-blend-overlay" 
+          // NOTA: Ajusta 'opacity-20' si quieres que se vea más fuerte o más suave.
+          // 'mix-blend-overlay' ayuda a que se fusione bonito con el azul.
+        />
+      </div>
+
+      {/* 2. Agregamos 'relative' y 'z-10' para que el texto quede ENCIMA del vector */}
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        
         {/* Logo */}
         <div className="w-[151.9px] h-[60px] relative flex items-center">
           <img
@@ -46,7 +63,7 @@ const Footer: React.FC = () => {
           <div className="border-t border-slate-500/40 pt-3 text-[11px] md:text-xs text-slate-300 flex flex-wrap justify-between gap-2">
           </div>
           {/* Contenedor Principal (Footer bar) */}
-          <div className="w-full  h-4 mx-auto flex justify-between items-center">
+          <div className="w-full h-4 mx-auto flex justify-between items-center">
             
             {/* Texto Copyright */}
             <span
@@ -98,11 +115,6 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        
-        
-          
-          
-        
       </div>
     </footer>
   );
