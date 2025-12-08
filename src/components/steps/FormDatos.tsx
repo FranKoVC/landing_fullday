@@ -217,7 +217,6 @@ const InscripcionForm = () => {
                 <option className="bg-[#0b1833]" value="">Seleccionar</option>
                 <option className="bg-[#0b1833]" value="Estudiante">Estudiante</option>
                 <option className="bg-[#0b1833]" value="Profesional">Profesional</option>
-                <option className="bg-[#0b1833]" value="Público general">Público general</option>
               </select>
             </div>
           </div>
