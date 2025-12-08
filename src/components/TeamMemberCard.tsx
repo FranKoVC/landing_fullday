@@ -1,7 +1,7 @@
 // src/components/TeamMemberCard.tsx
 
 import React from 'react';
-import { FaLinkedin, FaGithub, FaDribbble, FaBehance } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaDribbble, FaBehance, FaEnvelope } from 'react-icons/fa';
 
 interface TeamMemberCardProps {
   imageUrl: string;
@@ -13,6 +13,7 @@ interface TeamMemberCardProps {
     github?: string;
     dribbble?: string;
     behance?: string;
+    gmail?: string;
   };
 }
 
@@ -84,6 +85,16 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
               rel="noopener noreferrer"
             >
               <FaBehance />
+            </a>
+          )}
+          {socialLinks.gmail && socialLinks.gmail !== '#' && (
+            <a
+              href={`mailto:${socialLinks.gmail}`}
+              className="hover:opacity-75 transition-opacity"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaEnvelope />
             </a>
           )}
         </div>

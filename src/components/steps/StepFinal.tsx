@@ -42,7 +42,7 @@ const StepFinal = () => {
       <div className="flex justify-center mb-6">
         <div className="
           w-20 h-20 rounded-full 
-          bg-gradient-to-b from-yellow-500 to-yellow-300 
+          bg-linear-to-b from-yellow-500 to-yellow-300 
           flex items-center justify-center shadow-lg
         ">
           <FiCheckCircle size={40} className="text-white drop-shadow-md" />

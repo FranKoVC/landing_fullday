@@ -216,7 +216,7 @@ const StepPagoForm = () => {
           <button
             onClick={handleFinalSubmit}
             disabled={loading}
-            className={`px-10 py-3 rounded-full bg-gradient-to-r from-yellow-300 to-yellow-500 
+            className={`px-10 py-3 rounded-full bg-linear-to-r from-yellow-300 to-yellow-500 
                        text-[#0b1833] font-semibold hover:from-yellow-200 hover:to-yellow-400 transition
                        ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
           >
