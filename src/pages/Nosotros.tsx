@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AboutUs from "../components/AboutUs";
-import Promo from "/images/promo.jpg"
+import Promo from "/images/promo.jpg";
 
 // Componente principal Nosotros
 const Nosotros: React.FC = () => {
@@ -15,16 +15,16 @@ const Nosotros: React.FC = () => {
       {/* Hero Section */}
       <section className="relative px-8 py-20">
         <div className="max-w-6xl mx-auto">
-            <div className="relative rounded-3xl overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2">
+          <div className="relative rounded-3xl overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2">
             {/* Imagen de fondo */}
             <div className="absolute inset-0 overflow-hidden">
               <img
-              src={Promo}
-              alt="Promoción"
-              className="w-full h-full object-cover opacity-60 transition-all duration-300 ease-in-out hover:scale-105"
+                src={Promo}
+                alt="Promoción"
+                className="w-full h-full object-cover opacity-70 transition-all duration-300 ease-in-out hover:scale-105"
               />
-              {/* Gradiente corregido */}
-              <div className="absolute inset-0 bg-linear-to-r from-[#0a1f44] via-[#0a1f44]/60 to-transparent"></div>
+              {/* Gradiente radial desde el centro */}
+              <div className="absolute inset-0 bg-linear-to-br from-[#0a1f44]/70 via-transparent to-[#0a1f44]/50"></div>
             </div>
 
             {/* Contenido */}
@@ -83,15 +83,15 @@ const Nosotros: React.FC = () => {
             DOCENTE A CARGO DEL EVENTO
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8 items-start">
+            <div className="grid md:grid-cols-3 gap-8 items-start">
             {/* Foto del docente */}
             <div className="md:col-span-1">
               <div className="bg-[#1a3a5c] rounded-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop"
-                  alt="Docente"
-                  className="w-full h-auto object-cover"
-                />
+              <img
+                src="/images/nosotros/mendoza.jpg"
+                alt="Docente"
+                className="w-full h-auto object-cover"
+              />
               </div>
             </div>
 

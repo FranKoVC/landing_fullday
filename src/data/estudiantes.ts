@@ -95,18 +95,6 @@ export const teamMembersData: Student[] = [
     },
   },
   {
-    id: 7,
-    imageUrl: "/images/nosotros/estudiante7.jpg",
-    name: "Cruz Ulloa Anahy Estrella",
-    description: "",
-    role: "Desarrollador de Sofware",
-    socialLinks: {
-      linkedin:
-        "https://www.linkedin.com/in/estrella-cruz-ulloa-102708275",
-      github: "https://github.com/estrellacruzulloa",
-    },
-  },
-  {
     id: 8,
     imageUrl: "/images/nosotros/estudiante8.png",
     name: "Cruz Ulloa Leydi Marisol",
@@ -145,17 +133,6 @@ export const teamMembersData: Student[] = [
       linkedin:
         "https://www.linkedin.com/in/giancarlo-espinoza-6690471a6/",
       github: "https://github.com/giancarloespinoza",
-    },
-  },
-  {
-    id: 11,
-    imageUrl: "/images/nosotros/estudiante11.jpg",
-    name: "Fernandez Salvo Fernando Arturo",
-    description: "",
-    role: "",
-    socialLinks: {
-      linkedin: "",
-      github: "",
     },
   },
   {
@@ -239,18 +216,6 @@ export const teamMembersData: Student[] = [
     },
   },
   {
-    id: 18,
-    imageUrl: "/images/nosotros/estudiante18.jpg",
-    name: "Mendez Barreto Giancarlo Yoel",
-    description:
-      "Estudiante de Ingeniería de Sistemas, apasionado por la tecnología y la inteligencia artificial. Me especializo en big data y arquitectura de soluciones, con enfoque en innovación y resolución eficiente de problemas.",
-    role: "",
-    socialLinks: {
-      linkedin: "",
-      github: "",
-    },
-  },
-  {
     id: 19,
     imageUrl: "/images/nosotros/estudiante19.png",
     name: "Ordoñez Reyes Abraham Benjamin",
@@ -264,17 +229,6 @@ export const teamMembersData: Student[] = [
     },
   },
   {
-    id: 20,
-    imageUrl: "/images/nosotros/estudiante20.jpg",
-    name: "Palma Rojas Anthony Joel",
-    description: "",
-    role: "",
-    socialLinks: {
-      linkedin: "",
-      github: "",
-    },
-  },
-  {
     id: 21,
     imageUrl: "/images/nosotros/estudiante21.jpg",
     name: "Querevalu Galan Roger Alejandro",
@@ -284,17 +238,6 @@ export const teamMembersData: Student[] = [
       linkedin:
         "https://www.linkedin.com/in/roger-querevalu-galan/",
       github: "https://github.com/RogerAlejandro/",
-    },
-  },
-  {
-    id: 22,
-    imageUrl: "/images/nosotros/estudiante22.jpg",
-    name: "Quispe Pinillos Josue Gabriel",
-    description: "",
-    role: "",
-    socialLinks: {
-      linkedin: "",
-      github: "",
     },
   },
   {
@@ -321,17 +264,6 @@ export const teamMembersData: Student[] = [
       linkedin:
         "www.linkedin.com/in/sofía-rengifo-940aa0256",
       github: "https://github.com/SofiaRengifo",
-    },
-  },
-  {
-    id: 25,
-    imageUrl: "/images/nosotros/estudiante25.jpg",
-    name: "Revilla Medina Dominick Abel",
-    description: "",
-    role: "",
-    socialLinks: {
-      linkedin: "",
-      github: "",
     },
   },
   {
@@ -378,11 +310,11 @@ export const teamMembersData: Student[] = [
     id: 29,
     imageUrl: "/images/nosotros/estudiante29.jpg",
     name: "Romero Aguilar Miller Franklin",
-    description: "",
-    role: "",
+    description: "Desarrollador Full Stack enfocado en buscar soluciones innovadoras, especializado en laravel, springboot, experiencia en SQL y despliegue.",
+    role: "Desarrollador de Software | Full Stack Jr | SQL ",
     socialLinks: {
-      linkedin: "",
-      github: "",
+      linkedin: "https://www.linkedin.com/in/miller-romero",
+      github: "https://github.com/millerflex",
     },
   },
   {
@@ -409,17 +341,6 @@ export const teamMembersData: Student[] = [
       linkedin:
         "https://www.linkedin.com/in/giovani-salcedo-quispe/",
       github: "https://github.com/7Kitsu7",
-    },
-  },
-  {
-    id: 32,
-    imageUrl: "/images/nosotros/estudiante32.jpg",
-    name: "Samana Rodriguez Segundo Manuel",
-    description: "",
-    role: "",
-    socialLinks: {
-      linkedin: "",
-      github: "",
     },
   },
   {
@@ -463,14 +384,14 @@ export const teamMembersData: Student[] = [
   },
   {
     id: 36,
-    imageUrl: "/images/nosotros/estudiante36.jpg",
+    imageUrl: "/images/nosotros/estudiante36.png",
     name: "Velarde Gonzales Eduardo Jose",
     description:
       "Desarrollador centrado en Android con experiencia en iOS. Exploro las capacidades técnicas del entorno móvil mientras amplío mis conocimientos en backend para comprender la arquitectura global de las aplicaciones.",
-    role: "",
+    role: "Desarrollador Móvil ",
     socialLinks: {
-      linkedin: "",
-      github: "",
+      linkedin: "https://www.linkedin.com/in/eduardo-velarde-1b93902b2",
+      github: "https://github.com/MDTaylor315",
     },
   },
   {
@@ -489,7 +410,7 @@ export const teamMembersData: Student[] = [
   },
   {
     id: 38,
-    imageUrl: "/images/nosotros/estudiante38.jpg",
+    imageUrl: "/images/nosotros/estudiante38.png",
     name: "Vidondo Chafloc Gianfranco",
     description:
       "Estudiante de Ingeniería de Sistemas UNT, apasionado por el desarrollo full-stack y el diseño web. Proactivo y adaptable, me dedico a crear soluciones robustas para entornos web y móviles.",
@@ -502,19 +423,8 @@ export const teamMembersData: Student[] = [
     },
   },
   {
-    id: 39,
-    imageUrl: "/images/nosotros/estudiante39.jpg",
-    name: "Vigo Chavez Daniel Josias",
-    description: "",
-    role: "",
-    socialLinks: {
-      linkedin: "",
-      github: "",
-    },
-  },
-  {
     id: 40,
-    imageUrl: "/images/nosotros/estudiante40.jpg",
+    imageUrl: "/images/nosotros/estudiante40.png",
     name: "Vigo Rodriguez Gustavo Andre",
     description:
       "Desarrollador Web con experiencia en automatización, embudos de conversión y gestión de datos mediante GoHighLevel. Actualmente apoyo proyectos internacionales implementando flujos automatizados y optimizando procesos digitales dentro de plataformas SaaS.",
@@ -527,7 +437,7 @@ export const teamMembersData: Student[] = [
   },
   {
     id: 41,
-    imageUrl: "/images/nosotros/estudiante41.jpg",
+    imageUrl: "/images/nosotros/estudiante41.png",
     name: "Villanueva Ramos Juan Rodrigo",
     description:
       "Full Stack Developer Jr. Creo soluciones web modernas y funcionales con un enfoque en la experiencia de usuario, arquitectura limpia y calidad del código.",
