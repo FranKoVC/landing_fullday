@@ -9,7 +9,7 @@ import FAQSection from "../components/FAQSection";
 import homeImage from "../assets/home.png";
 import Footer from "../components/Footer";
 import { FiInstagram } from "react-icons/fi";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 type Benefit = {
   id: number;
@@ -188,12 +188,12 @@ const Home: React.FC = () => {
               </p>
 
               <div className="flex justify-center lg:justify-start">
-                <Link
-                  to="/inscribete"
+                <a
+                  href="/inscribete"
                   className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-[#1fbac3] hover:bg-[#17a7af] text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 shadow-lg shadow-[#1fbac3]/30 hover:shadow-[#1fbac3]/50 hover:-translate-y-0.5"
                 >
                   INSCRIBETE AHORA
-                </Link>
+                </a>
               </div>
             </div>
 
