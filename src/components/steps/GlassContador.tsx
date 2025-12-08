@@ -30,7 +30,7 @@ const GlassCertificado = () => {
   }, [timeLeft]);
 
   return (
-    <section className="w-full flex flex-col md:flex-row gap-6 justify-between mt-14 max-w-7xl mx-auto px-6">
+    <section className="w-full flex flex-col md:flex-row gap-6 justify-between max-w-7xl mx-auto px-6">
       
       {/* === Tarjeta izquierda === */}
       <div className="w-full md:w-1/2 bg-white/5 border border-white/20 rounded-2xl p-10 shadow-[0_0_25px_rgba(255,255,255,0.05)]">
