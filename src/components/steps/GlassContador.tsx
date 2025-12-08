@@ -50,7 +50,7 @@ const GlassCertificado = () => {
           <div className="flex items-center p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
             <span className="text-[#f6c453] text-2xl font-bold mr-4">S/ 25</span>
             <div className="flex flex-col">
-              <span className="text-white text-sm font-medium">Estudiante UNT</span>
+              <span className="text-white text-sm font-medium">Estudiante</span>
             </div>
           </div>
 
@@ -64,10 +64,6 @@ const GlassCertificado = () => {
           </div>
         </div>
         {/* ======================================================= */}
-
-        <button className="bg-[#f6c453] text-[#16254b] w-full py-3 font-semibold rounded-lg hover:bg-[#eab449] transition shadow-lg shadow-orange-500/20">
-          Obtener certificado
-        </button>
 
         <ul className="mt-6 text-slate-200 text-sm space-y-2">
           <li className="flex items-center gap-2">
