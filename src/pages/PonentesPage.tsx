@@ -22,6 +22,8 @@ const PonentesPage: React.FC = () => {
               alt="Fondo decorativo"
               className="w-full h-full object-cover object-center" 
             />
+
+            {/* El degradado va dentro del sticky para moverse junto con la imagen */}
             <div className="absolute inset-0 bg-linear-to-b from-transparent to-[#00193e]" />
           </div>
           

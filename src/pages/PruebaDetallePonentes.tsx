@@ -4,7 +4,7 @@ import PonenteCard from "../components/PonenteCard";
 import { speakers, getSpeakerById } from "../data/ponentes";
 import Footer from "../components/Footer";
 import { FaLinkedin, FaUserTie, FaEnvelope } from "react-icons/fa";
-import logo from "../assets/logo.png";
+import Header from "../components/Header";
 
 const DetallePonente: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -22,8 +22,9 @@ const DetallePonente: React.FC = () => {
   const otherSpeakers = speakers.filter((s) => s.id !== mainSpeaker.id);
 
   return (
+    
     <main className="min-h-screen bg-[#061937] text-white font-sans">
-
+      <Header />  
       {/* ========================================================== */}
       {/* HERO MEJORADO: LOGO + BOTÓN PRO + ZOOM */}
       {/* ========================================================== */}
@@ -31,18 +32,12 @@ const DetallePonente: React.FC = () => {
         
         {/* 1. CAJA MAESTRA CENTRAL */}
         <div className="relative max-w-7xl mx-auto h-[280px] md:h-[350px] lg:h-[450px] w-full">
-          <div className="absolute top-6 left-4 z-30">
-            <img 
-              src={logo} 
-              alt="Logo FullDay" 
-              className="h-10 md:h-14 w-auto drop-shadow-lg"
-            />
-          </div>
+          
 
           <img
             src={mainSpeaker.imageSrc}
             alt={mainSpeaker.name}
-            className="absolute right-0 top-18 h-full w-auto object-contain z-0 
+            className="absolute right-0 top-30 h-full w-auto object-contain z-0 
                        scale-135 origin-bottom-right" 
           />
           <div className="absolute inset-0 bg-linear-to-r from-[#041229] via-[#041229]/70 to-transparent z-10" />

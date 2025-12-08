@@ -5,40 +5,54 @@ const StepHeader = () => {
   return (
     <div className="max-w-7xl w-full mx-auto
                     bg-white/10 border border-white/20 rounded-3xl 
-                    p-10 backdrop-blur-md shadow-xl mb-10 text-center">
+                    p-4 md:p-10 backdrop-blur-md shadow-xl mb-10 text-center">
 
-      <div className="flex justify-center items-center gap-20">
+      {/* CONTENEDOR FLEX: 
+          - gap-2: pegaditos en celular.
+          - md:gap-4: un poco separados en tablet.
+          - lg:gap-20: muy separados en pantallas grandes (como tu diseño original).
+      */}
+      <div className="flex justify-center items-center gap-2 md:gap-4 lg:gap-20">
 
         {/* Paso 1 */}
-        <div className="flex flex-col items-center gap-3">
-          <div className="w-16 h-16 flex items-center justify-center rounded-full bg-yellow-400 text-[#0b1833] shadow-lg">
-            <FiUser size={30} />
+        <div className="flex flex-col items-center gap-2 md:gap-3">
+          {/* Círculo: w-12 en móvil, w-16 en PC */}
+          <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-yellow-400 text-[#0b1833] shadow-lg">
+            {/* Ícono responsive */}
+            <FiUser className="text-xl md:text-[30px]" />
           </div>
-          <span className="text-yellow-400 font-semibold text-base">
+          <span className="text-yellow-400 font-semibold text-[10px] md:text-base leading-tight">
             Datos Personales
           </span>
         </div>
 
-        <div className="h-1 w-20 bg-yellow-400 rounded-full"></div>
+        {/* LÍNEA 1 (Amarilla) 
+            hidden: oculta en celular 
+            md:block: visible en tablet/PC
+        */}
+        <div className="hidden md:block h-1 w-10 lg:w-20 bg-yellow-400 rounded-full"></div>
 
         {/* Paso 2 */}
-        <div className="flex flex-col items-center gap-3">
-          <div className="w-16 h-16 flex items-center justify-center rounded-full bg-yellow-400 text-[#0b1833] shadow-lg">
-            <PiCertificateBold size={30} />
+        <div className="flex flex-col items-center gap-2 md:gap-3">
+          <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-yellow-400 text-[#0b1833] shadow-lg">
+            <PiCertificateBold className="text-xl md:text-[30px]" />
           </div>
-          <span className="text-yellow-400 font-semibold text-base">
+          <span className="text-yellow-400 font-semibold text-[10px] md:text-base leading-tight">
             Certificado
           </span>
         </div>
 
-        <div className="h-1 w-20 bg-white/30 rounded-full"></div>
+        {/* LÍNEA 2 (Gris) 
+            hidden: oculta en celular 
+        */}
+        <div className="hidden md:block h-1 w-10 lg:w-20 bg-white/30 rounded-full"></div>
 
         {/* Paso 3 – FINAL con check */}
-        <div className="flex flex-col items-center gap-3 opacity-40">
-          <div className="w-16 h-16 flex items-center justify-center rounded-full border border-white/40">
-            <FiCheck size={30} />
+        <div className="flex flex-col items-center gap-2 md:gap-3 opacity-40">
+          <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full border border-white/40">
+            <FiCheck className="text-xl md:text-[30px]" />
           </div>
-          <span className="text-slate-300 font-medium text-base">
+          <span className="text-slate-300 font-medium text-[10px] md:text-base leading-tight">
             Final
           </span>
         </div>
@@ -49,4 +63,3 @@ const StepHeader = () => {
 };
 
 export default StepHeader;
-
