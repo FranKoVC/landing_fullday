@@ -4,6 +4,7 @@ import PonenteCard from "../components/PonenteCard";
 import { speakers, getSpeakerById } from "../data/ponentes";
 import Footer from "../components/Footer";
 import { FaLinkedin, FaUserTie, FaEnvelope } from "react-icons/fa";
+import logo from "../assets/logo.png";
 
 const DetallePonente: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -24,46 +25,58 @@ const DetallePonente: React.FC = () => {
     <main className="min-h-screen bg-[#061937] text-white font-sans">
 
       {/* ========================================================== */}
-      {/* HERO: IMAGEN CON ZOOM (MÁS GRANDE) DENTRO DE ALTURA FIJA */}
+      {/* HERO MEJORADO: LOGO + BOTÓN PRO + ZOOM */}
       {/* ========================================================== */}
-      <section className="relative w-full bg-[#041229]">
+      <section className="relative w-full bg-[#041229] overflow-hidden">
         
+        {/* 1. CAJA MAESTRA CENTRAL */}
+        <div className="relative max-w-7xl mx-auto h-[280px] md:h-[350px] lg:h-[450px] w-full">
+          <div className="absolute top-6 left-4 z-30">
+            <img 
+              src={logo} 
+              alt="Logo FullDay" 
+              className="h-10 md:h-14 w-auto drop-shadow-lg"
+            />
+          </div>
 
-        <div className="w-full h-[280px] md:h-[350px] lg:h-[400px] relative overflow-hidden">
-          
           <img
             src={mainSpeaker.imageSrc}
             alt={mainSpeaker.name}
-            className="w-full h-full object-contain object-[75%_center] scale-125 md:scale-130" 
+            className="absolute right-0 top-18 h-full w-auto object-contain z-0 
+                       scale-135 origin-bottom-right" 
           />
-          
-          {/* Degradado oscuro para que el texto blanco se lea bien */}
-          <div className="absolute inset-0 bg-[#061937]/50 mix-blend-multiply" />
-        </div>
+          <div className="absolute inset-0 bg-linear-to-r from-[#041229] via-[#041229]/70 to-transparent z-10" />
 
-        {/* CONTENIDO DE TEXTO */}
-        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none">
-          <div className="max-w-6xl mx-auto px-4 pb-6 pointer-events-auto">
-            <button
-              onClick={() => navigate('/ponentes')}
-              className="mb-3 inline-flex items-center gap-2 text-xs text-slate-200 hover:text-white transition-colors bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full"
-              type="button"
-            >
-              <span className="text-lg">&larr;</span>
-              <span>Regresar</span>
-            </button>
+          <div className="absolute inset-0 bg-linear-to-t from-[#041229] via-transparent to-transparent z-10" />
 
-            <h1 className="text-2xl md:text-4xl font-semibold uppercase leading-tight drop-shadow-lg">
-              {mainSpeaker.name.split(" ")[0]}{" "}
-              <span className="text-[#ffb01f]">
-                {mainSpeaker.name.split(" ").slice(1).join(" ")}
-              </span>
-            </h1>
+          <div className="absolute bottom-0 left-0 px-4 pb-8 z-20 w-full md:w-2/3">
+             <button
+                onClick={() => navigate('/ponentes')}
+                className="group mb-5 inline-flex items-center gap-2 px-5 py-2 rounded-full 
+                           bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30
+                           backdrop-blur-md transition-all duration-300 ease-out"
+              >
+                {/* La flecha se mueve al hacer hover */}
+                <span className="text-lg text-sky-300 group-hover:-translate-x-1 transition-transform duration-300">
+                  &larr;
+                </span>
+                <span className="text-xs md:text-sm font-medium text-slate-300 group-hover:text-white">
+                  Regresar
+                </span>
+              </button>
 
-            <p className="mt-1 text-sm md:text-base text-slate-100 max-w-2xl font-medium drop-shadow-md">
-              {mainSpeaker.role}
-            </p>
+              <h1 className="text-3xl md:text-5xl font-bold uppercase text-white drop-shadow-xl tracking-tight">
+                {mainSpeaker.name.split(" ")[0]}{" "}
+                <span className="text-[#ffb01f]">
+                  {mainSpeaker.name.split(" ").slice(1).join(" ")}
+                </span>
+              </h1>
+
+              <p className="mt-2 text-sm md:text-lg text-slate-200 max-w-xl font-light drop-shadow-md border-l-4 border-[#ffb01f] pl-4">
+                {mainSpeaker.role}
+              </p>
           </div>
+
         </div>
       </section>
 
