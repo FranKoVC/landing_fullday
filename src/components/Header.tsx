@@ -73,10 +73,10 @@ const Header: React.FC = () => {
           <a href="/" className="text-slate-100 text-lg font-medium hover:text-white">
             INICIO
           </a>
-          <a href="#" className="text-slate-100 text-lg font-medium hover:text-white">
+          <a href="/ponentes" className="text-slate-100 text-lg font-medium hover:text-white">
             PONENTES
           </a>
-          <a href="#" className="text-slate-100 text-lg font-medium hover:text-white">
+          <a href="/nosotros" className="text-slate-100 text-lg font-medium hover:text-white">
             SOBRE NOSOTROS
           </a>
           
