@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import bgInscribete from "../assets/fondo.png";
 
-import UbicacionSection from "../components/UbicacionSection";
+import Ubicacion from "../components/Ubicacion";
 import SponsorsSection from "../components/SponsorSection";
 import GlassContador from "../components/steps/GlassContador";
 import StepHeader from "../components/steps/StepHeader2";
@@ -70,7 +70,7 @@ const InscribeteCertificado: React.FC = () => {
           {/* CONTENIDO UBICACIÓN */}
           {/* -------------------------------------------------------- */}
           <div className="relative z-20 w-full">
-            <UbicacionSection />
+            <Ubicacion />
           </div>
           
         </section>

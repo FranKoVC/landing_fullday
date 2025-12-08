@@ -44,7 +44,7 @@ const CountDown = () => {
 
           {/* Título principal (consistente con Nosotros.tsx) */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#007a86]">
-            Full Day de Gobierno de Tecnologías de la Información
+            11° Full Day de Gobierno de Tecnologías de la Información
           </h2>
 
           {/* Bloque de números */}
@@ -95,24 +95,26 @@ const CountDown = () => {
               <span className="w-6 h-6 rounded-full border border-[#30415f] flex items-center justify-center">
                 <FiUser className="w-3.5 h-3.5" />
               </span>
-              Auditorio de Humanidades, UNT
+              Teatrín Nicolás Copérnico, UNT
             </span>
           </div>
 
           {/* Botones */}
           <div className="pt-6 flex items-center justify-center gap-4">
-            <button
+            {/* <button
               type="button"
               className="cursor-pointer px-8 py-2.5 rounded-full border border-[#0b3d63] text-[#0b3d63] text-xs md:text-sm font-semibold tracking-wide bg-transparent hover:bg-white hover:shadow-md transition-all duration-300"
             >
               VER DETALLES
-            </button>
-<button
-  type="button"
-  className="cursor-pointer px-8 py-2.5 rounded-full text-white text-xs md:text-sm font-semibold tracking-wide bg-linear-to-r from-[#023E55] to-[#2BA5B2] shadow-md hover:shadow-lg hover:brightness-105 hover:-translate-y-0.5 transition-all duration-300"
->
-  INSCRIBIRME
-</button>
+            </button> */}
+            <a href="/inscribete">
+              <button
+                type="button"
+                className="cursor-pointer px-8 py-2.5 rounded-full text-white text-xs md:text-sm font-semibold tracking-wide bg-linear-to-r from-[#023E55] to-[#2BA5B2] shadow-md hover:shadow-lg hover:brightness-105 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                INSCRIBIRME
+              </button>
+            </a>
           </div>
         </div>
       </section>

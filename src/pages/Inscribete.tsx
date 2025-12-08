@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import bgInscribete from "../assets/fondo.png";
-import Ubicacion from "../components/UbicacionSection";
+import Ubicacion from "../components/Ubicacion";
 import SponsorsSection from "../components/SponsorSection";
 import GlassContador from "../components/steps/GlassContador";
 import StepHeader from "../components/steps/StepHeader";

@@ -18,12 +18,12 @@ export const faqs: FaqItem[] = [
   {
     id: 3,
     q: "¿La inscripción tiene costo y qué incluye?",
-    a: "La inscripción al 11º Full Day de Gestión de TI es totalmente gratuita e incluye el acceso a todas las ponencias del evento. Si deseas obtener un certificado de participación, el costo único es de S/ 20",
+    a: "La inscripción al 11º Full Day de Gestión de TI es totalmente gratuita e incluye el acceso a todas las ponencias del evento. Si deseas obtener un certificado de participación, el costo si eres estudiante es de S/25 y si eres profesional es de S/35",
   },
   {
     id: 4,
     q: "¿Cómo me inscribo?",
-    a: "Haz clic en el botón “Inscribirme” y completa tus datos en el formulario. Si deseas certificado, marca la casilla correspondiente, realiza el pago de S/ 20 y sube el comprobante en el mismo formulario",
+    a: "Haz clic en el botón “Inscribirme” y completa tus datos en el formulario. Si deseas certificado, marca la casilla correspondiente, realiza el pago de S/25 o S/35 según corresponda y sube el comprobante en el mismo formulario",
   },
   {
     id: 5,

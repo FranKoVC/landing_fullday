@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import PonenteCard from "../components/PonenteCard";
 import { speakers } from "../data/ponentes";
-import UbicacionSection from "../components/UbicacionSection";
+import Ubicacion from "../components/Ubicacion";
 
 const PonentesPage: React.FC = () => {
   return (
@@ -22,6 +22,8 @@ const PonentesPage: React.FC = () => {
               alt="Fondo decorativo"
               className="w-full h-full object-cover object-center" 
             />
+
+            {/* El degradado va dentro del sticky para moverse junto con la imagen */}
             <div className="absolute inset-0 bg-linear-to-b from-transparent to-[#00193e]" />
           </div>
           
@@ -87,7 +89,7 @@ const PonentesPage: React.FC = () => {
 
         {/* Contenido Ubicación */}
         <div className="relative z-20 w-full">
-           <UbicacionSection />
+           <Ubicacion />
         </div>
         
       </section>

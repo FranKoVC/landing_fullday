@@ -6,6 +6,8 @@ import Nosotros from "./pages/Nosotros";
 import Inscribete from "./pages/Inscribete";
 import InscribeteCertificado from "./pages/InscribeteCertificado";
 import InscribeteCheck from "./pages/InscribeteCheck";
+import Home from "./pages/Home";
+import Nosotros from "./pages/Nosotros";
 
 import DetallePonente from "./pages/PruebaDetallePonentes";
 
