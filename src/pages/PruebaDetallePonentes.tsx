@@ -4,7 +4,7 @@ import PonenteCard from "../components/PonenteCard";
 import { speakers, getSpeakerById } from "../data/ponentes";
 import Footer from "../components/Footer";
 import { FaLinkedin, FaUserTie, FaEnvelope } from "react-icons/fa";
-import logo from "../assets/logo.png";
+import logo from "../assets/Logo-DarkMode.png";
 
 const DetallePonente: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -35,7 +35,7 @@ const DetallePonente: React.FC = () => {
             <img 
               src={logo} 
               alt="Logo FullDay" 
-              className="h-10 md:h-14 w-auto drop-shadow-lg"
+              className="h-26 md:h-34 w-auto drop-shadow-lg"
             />
           </div>
 
