@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import logoFullDay from "../assets/Logo-DarkMode.png";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   // 1. Estado para controlar si el menú está abierto o cerrado
@@ -25,23 +26,22 @@ const Header: React.FC = () => {
         </div>
 
 
-        {/* Navegación Desktop (Oculta en móvil) */}
         <nav className="hidden md:flex items-center gap-8">
           <div className="flex items-center gap-6">
-            <a href="/" className="text-slate-100 hover:text-white transition-colors">
+            <Link to="/" className="text-slate-100 hover:text-white transition-colors">
               INICIO
-            </a>
-            <a href="/ponentes" className="text-slate-100 hover:text-white transition-colors">
+            </Link>
+            <Link to="/ponentes" className="text-slate-100 hover:text-white transition-colors">
               PONENTES
-            </a>
-            <a href="/nosotros" className="text-slate-100 hover:text-white transition-colors">
+            </Link>
+            <Link to="/nosotros" className="text-slate-100 hover:text-white transition-colors">
               SOBRE NOSOTROS
-            </a>
+            </Link>
           </div>
 
           {/* Botón Desktop */}
-          <a
-            href="/inscribete"
+          <Link
+            to="/inscribete"
             className="
               w-[131px] h-6 rounded-xl
               flex items-center justify-center
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
             "
           >
             INSCRIBIRME
-          </a>
+          </Link>
         </nav>
 
         {/* Botón Móvil (Hamburguesa Estática) */}
@@ -68,33 +68,31 @@ const Header: React.FC = () => {
       </div>
 
       {/* --- MENÚ MÓVIL DESPLEGABLE --- */}
-      {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-[#00193e]/35 backdrop-blur-md border-t border-slate-700 shadow-xl md:hidden flex flex-col items-center py-6 gap-6 animate-fadeIn">
-          <a href="/" className="text-slate-100 text-lg font-medium hover:text-white">
-            INICIO
-          </a>
-          <a href="/ponentes" className="text-slate-100 text-lg font-medium hover:text-white">
-            PONENTES
-          </a>
-          <a href="/nosotros" className="text-slate-100 text-lg font-medium hover:text-white">
-            SOBRE NOSOTROS
-          </a>
-          
-          {/* Botón en versión móvil */}
-          <a
-            href="/inscribete"
-            className="
-              w-[131px] h-6 rounded-xl
-              flex items-center justify-center
-              bg-linear-to-r from-[#023E55] to-[#2BA5B2]
-              font-sans font-normal text-[14px] leading-none text-white
-              hover:opacity-90
-            "
-          >
-            INSCRIBIRME
-          </a>
-        </div>
-      )}
+      <div className="absolute top-full left-0 w-full bg-[#00193e]/35 backdrop-blur-md border-t border-slate-700 shadow-xl md:hidden flex flex-col items-center py-6 gap-6 animate-fadeIn">
+        <Link to="/" className="text-slate-100 text-lg font-medium hover:text-white">
+          INICIO
+        </Link>
+        <Link to="/ponentes" className="text-slate-100 text-lg font-medium hover:text-white">
+          PONENTES
+        </Link>
+        <Link to="/nosotros" className="text-slate-100 text-lg font-medium hover:text-white">
+          SOBRE NOSOTROS
+        </Link>
+        
+        {/* Botón en versión móvil */}
+        <Link
+          to="/inscribete"
+          className="
+            w-[131px] h-6 rounded-xl
+            flex items-center justify-center
+            bg-linear-to-r from-[#023E55] to-[#2BA5B2]
+            font-sans font-normal text-[14px] leading-none text-white
+            hover:opacity-90
+          "
+        >
+          INSCRIBIRME
+        </Link>
+      </div> 
     </header>
   );
 };
