@@ -43,9 +43,9 @@ const Header: React.FC = () => {
           <a
             href="/inscribete"
             className="
-              w-[131px] h-[24px] rounded-[12px]
+              w-[131px] h-6 rounded-xl
               flex items-center justify-center
-              bg-gradient-to-r from-[#023E55] to-[#2BA5B2]
+              bg-linear-to-r from-[#023E55] to-[#2BA5B2]
               font-sans font-normal text-[14px] leading-none text-white
               hover:opacity-90 transition-opacity
             "
@@ -84,9 +84,9 @@ const Header: React.FC = () => {
           <a
             href="/inscribete"
             className="
-              w-[131px] h-[24px] rounded-[12px]
+              w-[131px] h-6 rounded-xl
               flex items-center justify-center
-              bg-gradient-to-r from-[#023E55] to-[#2BA5B2]
+              bg-linear-to-r from-[#023E55] to-[#2BA5B2]
               font-sans font-normal text-[14px] leading-none text-white
               hover:opacity-90
             "

@@ -1,5 +1,4 @@
 import React from "react";
-//import bgLines from "../assets/bg-lines.png"; 
 
 const UbicacionSection: React.FC = () => {
   return (

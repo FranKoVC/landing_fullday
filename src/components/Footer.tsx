@@ -40,38 +40,13 @@ const Footer: React.FC = () => {
               Formando líderes en Gestión de Tecnologías de la Información
             </p>
           </div>
-          {/* Menú inferior */}
-          <div className="flex flex-wrap items-center justify-between gap-4 text-sm md:text-base text-slate-200 mb-6">
-            <nav className="flex gap-6">
-              <a 
-                href="/" 
-                className="font-sans font-normal text-[12px] leading-none tracking-normal hover:text-white"
-              >
-                INICIO
-              </a>
-
-              <a 
-                href="/ponentes" 
-                className="font-sans font-normal text-[12px] leading-none tracking-normal hover:text-white"
-              >
-                PONENTES
-              </a>
-
-              <a 
-                href="/nosotros" 
-                className="font-sans font-normal text-[12px] leading-none tracking-normal hover:text-white"
-              >
-                SOBRE NOSOTROS
-              </a>
-            </nav>
-          </div>
         </div>
         <div>
           {/* Línea final */}
           <div className="border-t border-slate-500/40 pt-3 text-[11px] md:text-xs text-slate-300 flex flex-wrap justify-between gap-2">
           </div>
           {/* Contenedor Principal (Footer bar) */}
-          <div className="w-full  h-[16px] mx-auto flex justify-between items-center">
+          <div className="w-full  h-4 mx-auto flex justify-between items-center">
             
             {/* Texto Copyright */}
             <span
@@ -88,16 +63,16 @@ const Footer: React.FC = () => {
             </span>
 
             {/* Redes sociales */}
-            <div className="flex items-center gap-[12px]">
+            <div className="flex items-center gap-3">
               {/* Facebook */}
               <a
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/profile.php?id=61584033281942"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
                 className="
-                  w-[16px] h-[16px] 
-                  rounded-[4px] border border-slate-300 
+                  w-4 h-4 
+                  rounded-sm border border-slate-300 
                   flex items-center justify-center 
                   hover:bg-slate-100/10 transition
                 "
@@ -107,13 +82,13 @@ const Footer: React.FC = () => {
 
               {/* Instagram */}
               <a
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/xi_fulldaygestionti?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
                 className="
-                  w-[16px] h-[16px] 
-                  rounded-[4px] border border-slate-300 
+                  w-4 h-4 
+                  rounded-sm border border-slate-300 
                   flex items-center justify-center 
                   hover:bg-slate-100/10 transition
                 "

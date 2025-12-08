@@ -133,8 +133,8 @@ const Home: React.FC = () => {
         {/* Degradado de fondo con curvas */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-full h-full">
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-[#1e3a5f]/20 blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-[#0d47a1]/10 blur-3xl" />
+            <div className="absolute top-0 right-0 w-[400px] sm:w-[600px] md:w-[800px] h-[400px] sm:h-[600px] md:h-[800px] rounded-full bg-[#1e3a5f]/20 blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-[300px] sm:w-[450px] md:w-[600px] h-[300px] sm:h-[450px] md:h-[600px] rounded-full bg-[#0d47a1]/10 blur-3xl" />
           </div>
         </div>
 
@@ -143,22 +143,22 @@ const Home: React.FC = () => {
           <img
             src={homeImage}
             alt="Speaker Full Day"
-            className="absolute top-0 w-full h-full object-cover object-[15%_center] lg:object-[25%_center]"
+            className="absolute top-0 w-full h-full object-cover object-[15%_center] lg:object-[25%_center] opacity-40 lg:opacity-100"
           />
-          <div className="absolute inset-0 bg-linear-to-r from-transparent via-[#0a1929]/20 to-[#0a1929]" />
+          <div className="absolute inset-0 bg-linear-to-r from-transparent via-[#0a1929]/60 to-[#0a1929] lg:via-[#0a1929]/20" />
         </div>
 
         {/* Contenido principal del hero */}
-        <div className="relative w-full px-6 lg:px-16 pt-24 pb-20 min-h-screen flex items-center">
-          <div className="w-full lg:w-3/5 lg:ml-auto space-y-6 text-center lg:text-left">
+        <div className="relative w-full px-4 sm:px-6 lg:px-16 pt-20 sm:pt-24 pb-12 sm:pb-16 lg:pb-20 min-h-[90vh] lg:min-h-screen flex items-center">
+          <div className="w-full lg:w-3/5 lg:ml-auto space-y-4 sm:space-y-6 text-center lg:text-left">
             <div className="inline-block">
-              <div className="flex items-center gap-2 text-sm text-[#1fbac3] font-medium justify-center lg:justify-start">
-                <div className="w-8 h-0.5 bg-[#1fbac3]" />
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-[#1fbac3] font-medium justify-center lg:justify-start">
+                <div className="w-6 sm:w-8 h-0.5 bg-[#1fbac3]" />
                 <span>13 DIC 2025</span>
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight px-2 sm:px-0">
               Impulsa tus conocimientos
               <br />
               en Gestión de Tecnologías
@@ -166,7 +166,7 @@ const Home: React.FC = () => {
               de la Información
             </h1>
 
-            <div className="space-y-4 text-slate-300 leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base px-2 sm:px-0">
               <p>
                 El 11° Full Day de Gestión de TI, organizado por la Promoción
                 XXVI de la Escuela de Ingeniería de Sistemas de la UNT, reúne a
@@ -182,15 +182,15 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="space-y-3 pt-4">
-              <p className="text-sm text-slate-400">
+            <div className="space-y-3 pt-2 sm:pt-4">
+              <p className="text-xs sm:text-sm text-slate-400">
                 Explora de cerca el mundo de la Gestión de TI
               </p>
 
               <div className="flex justify-center lg:justify-start">
                 <Link
                   to="/inscribete"
-                  className="inline-block px-8 py-3 rounded-full bg-[#1fbac3] hover:bg-[#17a7af] text-sm font-semibold tracking-wide transition-all duration-300 shadow-lg shadow-[#1fbac3]/30 hover:shadow-[#1fbac3]/50 hover:-translate-y-0.5"
+                  className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-[#1fbac3] hover:bg-[#17a7af] text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 shadow-lg shadow-[#1fbac3]/30 hover:shadow-[#1fbac3]/50 hover:-translate-y-0.5"
                 >
                   INSCRIBETE AHORA
                 </Link>
@@ -198,12 +198,12 @@ const Home: React.FC = () => {
             </div>
 
             {/* Redes sociales */}
-            <div className="flex gap-4 pt-6 justify-center lg:justify-start">
+            <div className="flex gap-4 pt-4 sm:pt-6 justify-center lg:justify-start">
               <a
                 href="https://www.instagram.com/xi_fulldaygestionti?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#1fbac3] flex items-center justify-center transition-all duration-300"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-[#1fbac3] flex items-center justify-center transition-all duration-300"
               >
-                <FiInstagram size={18} />
+                <FiInstagram size={16} className="sm:w-[18px] sm:h-[18px]" />
               </a>
             </div>
           </div>
@@ -211,14 +211,14 @@ const Home: React.FC = () => {
 
         {/* QUIÉNES SOMOS + BENEFICIOS (MISMO FONDO, SIN LÍNEA) */}
         <div className="relative w-full">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-16">
-            <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-16 pb-12 sm:pb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
               {/* Quiénes somos */}
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold tracking-tight">
+              <div className="space-y-4 sm:space-y-6">
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
                   QUIÉNES SOMOS
                 </h2>
-                <p className="text-slate-300 leading-relaxed text-lg">
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
                   El 11º Full Day de Gestión de TI es un espacio académico y
                   profesional, diseñado para que estudiantes, egresados y
                   profesionales profundicen en los principios y tendencias
@@ -233,31 +233,31 @@ const Home: React.FC = () => {
               </div>
 
               {/* Beneficios */}
-              <div className="space-y-6">
-                <h3 className="text-sm text-slate-400 font-semibold uppercase tracking-wider">
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-xs sm:text-sm text-slate-400 font-semibold uppercase tracking-wider">
                   BENEFICIOS DE ASISTIR AL FULL DAY
                 </h3>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                   {benefits.map((b) => (
                     <div
                       key={b.id}
                       className="
-                        group flex flex-col items-center justify-center gap-3
-                        p-6 rounded-2xl text-center
+                        group flex flex-col items-center justify-center gap-2 sm:gap-3
+                        p-4 sm:p-6 rounded-xl sm:rounded-2xl text-center
                         transition-all duration-300
                         bg-white/5 text-slate-200
                         hover:bg-[#1fbac3] hover:text-white
                         hover:shadow-lg hover:shadow-[#1fbac3]/30
                       "
                     >
-                      <div className="text-2xl text-slate-300 transition-colors group-hover:text-white">
+                      <div className="text-xl sm:text-2xl text-slate-300 transition-colors group-hover:text-white">
                         {b.icon}
                       </div>
 
                       <div>
-                        <p className="text-sm font-semibold">{b.title}</p>
-                        <p className="text-xs mt-1 text-slate-300 transition-colors group-hover:text-white/90">
+                        <p className="text-xs sm:text-sm font-semibold">{b.title}</p>
+                        <p className="text-[10px] sm:text-xs mt-1 text-slate-300 transition-colors group-hover:text-white/90">
                           {b.subtitle}
                         </p>
                       </div>
@@ -282,8 +282,23 @@ const Home: React.FC = () => {
       {/* SPONSORS */}
       <SponsorSection />
 
-      {/* UBICACIÓN */}
-      <Ubicacion />
+      {/* ========================================================== */}
+      {/* ZONA 2: Ubicacion */}
+      {/* ========================================================== */}
+      <section className="relative z-20 bg-[#00193e] overflow-hidden">
+
+        {/* Fondo Vector */}
+        <img
+          src="/images/Vector.png"
+          alt="Vector decorativo"
+          className="absolute z-10 w-[300%] sm:w-[250%] md:w-[200%] lg:w-[2838px] max-w-none h-auto md:h-[863px] top-[-30px] sm:top-[-50px] md:top-[-100px] lg:top-[-180px] left-[-50%] sm:left-[-40%] md:left-[-20%] lg:left-[-93px] rotate-180 mix-blend-soft-light opacity-40 sm:opacity-50 md:opacity-60 pointer-events-none"
+        />
+
+        {/* Contenido Ubicación */}
+        <div className="relative z-20 w-full">
+           <Ubicacion />
+        </div>
+      </section>
 
       {/* FAQ */}
       <FAQSection />
