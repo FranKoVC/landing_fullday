@@ -5,6 +5,7 @@ export interface SocialLinks {
   github: string;
   dribbble?: string;
   behance?: string;
+  gmail?: string;
 }
 
 export interface Student {
@@ -78,6 +79,7 @@ export const teamMembersData: Student[] = [
       linkedin:
         "https://www.linkedin.com/in/bruno-samir-bocanegra-chistama-520ab428a/",
       github: "https://github.com/bocanegrabruno11",
+      gmail: "bruno.sbc0211@gmail.com",
     },
   },
   {
@@ -92,6 +94,7 @@ export const teamMembersData: Student[] = [
       linkedin:
         "linkedin.com/in/alejandro-campos-gamarra-74a362219",
       github: "https://github.com/HASH-ITSUKAR",
+      gmail: " hiraga.chevalier@gmail.com",
     },
   },
   {
@@ -120,6 +123,7 @@ export const teamMembersData: Student[] = [
       linkedin:
         "https://www.linkedin.com/in/marcos-ivan-diaz-tomas-9262682a7/",
       github: "https://github.com/Maquito04",
+      gmail: "marcosivandiaztomas@gmail.com",
     },
   },
   {
@@ -251,6 +255,7 @@ export const teamMembersData: Student[] = [
     socialLinks: {
       linkedin: "www.linkedin.com/in/edwardqs04",
       github: "https://github.com/edwardqs",
+      gmail: "esquispes01@gmail.com",
     },
   },
   {
@@ -328,7 +333,9 @@ export const teamMembersData: Student[] = [
       linkedin:
         "https://www.linkedin.com/in/luis-daniel-ruiz-rojas-4152a7296/",
       github: "https://github.com/Daniel3x10",
+      gmail: "lruizrojas47@gmail.com",
     },
+
   },
   {
     id: 31,
@@ -380,6 +387,7 @@ export const teamMembersData: Student[] = [
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/erick-vela-tsx/",
       github: "https://github.com/DevSieg",
+      gmail: "ericklvt22@gmail.com",
     },
   },
   {
@@ -392,6 +400,7 @@ export const teamMembersData: Student[] = [
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/eduardo-velarde-1b93902b2",
       github: "https://github.com/MDTaylor315",
+      gmail: "edujovelardeg@gmail.com",
     },
   },
   {
@@ -406,6 +415,7 @@ export const teamMembersData: Student[] = [
       linkedin:
         "www.linkedin.com/in/brahayan-venegas-723814355",
       github: "",
+      gmail: "brahayanghelo@gmail.com",
     },
   },
   {
@@ -420,6 +430,7 @@ export const teamMembersData: Student[] = [
       linkedin:
         "www.linkedin.com/in/gianfranco-vidondo-chafloc-636a90346",
       github: "https://github.com/FranKoVC",
+      gmail: "frankomc2003@gmail.com",
     },
   },
   {
