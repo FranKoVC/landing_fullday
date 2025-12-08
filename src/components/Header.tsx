@@ -31,10 +31,10 @@ const Header: React.FC = () => {
             <a href="/" className="text-slate-100 hover:text-white transition-colors">
               INICIO
             </a>
-            <a href="#" className="text-slate-100 hover:text-white transition-colors">
+            <a href="/ponentes" className="text-slate-100 hover:text-white transition-colors">
               PONENTES
             </a>
-            <a href="#" className="text-slate-100 hover:text-white transition-colors">
+            <a href="/nosotros" className="text-slate-100 hover:text-white transition-colors">
               SOBRE NOSOTROS
             </a>
           </div>

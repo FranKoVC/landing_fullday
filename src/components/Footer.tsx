@@ -44,21 +44,21 @@ const Footer: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-4 text-sm md:text-base text-slate-200 mb-6">
             <nav className="flex gap-6">
               <a 
-                href="#inicio" 
+                href="/" 
                 className="font-sans font-normal text-[12px] leading-none tracking-normal hover:text-white"
               >
                 INICIO
               </a>
 
               <a 
-                href="#ponentes" 
+                href="/ponentes" 
                 className="font-sans font-normal text-[12px] leading-none tracking-normal hover:text-white"
               >
                 PONENTES
               </a>
 
               <a 
-                href="#nosotros" 
+                href="/nosotros" 
                 className="font-sans font-normal text-[12px] leading-none tracking-normal hover:text-white"
               >
                 SOBRE NOSOTROS
