@@ -1,4 +1,4 @@
-import { FiCalendar, FiUser } from "react-icons/fi";
+import { FiCalendar, FiMapPin } from "react-icons/fi";
 import { useEffect, useMemo, useState } from "react";
 
 const GlassCertificado = () => {
@@ -82,31 +82,86 @@ const GlassCertificado = () => {
         </ul>
       </div>
 
-      {/* === Tarjeta derecha con countdown real === */}
-      <div className="w-full md:w-1/2 bg-white/10 border border-white/20 rounded-2xl p-10 shadow-lg text-white backdrop-blur-sm">
-        <p className="text-slate-200 text-sm mb-2">
-          ¡Este es tu momento! Aprende, comparte y vive la experiencia del
-        </p>
-        <h3 className="text-3xl font-bold leading-tight mb-3">
-          11.º Full Day de Gestión de TI, un evento para impulsar tu crecimiento profesional.
-        </h3>
-        <p className="text-slate-300 mb-6">
-          Regístrate gratis y asegura tu lugar en esta edición imperdible.
-        </p>
+      {/* === Tarjeta derecha con countdown real (RESPONSIVE) === */}
+      <div className="w-full md:w-1/2 bg-white/4 border border-white/20 rounded-2xl p-6 md:p-10 shadow-lg text-white backdrop-blur-sm">
+        
+        <div className="text-justify mb-6">
+          {/* Párrafo Superior */}
+          <p 
+            className="
+              font-sans font-medium 
+              text-[14px] md:text-[16px]  /* 14px en móvil, 16px en PC */
+              leading-tight md:leading-none
+              tracking-normal
+              text-transparent bg-clip-text 
+              bg-[linear-gradient(90deg,#EEF3F5_0%,#2BA5B2_287.92%)]
+              mb-2
+            "
+          >
+            ¡Este es tu momento! Aprende, comparte y vive la experiencia del
+          </p>
 
+          {/* Título H3 */}
+          <h3
+            className="
+              font-sans font-semibold 
+              text-[24px] sm:text-[28px] md:text-[36px] /* Escala progresiva de tamaño */
+              leading-tight md:leading-none
+              tracking-normal
+              text-transparent bg-clip-text 
+              bg-[linear-gradient(90deg,#EEF3F5_0%,#2BA5B2_287.92%)]
+              mb-3
+            "
+          >
+            11.º Full Day de Gestión de TI, un evento para impulsar tu crecimiento profesional.
+          </h3>
+
+          {/* Párrafo Inferior */}
+          <p 
+            className="
+              font-sans font-medium 
+              text-[14px] md:text-[16px] /* Ajuste móvil */
+              leading-tight md:leading-none
+              tracking-normal
+              text-transparent bg-clip-text 
+              bg-[linear-gradient(90deg,#EEF3F5_0%,#2BA5B2_287.92%)]
+              mb-6
+            "
+          >
+            ¡Regístrate gratis y asegura tu lugar en esta edición imperdible!
+          </p>
+        </div>
+        
         {/* === Contador adaptado === */}
-        <div className="flex justify-between text-center mb-6 bg-black/20 p-4 rounded-xl border border-white/5">
+        {/* Reduje el padding interno en móvil (p-4) vs PC (p-8) */}
+        <div className="flex justify-between text-center mb-6 p-4 md:p-8 ">
           {[
             { label: "DÍAS", value: countdown.days },
             { label: "HORAS", value: countdown.hours },
             { label: "MINUTOS", value: countdown.minutes },
             { label: "SEGUNDOS", value: countdown.seconds },
           ].map((item) => (
-            <div key={item.label} className="flex flex-col items-center">
-              <p className="text-3xl font-bold bg-gradient-to-b from-[#ffb01f] via-[#ffc341] to-[#ffe08a] bg-clip-text text-transparent drop-shadow-sm">
+            <div key={item.label} className="flex flex-col items-center min-w-[50px]">
+              <p 
+                className="
+                  font-sans font-extrabold
+                  text-[26px] sm:text-[32px] md:text-[40px] /* Números más pequeños en móvil */
+                  leading-none tracking-normal text-center
+                  text-transparent bg-clip-text 
+                  bg-[linear-gradient(118.9deg,#F7AF02_-18.84%,#EEF3F5_137.06%)]
+                "
+              >
                 {item.value}
               </p>
-              <span className="text-[10px] sm:text-xs tracking-[0.2em] text-slate-400 mt-1">
+              <span 
+                className="
+                  font-sans font-semibold
+                  text-[10px] md:text-[12px] /* Texto etiqueta más pequeño */
+                  leading-none tracking-normal text-center
+                  text-[#EEF3F5]
+                  mt-1
+                "
+              >
                 {item.label}
               </span>
             </div>
@@ -114,18 +169,41 @@ const GlassCertificado = () => {
         </div>
 
         {/* === Fecha y lugar adaptado === */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-4 sm:gap-6 text-sm md:text-base text-slate-300 mt-8">
-          <span className="inline-flex items-center gap-3 font-medium">
-            <span className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[#f6c453]">
+        <div className="
+          flex flex-col md:flex-row       /* Columna en móvil, Fila en PC */
+          items-start md:items-center     /* Izquierda en móvil, Centro en PC */
+          justify-center 
+          gap-4 md:gap-6 
+          mt-6 md:mt-10
+        ">
+          {/* Fecha */}
+          <span className="
+              inline-flex items-center gap-2 md:gap-1
+              font-sans font-semibold
+              text-[13px] md:text-[14px]
+              leading-none tracking-normal
+              text-[#EEF3F5]"
+          >
+            <span className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[#EEF3F5] shrink-0">
               <FiCalendar className="w-4 h-4" />
             </span>
             13 Diciembre, 2025
           </span>
-          <span className="inline-flex items-center gap-3 font-medium">
-            <span className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[#f6c453]">
-              <FiUser className="w-4 h-4" />
+
+          {/* Lugar */}
+          <span 
+            className="
+              inline-flex items-center gap-2 md:gap-1
+              font-sans font-semibold
+              text-[13px] md:text-[14px]
+              leading-none tracking-normal
+              text-[#EEF3F5]
+            "
+          >
+            <span className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[#EEF3F5] shrink-0">
+              <FiMapPin className="w-4 h-4" />
             </span>
-            Auditorio de Humanidades, UNT
+            Teatrín Nicolás Copérnico, UNT
           </span>
         </div>
       </div>
