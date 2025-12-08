@@ -46,7 +46,7 @@ const PonentesPage: React.FC = () => {
               </h1>
               
               <p className='max-w-3xl mx-auto text-sm md:text-base leading-relaxed text-gray-200'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus suscipit quod nisi laudantium, velit expedita id ipsum a temporibus non, tenetur at eos animi ratione debitis beatae ea? Inventore, iusto?
+                Expertos en Gestión de TI que compartirán experiencias, buenas prácticas y herramientas clave para tu desarrollo profesional.
               </p>
             </div>
 
