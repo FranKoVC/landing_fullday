@@ -72,6 +72,14 @@ const Nosotros: React.FC = () => {
                 >
                   <FaTiktok className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61584033281942&locale=es_LA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors"
+                >
+                  <FaFacebook className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                </a>
               </div>
             </div>
           </div>
