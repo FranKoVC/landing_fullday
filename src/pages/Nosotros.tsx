@@ -88,7 +88,7 @@ const Nosotros: React.FC = () => {
             <div className="md:col-span-1">
               <div className="bg-[#1a3a5c] rounded-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2">
               <img
-                src="/images/nosotros/mendoza.jpg"
+                src="/images/ponentes/9foto.png"
                 alt="Docente"
                 className="w-full h-auto object-cover"
               />
