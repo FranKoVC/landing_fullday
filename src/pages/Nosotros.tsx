@@ -34,7 +34,7 @@ const Nosotros: React.FC = () => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
                 Promoción <span className="text-orange-500">XXVI</span>
               </h1>
-              <p className="text-gray-300 max-w-2xl mb-2 sm:mb-3 md:mb-2 leading-relaxed text-sm sm:text-base">
+              <p className="text-justify text-gray-300 max-w-2xl mb-2 sm:mb-3 md:mb-2 leading-relaxed text-sm sm:text-base">
                 La Promoción XXVI de Ingeniería de Sistemas de la Universidad
                 Nacional de Trujillo representa una generación de profesionales
                 comprometidos con la excelencia académica y la innovación
@@ -44,7 +44,7 @@ const Nosotros: React.FC = () => {
                 análisis de datos, inteligencia artificial y arquitectura de
                 sistemas.
               </p>
-              <p className="text-gray-300 max-w-2xl mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
+              <p className="text-justify text-gray-300 max-w-2xl mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
                 Con una visión orientada al futuro, esta promoción se
                 caracteriza por su capacidad de adaptación, trabajo en equipo y
                 liderazgo tecnológico. Nuestros profesionales están preparados
@@ -118,7 +118,7 @@ const Nosotros: React.FC = () => {
               <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
                 Ing. Alberto Carlos Mendoza de los Santos
               </h3>
-              <p className="text-gray-300 text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed">
+              <p className="text-justify text-gray-300 text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed">
                 Consultor empresarial y docente universitario, Doctor en
                 Administración y en Ingeniería de Sistemas e Informática.
                 Especialista en gobierno y auditoría de TI, con certificaciones

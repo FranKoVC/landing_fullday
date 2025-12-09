@@ -39,7 +39,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
       {/* Contenido de texto */}
       <div className="pt-4 pb-2 px-1 sm:px-2 text-left">
         <h2 className="font-bold text-2xl mb-3">{name}</h2>
-        <p className="text-gray-300 text-base mb-4">{description}</p>
+        <p className="text-justify text-gray-300 text-base mb-4">{description}</p>
         <h3 className="font-semibold text-lg mb-5">{role}</h3>
 
         {/* Iconos */}

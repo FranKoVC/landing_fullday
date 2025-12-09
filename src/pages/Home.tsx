@@ -166,7 +166,7 @@ const Home: React.FC = () => {
               de la Información
             </h1>
 
-            <div className="space-y-3 sm:space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base px-2 sm:px-0">
+            <div className="space-y-3 sm:space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base px-2 sm:px-0 text-justify">
               <p>
                 El 11° Full Day de Gestión de TI, organizado por la Promoción
                 XXVI de la Escuela de Ingeniería de Sistemas de la UNT, reúne a
@@ -230,7 +230,7 @@ const Home: React.FC = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
                   QUIÉNES SOMOS
                 </h2>
-                <p className="text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
+                <p className="text-justify text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
                   El 11º Full Day de Gestión de TI es un espacio académico y
                   profesional, diseñado para que estudiantes, egresados y
                   profesionales profundicen en los principios y tendencias
