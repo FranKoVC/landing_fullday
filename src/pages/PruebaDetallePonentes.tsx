@@ -10,7 +10,6 @@ const DetallePonente: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  // Scroll al inicio cuando carga la página
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
@@ -26,32 +25,28 @@ const DetallePonente: React.FC = () => {
     <main className="min-h-screen bg-[#061937] text-white font-sans">
       <Header />  
       {/* ========================================================== */}
-      {/* HERO MEJORADO: LOGO + BOTÓN PRO + ZOOM */}
+      {/* HERO MEJORADO: JERARQUÍA Z-INDEX CORREGIDA */}
       {/* ========================================================== */}
       <section className="relative w-full bg-[#041229] overflow-hidden">
         
         {/* 1. CAJA MAESTRA CENTRAL */}
         <div className="relative max-w-7xl mx-auto h-[280px] md:h-[350px] lg:h-[450px] w-full">
-          
-
           <img
             src={mainSpeaker.imageSrc}
             alt={mainSpeaker.name}
             className="absolute right-0 top-30 h-full w-auto object-contain z-0 
                        scale-135 origin-bottom-right" 
           />
-          <div className="absolute inset-0 bg-linear-to-r from-[#041229] via-[#041229]/70 to-transparent z-10" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#041229] via-[#041229]/70 to-transparent z-1" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#041229] via-transparent to-transparent z-1" />
 
-          <div className="absolute inset-0 bg-linear-to-t from-[#041229] via-transparent to-transparent z-10" />
-
-          <div className="absolute bottom-0 left-0 px-4 pb-8 z-20 w-full md:w-2/3">
+          <div className="absolute bottom-0 left-0 px-4 pb-8 z-10 w-full md:w-2/3">
              <button
                 onClick={() => navigate('/ponentes')}
                 className="group mb-5 inline-flex items-center gap-2 px-5 py-2 rounded-full 
                            bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30
                            backdrop-blur-md transition-all duration-300 ease-out"
               >
-                {/* La flecha se mueve al hacer hover */}
                 <span className="text-lg text-sky-300 group-hover:-translate-x-1 transition-transform duration-300">
                   &larr;
                 </span>
@@ -80,8 +75,6 @@ const DetallePonente: React.FC = () => {
       {/* ========================================================== */}
       <section className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid gap-12 lg:grid-cols-12">
-          
-          {/* COLUMNA IZQUIERDA (8 columnas) */}
           <div className="lg:col-span-8 space-y-12">
             
             {/* 1. SECCIÓN: SOBRE MÍ */}
@@ -123,22 +116,16 @@ const DetallePonente: React.FC = () => {
 
               {/* Contenedor del Timeline */}
               <div className="relative">
-                {/* Línea vertical conectora (Ajustada para pasar por el centro de las píldoras) */}
-                {/* Ajusta 'left-[70px]' si cambias el ancho de las píldoras */}
                 <div className="absolute left-[70px] md:left-20 top-4 bottom-0 w-px bg-slate-500/50"></div>
 
                 <div className="space-y-10">
                   {mainSpeaker.experience && mainSpeaker.experience.map((exp, index) => (
                     <div key={index} className="relative flex flex-col md:flex-row gap-6 md:gap-10">
-                      
-                      {/* LADO IZQUIERDO: AÑO (Píldora) */}
                       <div className="relative z-10 shrink-0">
                         <div className=" w-[140px] md:w-40 py-2 border border-slate-400 rounded-full bg-[#061937] text-center text-sm text-slate-200 shadow-md">
                           {exp.period}
                         </div>
                       </div>
-
-                      {/* LADO DERECHO: CONTENIDO */}
                       <div className="pt-1 md:pt-0">
                         <h3 className="text-lg font-bold text-white uppercase tracking-wide">
                           {exp.role}
@@ -156,7 +143,7 @@ const DetallePonente: React.FC = () => {
 
           </div>
 
-          {/* COLUMNA DERECHA: BARRA LATERAL (4 columnas) */}
+          {/* COLUMNA DERECHA: BARRA LATERAL */}
           <aside className="lg:col-span-4">
              <div className="sticky top-24">
                 <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6 border-b border-white/10 pb-2">

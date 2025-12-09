@@ -46,7 +46,7 @@ const PonentesPage: React.FC = () => {
               </h1>
               
               <p className='max-w-3xl mx-auto text-sm md:text-base leading-relaxed text-gray-200'>
-                Expertos en Gestión de TI que compartirán experiencias, buenas prácticas y herramientas clave para tu desarrollo profesional.
+                Expertos en Gestión de TI que compartirán experiencias, buenas prácticas y herramientas clave para tu desarrollo profesional.
               </p>
             </div>
 
