@@ -8,7 +8,7 @@ import Ubicacion from "../components/Ubicacion";
 import FAQSection from "../components/FAQSection";
 import homeImage from "../assets/home.png";
 import Footer from "../components/Footer";
-import { FiInstagram } from "react-icons/fi";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 type Benefit = {
@@ -203,9 +203,21 @@ const Home: React.FC = () => {
                 href="https://www.instagram.com/xi_fulldaygestionti?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-[#1fbac3] flex items-center justify-center transition-all duration-300"
               >
-                <FiInstagram size={16} className="sm:w-[18px] sm:h-[18px]" />
+                <FaInstagram size={16} className="sm:w-[18px] sm:h-[18px]" />
               </a>
-            </div>
+              <a
+                href="https://www.facebook.com/profile.php?id=61583897481967&mibextid=wwXIfr&rdid=YLnimlv5OE9yfakf&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AAKZ9RzB8%2F%3Fmibextid%3DwwXIfr"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-[#1fbac3] flex items-center justify-center transition-all duration-300"
+              >
+                <FaFacebook size={16} className="sm:w-[18px] sm:h-[18px]" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/xi-full-day-gesti%C3%B3n-de-ti-30ba03399/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BN1bm%2FopoQI%2BdvK6wzJJrCw%3D%3D"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-[#1fbac3] flex items-center justify-center transition-all duration-300"
+              >
+                <FaLinkedin size={16} className="sm:w-[18px] sm:h-[18px]" />
+              </a>
+              </div>
           </div>
         </div>
 

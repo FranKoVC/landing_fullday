@@ -1,7 +1,7 @@
 import React from "react";
 
 import logoFullDay from "../assets/Logo-DarkMode.png";
-import { FaFacebookSquare, FaInstagramSquare } from 'react-icons/fa';
+import { FaFacebookSquare, FaInstagramSquare, FaLinkedin } from 'react-icons/fa';
 import vector from "../assets/image.png";
 
 const Footer: React.FC = () => {
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center gap-3">
               {/* Facebook */}
               <a
-                href="https://www.facebook.com/profile.php?id=61584033281942"
+                href="https://www.facebook.com/profile.php?id=61583897481967&mibextid=wwXIfr&rdid=YLnimlv5OE9yfakf&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AAKZ9RzB8%2F%3Fmibextid%3DwwXIfr"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
@@ -111,6 +111,21 @@ const Footer: React.FC = () => {
                 "
               >
                 <FaInstagramSquare />
+              </a>
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/xi-full-day-gesti%C3%B3n-de-ti-30ba03399/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BN1bm%2FopoQI%2BdvK6wzJJrCw%3D%3D"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                className="
+                  w-4 h-4 
+                  rounded-sm border border-slate-300 
+                  flex items-center justify-center 
+                  hover:bg-slate-100/10 transition
+                "
+              >
+                <FaLinkedin />
               </a>
             </div>
           </div>

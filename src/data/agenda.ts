@@ -30,9 +30,9 @@ export const agendaData: AgendaItem[] = [
     id: 3,
     time: "10:10",
     timePeriod: "AM",
-    title: "Ponencia de Haybert Escobedo Neyra",
+    title: "SAP y Transformación Empresarial: tendencias, retos y oportunidades para la nueva generación profesional",
     speaker: "Haybert Escobedo Neyra",
-    place: "Ponencia magistral",
+    place: "Cloud y automatización",
   },
   {
     id: 4,

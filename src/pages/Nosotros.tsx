@@ -1,6 +1,6 @@
 // src/pages/Nosotros.tsx
 import React from "react";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AboutUs from "../components/AboutUs";
@@ -54,33 +54,41 @@ const Nosotros: React.FC = () => {
                 sociedad.
               </p>
 
-              {/* Social Icons */}
-              <div className="flex gap-3 sm:gap-4">
-                <a
-                  href="https://www.instagram.com/system26unt?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors"
-                >
-                  <FaInstagram className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                </a>
-                <a
-                  href="https://www.tiktok.com/@system_26_unt?is_from_webapp=1&sender_device=pc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors"
-                >
-                  <FaTiktok className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                </a>
-                <a
-                  href="https://www.facebook.com/profile.php?id=61584033281942&locale=es_LA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded flex items-center justify-center hover:bg-orange-500 transition-colors"
-                >
-                  <FaFacebook className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                </a>
-              </div>
+            {/* Redes sociales */}
+            <div className="flex gap-3 sm:gap-4 pt-4 sm:pt-6 justify-center md:justify-start">
+              <a
+                href="https://www.instagram.com/xi_fulldaygestionti?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram - XI Fullday Gestión TI"
+                className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-[#1fbac3] flex items-center justify-center transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1fbac3]"
+              >
+                <span className="sr-only">Instagram</span>
+                <FaInstagram className="text-white w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+              </a>
+
+              <a
+                href="https://www.facebook.com/profile.php?id=61583897481967&mibextid=wwXIfr&rdid=YLnimlv5OE9yfakf&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AAKZ9RzB8%2F%3Fmibextid%3DwwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook - XI Fullday Gestión TI"
+                className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-[#1fbac3] flex items-center justify-center transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1fbac3]"
+              >
+                <span className="sr-only">Facebook</span>
+                <FaFacebook className="text-white w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/xi-full-day-gesti%C3%B3n-de-ti-30ba03399/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BN1bm%2FopoQI%2BdvK6wzJJrCw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn - XI Fullday Gestión TI"
+                className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-[#1fbac3] flex items-center justify-center transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1fbac3]"
+              >
+                <span className="sr-only">LinkedIn</span>
+                <FaLinkedin className="text-white w-5 h-5 sm:w-6 sm:h-6" aria-hidden="true" />
+              </a>
+            </div>
             </div>
           </div>
         </div>
