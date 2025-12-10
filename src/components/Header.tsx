@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import logoFullDay from "../assets/Logo-DarkMode.png";
-import { Link, useLocation } from "react-router-dom"; // 1. Importamos useLocation
+import { Link, useLocation } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
-  // 2. Obtenemos la ubicación actual (ruta)
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      // Verificamos la posición
       if (window.scrollY > 10) {
         setIsScrolled(true);
       } else {
@@ -19,19 +17,12 @@ const Header: React.FC = () => {
       }
     };
 
-    // Agregamos el "oyente" para cuando el usuario hace scroll
     window.addEventListener("scroll", handleScroll);
-
-    // 3. ¡LA CLAVE! Ejecutamos la función inmediatamente al cargar.
-    // Esto revisa si ya estamos abajo al entrar a la página.
     handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-    
-    // 4. Agregamos 'location' a las dependencias. 
-    // Esto fuerza a que el efecto se verifique cada vez que cambias de URL.
   }, [location]); 
 
   const toggleMenu = () => {
@@ -43,7 +34,9 @@ const Header: React.FC = () => {
       className={`
         fixed top-0 left-0 w-full z-50 transition-all duration-300
         ${
-          isScrolled
+          // CAMBIO AQUÍ: Agregamos "|| isOpen"
+          // Si hay scroll O si el menú está abierto, ponemos el fondo oscuro.
+          (isScrolled || isOpen)
             ? "bg-[#00193e]/90 backdrop-blur-md shadow-lg" 
             : "bg-transparent"
         }
@@ -65,7 +58,7 @@ const Header: React.FC = () => {
                w-auto object-contain transition-all duration-300
                ${
                  isScrolled 
-                   ? "h-20 md:h-24" // Pequeño al bajar
+                   ? "h-12 md:h-16" // Pequeño al bajar
                    : "h-20 md:h-24" // Grande al inicio
                } 
             `}
@@ -105,9 +98,10 @@ const Header: React.FC = () => {
           onClick={toggleMenu}
           className="md:hidden inline-flex flex-col justify-center items-center h-9 w-9 rounded-full border border-slate-600/70 bg-black/20 backdrop-blur-sm z-50 hover:bg-black/40 transition-colors"
         >
-          <span className="block w-5 h-0.5 bg-white mb-1"></span>
-          <span className="block w-5 h-0.5 bg-white mb-1"></span>
-          <span className="block w-5 h-0.5 bg-white"></span>
+          {/* Transformamos el icono de hamburguesa a X si está abierto (Opcional, pero recomendado) */}
+          <span className={`block w-5 h-0.5 bg-white mb-1 transition-all ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+          <span className={`block w-5 h-0.5 bg-white mb-1 transition-all ${isOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`block w-5 h-0.5 bg-white transition-all ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
         </button>
       </div>
 
