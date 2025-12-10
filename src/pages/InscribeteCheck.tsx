@@ -29,7 +29,7 @@ const InscribeteCheck: React.FC = () => {
         >
           <GlassContador />
 
-          <div className="max-w-5xl w-full mx-auto mt-20">
+          <div id="pasos-inscripcion" className="max-w-5xl w-full mx-auto mt-20 scroll-mt-32">
             {/* Título */}
             <div className="text-center mb-8">
               <h1 className="text-3xl md:text-5xl font-bold mb-3">

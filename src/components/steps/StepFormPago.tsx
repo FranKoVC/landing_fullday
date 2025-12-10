@@ -40,7 +40,7 @@ const StepPagoForm = () => {
 
   const handleBack = () => {
     updatePaymentData(paymentData);
-    navigate("/inscribete");
+    navigate("/inscribete#pasos-inscripcion");
   };
 
   // =========================================================
@@ -99,7 +99,7 @@ const StepPagoForm = () => {
       if (response.ok) {
         const data = await response.json(); 
         console.log("Registro creado con ID:", data.id);
-        navigate("/inscribete/check"); 
+        navigate("/inscribete/check#pasos-inscripcion"); 
       } else {
         const errorText = await response.text();
         console.error("Error Backend:", errorText);
@@ -203,12 +203,12 @@ const StepPagoForm = () => {
         </div>
 
         {/* Botones */}
-        <div className="flex justify-between mt-10">
+        <div className="mt-10 flex flex-col-reverse gap-4 sm:flex-row sm:justify-between">
           
           <button
             onClick={handleBack}
-            className="px-6 py-3 rounded-full bg-white/10 border border-white/20 
-                       text-slate-200 hover:bg-white/20 transition flex items-center gap-2"
+            className="w-full sm:w-auto px-6 py-3 rounded-full bg-white/10 border border-white/20 
+                      text-slate-200 hover:bg-white/20 transition flex items-center justify-center gap-2"
           >
             <FiArrowLeft /> Volver
           </button>
@@ -216,12 +216,13 @@ const StepPagoForm = () => {
           <button
             onClick={handleFinalSubmit}
             disabled={loading}
-            className={`px-10 py-3 rounded-full bg-linear-to-r from-yellow-300 to-yellow-500 
-                       text-[#0b1833] font-semibold hover:from-yellow-200 hover:to-yellow-400 transition
-                       ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+            className={`w-full sm:w-auto px-10 py-3 rounded-full bg-linear-to-r from-yellow-300 to-yellow-500 
+                      text-[#0b1833] font-semibold hover:from-yellow-200 hover:to-yellow-400 transition flex justify-center items-center
+                      ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
           >
             {loading ? "Enviando..." : "Completar registro"}
           </button>
+          
         </div>
 
       </div>
