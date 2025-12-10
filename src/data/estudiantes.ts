@@ -94,7 +94,7 @@ export const teamMembersData: Student[] = [
       linkedin:
         "https://linkedin.com/in/alejandro-campos-gamarra-74a362219",
       github: "https://github.com/HASH-ITSUKAR",
-      gmail: " hiraga.chevalier@gmail.com",
+      gmail: "hiraga.chevalier@gmail.com",
     },
   },
   {
@@ -201,7 +201,7 @@ export const teamMembersData: Student[] = [
       "Full Stack | IA | Deep Learning | Data Science | IoT | Ponente",
     socialLinks: {
       linkedin:
-        "https://www.linkedin.com/in/francisco-gerardo-huamanchumo-trujillo",
+        "https://www.linkedin.com/in/francisco-gerardo-huamanchumo-trujillo-745157383/",
       github: "https://github.com/Francisco1610",
     },
   },
@@ -318,7 +318,7 @@ export const teamMembersData: Student[] = [
     description: "Desarrollador Full Stack enfocado en buscar soluciones innovadoras, especializado en laravel, springboot, experiencia en SQL y despliegue.",
     role: "Desarrollador de Software | Full Stack Jr | SQL ",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/miller-romero",
+      linkedin: "https://www.linkedin.com/in/miller-franklin-romero-aguilar-3099292b4/",
       github: "https://github.com/millerflex",
     },
   },
@@ -413,8 +413,8 @@ export const teamMembersData: Student[] = [
       "Desarrollador Frontend UX | Data Analyst (Power BI/ETL)",
     socialLinks: {
       linkedin:
-        "https://www.linkedin.com/in/brahayan-venegas-723814355",
-      github: "",
+        "http://www.linkedin.com/in/brahayan-venegas-723814355",
+      github: "https://github.com/Brahayan29",
       gmail: "brahayanghelo@gmail.com",
     },
   },

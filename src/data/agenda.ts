@@ -22,9 +22,9 @@ export const agendaData: AgendaItem[] = [
     id: 2,
     time: "9:00",
     timePeriod: "AM",
-    title: "Problemas de I&T en el Diseño del Gobierno de TI: ¿Generador de Valor o Nuevo Punto de Dolor con la IA?",
+    title: "Inteligencia Artificial y Normatividad: Panorama Global, Legislación Nacional y Retos para las Instituciones",
     speaker: "Alberto Mendoza de los Santos",
-    place: "Gobierno de TI . IA",
+    place: "Normatividad . IA",
   },
   {
     id: 3,
