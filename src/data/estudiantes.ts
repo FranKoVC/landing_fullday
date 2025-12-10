@@ -38,7 +38,7 @@ export const teamMembersData: Student[] = [
       "Apasionado por la tecnología y la optimización de procesos. Busco oportunidades para aplicar mis conocimientos académicos, aportar soluciones lógicas y crecer dentro del área de TI.",
     role: "Soporte TI | Help Desk | Asistente de Sistemas",
     socialLinks: {
-      linkedin: "www.linkedin.com/in/ljaj",
+      linkedin: "http://www.linkedin.com/in/ljaj",
       github: "https://github.com/LuiGui08",
     },
   },
@@ -64,7 +64,7 @@ export const teamMembersData: Student[] = [
     role:
       "Desarrollador Full-Stack | Backend | Arquitecturas Escalables | Rest APIs | IA | SQL",
     socialLinks: {
-      linkedin: "www.linkedin.com/in/savilar",
+      linkedin: "http://www.linkedin.com/in/savilar",
       github: "https://github.com/saviladev",
     },
   },
@@ -91,10 +91,9 @@ export const teamMembersData: Student[] = [
     role:
       "Full-Stack & Mobile Developer | IA/ML/DL | Business Intelligence | IoT | Ponente",
     socialLinks: {
-      linkedin:
-        "linkedin.com/in/alejandro-campos-gamarra-74a362219",
+      linkedin:"http://linkedin.com/in/alejandro-campos-gamarra-74a362219",
       github: "https://github.com/HASH-ITSUKAR",
-      gmail: " hiraga.chevalier@gmail.com",
+      gmail: "hiraga.chevalier@gmail.com",
     },
   },
   {
@@ -107,7 +106,7 @@ export const teamMembersData: Student[] = [
       "Data Analyst | Data Engineer | Power BI | Tableau | Python | SQL | Excel",
     socialLinks: {
       linkedin:
-        "www.linkedin.com/in/marisol-cruz-ulloa-1734442a2",
+        "http://www.linkedin.com/in/marisol-cruz-ulloa-1734442a2",
       github: "https://github.com/marisol-source",
     },
   },
@@ -201,7 +200,7 @@ export const teamMembersData: Student[] = [
       "Full Stack | IA | Deep Learning | Data Science | IoT | Ponente",
     socialLinks: {
       linkedin:
-        "https://www.linkedin.com/in/francisco-gerardo-huamanchumo-trujillo",
+        "https://www.linkedin.com/in/francisco-gerardo-huamanchumo-trujillo-745157383/",
       github: "https://github.com/Francisco1610",
     },
   },
@@ -213,10 +212,10 @@ export const teamMembersData: Student[] = [
       "Diseñadora web y mobile apasionada por el UX/UI. Mezclo teoría del diseño, sistemas visuales y experiencia real para crear productos atractivos, usables y con un toque de identidad propia.",
     role: "UX/UI | QA Engineer | Web & Mobile Design",
     socialLinks: {
-      linkedin: "www.linkedin.com/in/allylecca",
-      github: "-",
+      linkedin: "http://www.linkedin.com/in/allylecca",
       dribbble: "https://dribbble.com/allylecca",
       behance: "https://www.behance.net/allylecca",
+      github: ""
     },
   },
   {
@@ -253,7 +252,7 @@ export const teamMembersData: Student[] = [
     role:
       "Desarrollador Fronted Dev | MVVM | Android Dev | ML",
     socialLinks: {
-      linkedin: "www.linkedin.com/in/edwardqs04",
+      linkedin: "http://www.linkedin.com/in/edwardqs04",
       github: "https://github.com/edwardqs",
       gmail: "esquispes01@gmail.com",
     },
@@ -267,7 +266,7 @@ export const teamMembersData: Student[] = [
     role: "Full Stack Web Developer | UX/UI Designer",
     socialLinks: {
       linkedin:
-        "www.linkedin.com/in/sofía-rengifo-940aa0256",
+        "http://www.linkedin.com/in/sofía-rengifo-940aa0256",
       github: "https://github.com/SofiaRengifo",
     },
   },
@@ -279,7 +278,7 @@ export const teamMembersData: Student[] = [
       "Desarrollador web full stack con Angular 20 y Django 5.2.",
     role: "Desarrollador Full Stack",
     socialLinks: {
-      linkedin: "www.linkedin.com/in/joan-rodriguez-asto",
+      linkedin: "http://www.linkedin.com/in/joan-rodriguez-asto",
       github: "https://github.com/Ltm2375",
     },
   },
@@ -293,7 +292,7 @@ export const teamMembersData: Student[] = [
       "Desarrollador de Software | Full Stack Junior | SQL server",
     socialLinks: {
       linkedin:
-        "www.linkedin.com/in/diego-jair-rodriguez-leon-b258a5317",
+        "http://www.linkedin.com/in/diego-jair-rodriguez-leon-b258a5317",
       github: "https://github.com/diegojair17032",
     },
   },
@@ -318,7 +317,7 @@ export const teamMembersData: Student[] = [
     description: "Desarrollador Full Stack enfocado en buscar soluciones innovadoras, especializado en laravel, springboot, experiencia en SQL y despliegue.",
     role: "Desarrollador de Software | Full Stack Jr | SQL ",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/miller-romero",
+      linkedin: "https://www.linkedin.com/in/miller-franklin-romero-aguilar-3099292b4/",
       github: "https://github.com/millerflex",
     },
   },
@@ -359,7 +358,7 @@ export const teamMembersData: Student[] = [
     role: "Desarrollador Full Stack",
     socialLinks: {
       linkedin:
-        "www.linkedin.com/in/edson-ugaz-1b89b5331",
+        "http://www.linkedin.com/in/edson-ugaz-1b89b5331",
       github: "https://github.com/ElvisCocho69",
     },
   },
@@ -413,8 +412,8 @@ export const teamMembersData: Student[] = [
       "Desarrollador Frontend UX | Data Analyst (Power BI/ETL)",
     socialLinks: {
       linkedin:
-        "www.linkedin.com/in/brahayan-venegas-723814355",
-      github: "",
+        "http://www.linkedin.com/in/brahayan-venegas-723814355",
+      github: "https://github.com/Brahayan29",
       gmail: "brahayanghelo@gmail.com",
     },
   },
@@ -428,7 +427,7 @@ export const teamMembersData: Student[] = [
       "Developer Full Stack Jr | React | Laravel | Python | PostgreSQL",
     socialLinks: {
       linkedin:
-        "www.linkedin.com/in/gianfranco-vidondo-chafloc-636a90346",
+        "http://www.linkedin.com/in/gianfranco-vidondo-chafloc-636a90346",
       github: "https://github.com/FranKoVC",
       gmail: "frankomc2003@gmail.com",
     },
@@ -455,7 +454,7 @@ export const teamMembersData: Student[] = [
     role: "Full Stack Developer Jr",
     socialLinks: {
       linkedin:
-        "www.linkedin.com/in/juan-rodrigo-villanueva-ramos-20707b300",
+        "http://www.linkedin.com/in/juan-rodrigo-villanueva-ramos-20707b300",
       github: "https://github.com/ojnauj",
     },
   },
