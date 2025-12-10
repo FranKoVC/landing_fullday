@@ -130,31 +130,33 @@ const GlassCertificado = () => {
         
         {/* === Contador adaptado === */}
         {/* Reduje el padding interno en móvil (p-4) vs PC (p-8) */}
-        <div className="flex justify-between text-center mb-6 p-4 md:p-8 ">
+        <div className="flex justify-center items-center gap-2 sm:gap-6 md:gap-8 mb-8 px-2 w-full max-w-4xl mx-auto">
           {[
             { label: "DÍAS", value: countdown.days },
             { label: "HORAS", value: countdown.hours },
             { label: "MINUTOS", value: countdown.minutes },
             { label: "SEGUNDOS", value: countdown.seconds },
           ].map((item) => (
-            <div key={item.label} className="flex flex-col items-center min-w-[50px]">
-              <p 
+            <div key={item.label} className="flex flex-col items-center min-w-[50px] sm:min-w-[70px]">
+              <p
                 className="
                   font-sans font-extrabold
-                  text-[26px] sm:text-[32px] md:text-[40px] /* Números más pequeños en móvil */
-                  leading-none tracking-normal text-center
-                  text-transparent bg-clip-text 
+                  text-2xl sm:text-4xl md:text-5xl lg:text-6xl /* TAMAÑO REDUCIDO */
+                  leading-none tracking-tight text-center
+                  text-transparent bg-clip-text
                   bg-[linear-gradient(118.9deg,#F7AF02_-18.84%,#EEF3F5_137.06%)]
+                  drop-shadow-sm
                 "
               >
-                {item.value}
+                {/* padStart asegura que siempre sean 2 dígitos (05, 09, etc) para evitar saltos */}
+                {String(item.value).padStart(2, '0')}
               </p>
-              <span 
+              <span
                 className="
-                  font-sans font-semibold
-                  text-[10px] md:text-[12px] /* Texto etiqueta más pequeño */
-                  leading-none tracking-normal text-center
-                  text-[#EEF3F5]
+                  font-sans font-medium uppercase
+                  text-[9px] sm:text-xs md:text-sm
+                  leading-tight tracking-wider text-center
+                  text-slate-400
                   mt-1
                 "
               >
