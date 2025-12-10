@@ -89,7 +89,8 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
           )}
           {socialLinks.gmail && socialLinks.gmail !== '#' && (
             <a
-              href={`mailto:${socialLinks.gmail}`}
+              // Usamos la URL específica de Google para redactar (compose)
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${socialLinks.gmail}`}
               className="hover:opacity-75 transition-opacity"
               target="_blank"
               rel="noopener noreferrer"
