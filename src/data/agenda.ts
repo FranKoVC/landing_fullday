@@ -22,9 +22,9 @@ export const agendaData: AgendaItem[] = [
     id: 2,
     time: "9:00",
     timePeriod: "AM",
-    title: "Ponencia de Alberto Mendoza de los Santos",
+    title: "Problemas de I&T en el Diseño del Gobierno de TI: ¿Generador de Valor o Nuevo Punto de Dolor con la IA?",
     speaker: "Alberto Mendoza de los Santos",
-    place: "Ponencia magistral",
+    place: "Gobierno de TI . IA",
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ export const agendaData: AgendaItem[] = [
     timePeriod: "AM",
     title: "SAP y Transformación Empresarial: tendencias, retos y oportunidades para la nueva generación profesional",
     speaker: "Haybert Escobedo Neyra",
-    place: "Cloud y automatización",
+    place: "Cloud . Automatización",
   },
   {
     id: 4,
