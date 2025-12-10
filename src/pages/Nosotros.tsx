@@ -104,11 +104,41 @@ const Nosotros: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-start">
             {/* Foto del docente */}
             <div className="md:col-span-1 flex justify-center md:justify-start">
-              <div className="bg-[#1a3a5c] rounded-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 w-full max-w-sm md:max-w-none">
+              {/* Agregamos 'group' aquí para controlar efectos internos si fuera necesario */}
+              <div
+                className="
+                  relative
+                  bg-[#1a3a5c]
+                  rounded-xl
+                  overflow-hidden /* IMPORTANTE: Esto recorta la imagen agrandada */
+                  w-full max-w-sm md:max-w-none
+                  transition-all duration-500 ease-out
+                  /* Efectos Base */
+                  ring-1 ring-cyan-500/30 shadow-lg shadow-cyan-500/20
+                  /* Efectos Hover */
+                  hover:shadow-2xl hover:shadow-cyan-400/50
+                  hover:ring-cyan-400
+                  hover:-translate-y-3
+                "
+              >
+                {/* Capa de brillo superior opcional */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/0 to-cyan-400/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+
                 <img
                   src="/images/ponentes/9foto.png"
                   alt="Docente"
-                  className="w-full h-auto object-cover"
+                  // CAMBIOS AQUÍ EN EL CLASSNAME:
+                  className="
+                    w-full h-auto object-cover
+                    transform transition-transform duration-700
+                    /* 1. AGRANDAR DE BASE: scale-[1.15] hace la imagen 15% más grande que el contenedor inicialmente */
+                    scale-[1.65]
+                    /* 2. MOVER HACIA ABAJO: translate-y-8 empuja la imagen hacia abajo (ajusta el 8 si es mucho/poco) */
+                    translate-y-8
+                    /* 3. HOVER: Al pasar el mouse, la agrandamos aún más (125%) para un efecto zoom dramático */
+                    hover:scale-[1.75]
+                    /* Opcional: si quieres que al hacer hover suba un poquito mientras hace zoom, añade: hover:translate-y-6 */
+                  "
                 />
               </div>
             </div>

@@ -78,17 +78,17 @@ const PonentesPage: React.FC = () => {
       {/* ========================================================== */}
       {/* ZONA 2: Ubicacion */}
       {/* ========================================================== */}
-      <section className="relative z-20 bg-[#00193e] overflow-hidden">
+      <section className="relative  bg-[#00193e] overflow-hidden">
 
         {/* Fondo Vector */}
         <img
           src="/images/Vector.png"
           alt="Vector decorativo"
-          className="absolute z-10 w-[200%] md:w-[2838px] max-w-none h-auto md:h-[863px] top-[-50px] md:top-[-180px] left-[-20%] md:left-[-93px] rotate-180 mix-blend-soft-light opacity-60 pointer-events-none"
+          className="absolute  w-[200%] md:w-[2838px] max-w-none h-auto md:h-[863px] top-[-50px] md:top-[-180px] left-[-20%] md:left-[-93px] rotate-180 mix-blend-soft-light opacity-60 pointer-events-none"
         />
 
         {/* Contenido Ubicación */}
-        <div className="relative z-20 w-full">
+        <div className="relative  w-full">
            <Ubicacion />
         </div>
         

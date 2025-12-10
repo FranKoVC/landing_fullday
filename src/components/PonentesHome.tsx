@@ -62,7 +62,7 @@ const PonentesHome = () => {
         <div
           ref={carouselRef}
           className="
-            flex overflow-x-auto pb-8 -mx-5 px-4 md:mx-0 md:px-0 scroll-smooth 
+            flex overflow-x-auto pb-8 -mx-5 px-6 md:mx-0 md:px-0 scroll-smooth 
             snap-x snap-mandatory 
             scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none]
           "
@@ -74,7 +74,7 @@ const PonentesHome = () => {
               className="
                 snap-center shrink-0
                 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 
-                px-3
+                px-3 mt-2 
                 transition-transform duration-300 hover:-translate-y-2
               "
             >

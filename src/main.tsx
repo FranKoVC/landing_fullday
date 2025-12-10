@@ -4,11 +4,13 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
 import './index.css'
 import { RegistrationProvider } from './components/steps/RegistrationContext'
+import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
     <RegistrationProvider>
+      <ScrollToTop />
       <App />
     </RegistrationProvider>
     </BrowserRouter>

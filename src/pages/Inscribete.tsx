@@ -28,7 +28,7 @@ const Inscribete: React.FC = () => {
         >
           <GlassContador />
 
-          <div className=" w-full mx-auto mt-20">
+          <div id="pasos-inscripcion" className=" w-full mx-auto mt-20 scroll-mt-32">
             {/* Título */}
             <div className="text-center mb-8">
               <h1 className="text-3xl md:text-5xl font-bold mb-3">
@@ -45,7 +45,7 @@ const Inscribete: React.FC = () => {
             <StepHeader />
             <InscripcionForm />
             
-        </div>
+          </div>
         </section>
 
         {/* ========================================================== */}
@@ -65,7 +65,7 @@ const Inscribete: React.FC = () => {
           {/* -------------------------------------------------------- */}
           {/* CONTENIDO UBICACIÓN */}
           {/* -------------------------------------------------------- */}
-          <div className="relative z-20 w-full">
+          <div className="relative z-20 w-full mt-2">
             <Ubicacion />
           </div>
           

@@ -61,7 +61,7 @@ const InscripcionForm = () => {
     });
 
     // 4. Navegar al siguiente paso
-    navigate("/inscribete/certificado");
+    navigate("/inscribete/certificado#pasos-inscripcion");
   };
 
   return (
