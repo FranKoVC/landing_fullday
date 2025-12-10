@@ -58,7 +58,7 @@ const Header: React.FC = () => {
                w-auto object-contain transition-all duration-300
                ${
                  isScrolled 
-                   ? "h-12 md:h-16" // Pequeño al bajar
+                   ? "h-20 md:h-24" // Pequeño al bajar
                    : "h-20 md:h-24" // Grande al inicio
                } 
             `}
