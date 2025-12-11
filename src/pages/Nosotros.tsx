@@ -122,7 +122,7 @@ const Nosotros: React.FC = () => {
                 "
               >
                 {/* Capa de brillo superior opcional */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/0 to-cyan-400/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-linear-to-tr from-white/0 via-white/0 to-cyan-400/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
 
                 <img
                   src="/images/ponentes/9foto.png"
@@ -132,9 +132,7 @@ const Nosotros: React.FC = () => {
                     w-full h-auto object-cover
                     transform transition-transform duration-700
                     /* 1. AGRANDAR DE BASE: scale-[1.15] hace la imagen 15% más grande que el contenedor inicialmente */
-                    scale-[1.65]
                     /* 2. MOVER HACIA ABAJO: translate-y-8 empuja la imagen hacia abajo (ajusta el 8 si es mucho/poco) */
-                    translate-y-8
                     /* 3. HOVER: Al pasar el mouse, la agrandamos aún más (125%) para un efecto zoom dramático */
                     hover:scale-[1.75]
                     /* Opcional: si quieres que al hacer hover suba un poquito mientras hace zoom, añade: hover:translate-y-6 */

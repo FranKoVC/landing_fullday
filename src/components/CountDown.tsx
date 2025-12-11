@@ -97,7 +97,7 @@ const CountDown = () => {
               <span className="w-6 h-6 rounded-full border border-[#30415f] flex items-center justify-center">
                 <FiUser className="w-3.5 h-3.5" />
               </span>
-              Teatrín Nicolás Copérnico, UNT
+              Teatrín de Humanidades, UNT
             </span>
           </div>
 

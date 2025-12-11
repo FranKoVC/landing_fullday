@@ -201,7 +201,7 @@ const GlassCertificado = () => {
             <span className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[#EEF3F5] shrink-0">
               <FiMapPin className="w-4 h-4" />
             </span>
-            Teatrín Nicolás Copérnico, UNT
+            Teatrín de Humanidades, UNT
           </span>
         </div>
       </div>

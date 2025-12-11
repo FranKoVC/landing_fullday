@@ -38,7 +38,7 @@ const PonenteCard: React.FC<PonenteCardProps> = ({
 
   // --- VARIANTE GRID (Estilo "Full Image Bright Top") ---
   return (
-    <article className="group relative w-full aspect-[4/5] rounded-2xl overflow-hidden cursor-pointer border border-slate-700 shadow-xl hover:shadow-2xl hover:border-yellow-500/50 transition-all duration-500 bg-white/25 ">
+    <article className="group relative w-full aspect-4/5 rounded-2xl overflow-hidden cursor-pointer border border-slate-700 shadow-xl hover:shadow-2xl hover:border-yellow-500/50 transition-all duration-500 bg-white/25 ">
       
       {/* 1. IMAGEN DE FONDO (Brillante y completa) */}
       <div className="absolute inset-0">
@@ -69,7 +69,7 @@ const PonenteCard: React.FC<PonenteCardProps> = ({
           - Usamos 'h-[45%]' (o h-2/5) para que solo ocupe la parte inferior.
           - El degradado va de negro sólido abajo a transparente arriba.
       */}
-      <div className="absolute bottom-0 left-0 right-0 h-[45%] bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent z-10"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-[45%] bg-linear-to-t from-slate-950 via-slate-950/80 to-transparent z-10"></div>
 
       {/* 3. CONTENIDO DE TEXTO (Sobre el degradado inferior) */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 z-20 text-center">

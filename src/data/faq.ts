@@ -13,7 +13,7 @@ export const faqs: FaqItem[] = [
   {
     id: 2,
     q: "¿Cuándo y dónde se realizará el evento?",
-    a: "El 13 de diciembre de 2025, en el Teatrín Nicolás Copérnico de la UNT",
+    a: "El 13 de diciembre de 2025, en el Teatrín de Humanidades de la UNT",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ export const faqs: FaqItem[] = [
   {
     id: 5,
     q: "¿El evento es presencial o virtual?",
-    a: "El 11º Full Day de Gestión de TI se realizará de forma presencial en el Teatrín Nicolás Copérnico, UNT.",
+    a: "El 11º Full Day de Gestión de TI se realizará de forma presencial en el Teatrín de Humanidades, UNT.",
   },
 ];
 
