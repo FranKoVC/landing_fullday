@@ -97,6 +97,20 @@ export const teamMembersData: Student[] = [
       gmail: "hiraga.chevalier@gmail.com",
     },
   },
+    {
+    id: 7,
+    imageUrl: "/images/nosotros/estudiante7.jpg",
+    name: "Cruz Ulloa Anahy Estrella",
+    description:
+      "Estudiante apasionada por la gestión de proyectos, con experiencia liderando congresos estudiantiles y coordinando equipos multidisciplinarios. Me interesa aplicar la tecnología como herramienta para optimizar procesos, impulsar la organización y generar un impacto positivo en el desarrollo institucional.",
+    role:
+      "Gestión de Proyectos",
+    socialLinks: {
+      linkedin:
+        "https://www.linkedin.com/in/estrella-cruz-ulloa-102708275",
+      github: "https://github.com/estrellacruzulloa",
+    },
+  },
   {
     id: 8,
     imageUrl: "/images/nosotros/estudiante8.png",
